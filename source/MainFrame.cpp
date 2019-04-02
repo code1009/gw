@@ -618,15 +618,6 @@ int CMainFrame::OnCreate(CREATESTRUCT& cs)
 
 	//-----------------------------------------------------------------------
     m_DiagramEditToolBarImage.Create(32, 32, ILC_COLOR32 | ILC_MASK, 0, 0);
-	/*
-    m_DiagramEditToolBarImage.Add(GetApp().LoadIcon("print.ico"));
-    m_DiagramEditToolBarImage.Add(GetApp().LoadIcon("print.ico"));
-    m_DiagramEditToolBarImage.Add(GetApp().LoadIcon("delete.ico"));
-    m_DiagramEditToolBarImage.Add(GetApp().LoadIcon("zoom_out.ico"));
-    m_DiagramEditToolBarImage.Add(GetApp().LoadIcon("zoom_out.ico"));
-    m_DiagramEditToolBarImage.Add(GetApp().LoadIcon("zoom_out.ico"));
-    m_DiagramEditToolBarImage.Add(GetApp().LoadIcon("zoom_out.ico"));
-	*/
     ImageList_Add_Resource_PNG(m_DiagramEditToolBarImage, "edit_undo.png");
     ImageList_Add_Resource_PNG(m_DiagramEditToolBarImage, "edit_redo.png");
     ImageList_Add_Resource_PNG(m_DiagramEditToolBarImage, "diagram_edit_select_all.png");
