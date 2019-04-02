@@ -35,7 +35,7 @@ IDW_MAIN                BITMAP                  "./toolbar.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
-cx::bool_t ImageList_Add_Resource_PNG (HIMAGELIST hImagelist, cx::char_t* name)
+cx::bool_t ImageList_AddPNGResource (HIMAGELIST hImagelist, cx::char_t* name)
 {
 	HBITMAP hBitmap = NULL;
 	 
@@ -462,13 +462,13 @@ void CMainFrame::SetupToolBar()
 {
     m_ToolBarImage.Create(32, 32, ILC_COLOR32 | ILC_MASK, 0, 0);
 
-    ImageList_Add_Resource_PNG(m_ToolBarImage, "file_new.png");
-    ImageList_Add_Resource_PNG(m_ToolBarImage, "file_open.png");
-    ImageList_Add_Resource_PNG(m_ToolBarImage, "file_save.png");
-    ImageList_Add_Resource_PNG(m_ToolBarImage, "edit_cut.png");
-    ImageList_Add_Resource_PNG(m_ToolBarImage, "edit_copy.png");
-    ImageList_Add_Resource_PNG(m_ToolBarImage, "edit_paste.png");
-    ImageList_Add_Resource_PNG(m_ToolBarImage, "help_about.png");
+    ImageList_AddPNGResource(m_ToolBarImage, "file_new.png");
+    ImageList_AddPNGResource(m_ToolBarImage, "file_open.png");
+    ImageList_AddPNGResource(m_ToolBarImage, "file_save.png");
+    ImageList_AddPNGResource(m_ToolBarImage, "edit_cut.png");
+    ImageList_AddPNGResource(m_ToolBarImage, "edit_copy.png");
+    ImageList_AddPNGResource(m_ToolBarImage, "edit_paste.png");
+    ImageList_AddPNGResource(m_ToolBarImage, "help_about.png");
 	GetToolBar().SetImageList(m_ToolBarImage);
 	GetToolBar().SetHotImageList(0);
 	GetToolBar().SetDisableImageList(0);
@@ -618,11 +618,11 @@ int CMainFrame::OnCreate(CREATESTRUCT& cs)
 
 	//-----------------------------------------------------------------------
     m_DiagramEditToolBarImage.Create(32, 32, ILC_COLOR32 | ILC_MASK, 0, 0);
-    ImageList_Add_Resource_PNG(m_DiagramEditToolBarImage, "edit_undo.png");
-    ImageList_Add_Resource_PNG(m_DiagramEditToolBarImage, "edit_redo.png");
-    ImageList_Add_Resource_PNG(m_DiagramEditToolBarImage, "diagram_edit_select_all.png");
-    ImageList_Add_Resource_PNG(m_DiagramEditToolBarImage, "diagram_edit_send_to_bottom.png");
-    ImageList_Add_Resource_PNG(m_DiagramEditToolBarImage, "diagram_edit_bring_to_top.png");
+    ImageList_AddPNGResource(m_DiagramEditToolBarImage, "edit_undo.png");
+    ImageList_AddPNGResource(m_DiagramEditToolBarImage, "edit_redo.png");
+    ImageList_AddPNGResource(m_DiagramEditToolBarImage, "diagram_edit_select_all.png");
+    ImageList_AddPNGResource(m_DiagramEditToolBarImage, "diagram_edit_send_to_bottom.png");
+    ImageList_AddPNGResource(m_DiagramEditToolBarImage, "diagram_edit_bring_to_top.png");
 
 
 	//-----------------------------------------------------------------------
