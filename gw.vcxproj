@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4EF1BA30-54D7-4F6F-A169-0B10005E9F08}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <CharacterSet>MultiByte</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <CharacterSet>MultiByte</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IntDir>$(SolutionDir)output\object\$(Configuration)\$(ProjectName)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)output\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IntDir>$(SolutionDir)output\object\$(Configuration)\$(ProjectName)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)output\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Development\Project\2018.12.19\Win32xx 860\include;D:\Development\Project\2018.12.19\FG\sdk;</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <WarningLevel>Level3</WarningLevel>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>D:\Development\Project\2018.12.19\FG\sdk\cx3\build_msvc2013_static_library\Debug;D:\Development\Project\2018.12.19\FG\sdk\Visual Leak Detector\2.3.0\lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <Profile>true</Profile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Development\Project\2018.12.19\Win32xx 860\include;D:\Development\Project\2018.12.19\FG\sdk;</AdditionalIncludeDirectories>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <WarningLevel>Level3</WarningLevel>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OptimizeReferences>true</OptimizeReferences>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>D:\Development\Project\2018.12.19\FG\sdk\cx3\build_msvc2013_static_library\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <Profile>true</Profile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="source/Application.cpp" />
+    <ClCompile Include="source/MyWinApp.cpp" />
+    <ClCompile Include="source/MainFrame.cpp" />
+    <ClCompile Include="source/MyTabbedMDI.cpp" />
+    <ClCompile Include="source\file_dialog_helper.cpp" />
+    <ClCompile Include="source\GWDiagramStencilDocker.cpp" />
+    <ClCompile Include="source/EventMessageDocker.cpp" />
+    <ClCompile Include="source\GWDiagramEditorView.cpp" />
+    <ClCompile Include="source\GWControlFormView.cpp" />
+    <ClCompile Include="source/stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\gw\diagram\item\straight_line.cpp" />
+    <ClCompile Include="source\gw\renderer\line_renderer.cpp" />
+    <ClCompile Include="source\MyView.cpp" />
+    <ClCompile Include="source\property_accessor.cpp" />
+    <ClCompile Include="source\GWDiagramPropertyDocker.cpp" />
+    <ClCompile Include="source\gw\control\control.cpp" />
+    <ClCompile Include="source\gw\control\control_default_widget_entry.cpp" />
+    <ClCompile Include="source\gw\control\from.cpp" />
+    <ClCompile Include="source\gw\control\item\blue_highlight.cpp" />
+    <ClCompile Include="source\gw\control\item\button.cpp" />
+    <ClCompile Include="source\gw\control\item\led_button.cpp" />
+    <ClCompile Include="source\gw\control\wh_layout.cpp" />
+    <ClCompile Include="source\gw\coordinates\point.cpp" />
+    <ClCompile Include="source\gw\coordinates\rectangle.cpp" />
+    <ClCompile Include="source\gw\coordinates\utility.cpp" />
+    <ClCompile Include="source\gw\diagram\anchor.cpp" />
+    <ClCompile Include="source\gw\diagram\design.cpp" />
+    <ClCompile Include="source\gw\diagram\diagram.cpp" />
+    <ClCompile Include="source\gw\diagram\diagram_default_widget_entry.cpp" />
+    <ClCompile Include="source\gw\diagram\copy_diagram.cpp" />
+    <ClCompile Include="source\gw\diagram\diagram_creator.cpp" />
+    <ClCompile Include="source\gw\diagram\diagram_event.cpp" />
+    <ClCompile Include="source\gw\diagram\diagram_buffer.cpp" />
+    <ClCompile Include="source\gw\diagram\edit.cpp" />
+    <ClCompile Include="source\gw\diagram\edit_action.cpp" />
+    <ClCompile Include="source\gw\diagram\edit_history.cpp" />
+    <ClCompile Include="source\gw\diagram\item\rectangle_shape.cpp" />
+    <ClCompile Include="source\gw\diagram\json_document.cpp" />
+    <ClCompile Include="source\gw\document.cpp" />
+    <ClCompile Include="source\gw\dragdrop\drag_data_object.cpp" />
+    <ClCompile Include="source\gw\dragdrop\drag_data.cpp" />
+    <ClCompile Include="source\gw\dragdrop\drop_source.cpp" />
+    <ClCompile Include="source\gw\dragdrop\drop_target.cpp" />
+    <ClCompile Include="source\gw\dragdrop\drag_data_hglobal.cpp" />
+    <ClCompile Include="source\gw\event.cpp" />
+    <ClCompile Include="source\gw\graphic\color.cpp" />
+    <ClCompile Include="source\gw\graphic\color_name.cpp" />
+    <ClCompile Include="source\gw\resource.cpp" />
+    <ClCompile Include="source\gw\model.cpp" />
+    <ClCompile Include="source\gw\renderer\ellipse_renderer.cpp" />
+    <ClCompile Include="source\gw\renderer\rectangle_3d_renderer.cpp" />
+    <ClCompile Include="source\gw\renderer\rectangle_renderer.cpp" />
+    <ClCompile Include="source\gw\renderer\renderer.cpp" />
+    <ClCompile Include="source\gw\renderer\round_rectangle_renderer.cpp" />
+    <ClCompile Include="source\gw\renderer\text_rectangle_renderer.cpp" />
+    <ClCompile Include="source\gw\view.cpp" />
+    <ClCompile Include="source\gw\widget.cpp" />
+    <ClCompile Include="source\gw\widget_entry.cpp" />
+    <ClCompile Include="source\gw\widget_event.cpp" />
+    <ClCompile Include="source\gw\widget_event_handler.cpp" />
+    <ClCompile Include="source\gw\widget_factory.cpp" />
+    <ClCompile Include="source\gw\widget_iostream.cpp" />
+    <ClCompile Include="source\gw\window_event_handler.cpp" />
+    <ClCompile Include="source\my_debug.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\propertyGrid.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\view_scroll_helper.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source/Application.hpp" />
+    <ClInclude Include="source/MyWinApp.hpp" />
+    <ClInclude Include="source/MainFrame.hpp" />
+    <ClInclude Include="source/MyTabbedMDI.hpp" />
+    <ClInclude Include="source\CGdiPlusBitmap.h" />
+    <ClInclude Include="source\file_dialog_helper.hpp" />
+    <ClInclude Include="source\GWDiagramStencilDocker.hpp" />
+    <ClInclude Include="source/EventMessageDocker.hpp" />
+    <ClInclude Include="source\GWDiagramEditorView.hpp" />
+    <ClInclude Include="source\GWControlFormView.hpp" />
+    <ClInclude Include="source/stdafx.h" />
+    <ClInclude Include="source/targetver.h" />
+    <ClInclude Include="source/wxx.hpp" />
+    <ClInclude Include="source/res/Resource.h" />
+    <ClInclude Include="source/res/wxx/wxx_resource.h" />
+    <ClInclude Include="source\gw\diagram\item\straight_line.hpp" />
+    <ClInclude Include="source\gw\renderer\line_renderer.hpp" />
+    <ClInclude Include="source\MyView.hpp" />
+    <ClInclude Include="source\property_accessor.hpp" />
+    <ClInclude Include="source\GWDiagramPropertyDocker.hpp" />
+    <ClInclude Include="source\gw\control\control.hpp" />
+    <ClInclude Include="source\gw\control\control_default_widget_entry.hpp" />
+    <ClInclude Include="source\gw\control\declaration.hpp" />
+    <ClInclude Include="source\gw\control\form.hpp" />
+    <ClInclude Include="source\gw\control\item\blue_highlight.hpp" />
+    <ClInclude Include="source\gw\control\item\button.hpp" />
+    <ClInclude Include="source\gw\control\item\led_button.hpp" />
+    <ClInclude Include="source\gw\control\item\stdafx.h" />
+    <ClInclude Include="source\gw\control\stdafx.h" />
+    <ClInclude Include="source\gw\control\wh_layout.hpp" />
+    <ClInclude Include="source\gw\coordinates\declaration.hpp" />
+    <ClInclude Include="source\gw\coordinates\point.hpp" />
+    <ClInclude Include="source\gw\coordinates\rectangle.hpp" />
+    <ClInclude Include="source\gw\coordinates\stdafx.h" />
+    <ClInclude Include="source\gw\coordinates\typedef.hpp" />
+    <ClInclude Include="source\gw\coordinates\utility.hpp" />
+    <ClInclude Include="source\gw\declaration.hpp" />
+    <ClInclude Include="source\gw\diagram\anchor.hpp" />
+    <ClInclude Include="source\gw\diagram\declaration.hpp" />
+    <ClInclude Include="source\gw\diagram\design.hpp" />
+    <ClInclude Include="source\gw\diagram\diagram.hpp" />
+    <ClInclude Include="source\gw\diagram\diagram_default_widget_entry.hpp" />
+    <ClInclude Include="source\gw\diagram\copy_diagram.hpp" />
+    <ClInclude Include="source\gw\diagram\diagram_creator.hpp" />
+    <ClInclude Include="source\gw\diagram\diagram_event.hpp" />
+    <ClInclude Include="source\gw\diagram\diagram_buffer.hpp" />
+    <ClInclude Include="source\gw\diagram\edit.hpp" />
+    <ClInclude Include="source\gw\diagram\edit_action.hpp" />
+    <ClInclude Include="source\gw\diagram\edit_history.hpp" />
+    <ClInclude Include="source\gw\diagram\item\rectangle_shape.hpp" />
+    <ClInclude Include="source\gw\diagram\item\stdafx.h" />
+    <ClInclude Include="source\gw\diagram\json_document.hpp" />
+    <ClInclude Include="source\gw\document.hpp" />
+    <ClInclude Include="source\gw\dragdrop\declaration.hpp" />
+    <ClInclude Include="source\gw\dragdrop\drag_data_object.hpp" />
+    <ClInclude Include="source\gw\dragdrop\drag_data.hpp" />
+    <ClInclude Include="source\gw\dragdrop\drop_source.hpp" />
+    <ClInclude Include="source\gw\dragdrop\drop_target.hpp" />
+    <ClInclude Include="source\gw\dragdrop\stdafx.h" />
+    <ClInclude Include="source\gw\dragdrop\drag_data_hglobal.hpp" />
+    <ClInclude Include="source\gw\event.hpp" />
+    <ClInclude Include="source\gw\renderer\declaration.hpp" />
+    <ClInclude Include="source\gw\widget_entry.hpp" />
+    <ClInclude Include="source\gw\graphic\color.hpp" />
+    <ClInclude Include="source\gw\graphic\declaration.hpp" />
+    <ClInclude Include="source\gw\graphic\stdafx.h" />
+    <ClInclude Include="source\gw\graphic\typedef.hpp" />
+    <ClInclude Include="source\gw\resource.hpp" />
+    <ClInclude Include="source\gw\header.hpp" />
+    <ClInclude Include="source\gw\model.hpp" />
+    <ClInclude Include="source\gw\renderer\ellipse_renderer.hpp" />
+    <ClInclude Include="source\gw\renderer\rectangle_3d_renderer.hpp" />
+    <ClInclude Include="source\gw\renderer\rectangle_renderer.hpp" />
+    <ClInclude Include="source\gw\renderer\renderer.hpp" />
+    <ClInclude Include="source\gw\renderer\round_rectangle_renderer.hpp" />
+    <ClInclude Include="source\gw\renderer\stdafx.h" />
+    <ClInclude Include="source\gw\renderer\text_rectangle_renderer.hpp" />
+    <ClInclude Include="source\gw\widget_event.hpp" />
+    <ClInclude Include="source\gw\widget_event_handler.hpp" />
+    <ClInclude Include="source\gw\widget_factory.hpp" />
+    <ClInclude Include="source\gw\widget_iostream.hpp" />
+    <ClInclude Include="source\gw\window\stdafx.h" />
+    <ClInclude Include="source\gw\window\declaration.hpp" />
+    <ClInclude Include="source\gw\window_event_handler.hpp" />
+    <ClInclude Include="source\gw\stdafx.h" />
+    <ClInclude Include="source\gw\view.hpp" />
+    <ClInclude Include="source\gw\widget.hpp" />
+    <ClInclude Include="source\my_debug.hpp" />
+    <ClInclude Include="source\propertyGrid.h" />
+    <ClInclude Include="source\view_scroll_helper.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="source/res/Application.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="source/res/Application.ico" />
+    <Image Include="source/res/Toolbar.bmp" />
+    <Image Include="source/res/Docker.ico" />
+    <Image Include="source/res/View.ico" />
+    <Image Include="source/res/wxx/SDbottom.bmp" />
+    <Image Include="source/res/wxx/SDcenter.bmp" />
+    <Image Include="source/res/wxx/SDleft.bmp" />
+    <Image Include="source/res/wxx/SDmiddle.bmp" />
+    <Image Include="source/res/wxx/SDright.bmp" />
+    <Image Include="source/res/wxx/SDtop.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="source/ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="source/res/Application.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="source/res/wxx/SplitH.cur" />
+    <None Include="source/res/wxx/SplitV.cur" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
