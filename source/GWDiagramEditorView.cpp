@@ -91,11 +91,11 @@ void diagram_edit::update_system_clipboard (cx::bool_t save)
 
 		//-------------------------------------------------------------------
 #if defined(CX_DEBUG)
-		cx::debug::print ("TO WINDOWS CLIPBOARD\n");
+//		cx::debug::print ("TO WINDOWS CLIPBOARD\n");
 //		cx::debug::print (stream.c_str()+3);
 //		cx::debug::print ("\n");
-		cx::debug::print (cx::utf8_to_mbcs(stream.c_str()+3).c_str());
-		cx::debug::print ("\n");
+//		cx::debug::print (cx::utf8_to_mbcs(stream.c_str()+3).c_str());
+//		cx::debug::print ("\n");
 #endif	
 
 	
@@ -182,11 +182,11 @@ void diagram_edit::update_system_clipboard (cx::bool_t save)
 
 		//-------------------------------------------------------------------
 #if defined(CX_DEBUG)
-		cx::debug::print ("FROM WINDOWS CLIPBOARD\n");
+//		cx::debug::print ("FROM WINDOWS CLIPBOARD\n");
 //		cx::debug::print (stream.c_str()+3);
 //		cx::debug::print ("\n");
-		cx::debug::print (cx::utf8_to_mbcs(stream.c_str()+3).c_str());
-		cx::debug::print ("\n");
+//		cx::debug::print (cx::utf8_to_mbcs(stream.c_str()+3).c_str());
+//		cx::debug::print ("\n");
 #endif
 
 

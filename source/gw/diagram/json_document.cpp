@@ -990,8 +990,8 @@ cx::bool_t json_document_writer::write (model* m, widget_collection* collection)
 
 	//-----------------------------------------------------------------------
 #if defined(CX_DEBUG)
-	cx::debug::print (get_json_writer()->_output.c_str());
-	cx::debug::print ("\n");
+//	cx::debug::print (get_json_writer()->_output.c_str());
+//	cx::debug::print ("\n");
 //	cx::debug::print (cx::utf8_to_mbcs(get_json_writer()->_output).c_str());
 //	cx::debug::print ("\n");
 #endif
