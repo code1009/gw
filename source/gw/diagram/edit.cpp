@@ -815,6 +815,62 @@ void edit::on_select_changed (select_changed_action_t action)
 }
 
 //===========================================================================
+void edit::move(cx::uint_t direction)
+{
+	//-----------------------------------------------------------------------
+	if (get_selected_diagram()->get_container().empty())
+	{
+		return;
+	}
+
+
+	//-----------------------------------------------------------------------
+	cx::bool_t action = false;
+
+
+	cx::int_t grid_xsize = get_view()->get_grid_xsize();
+	cx::int_t grid_ysize = get_view()->get_grid_ysize();
+	gw::point_t p;
+
+
+	switch (direction)
+	{
+	case 0u:
+		p._x = gw::coordinates_t(-grid_xsize);
+		action = true;
+		break;
+
+	case 1u:
+		p._x = gw::coordinates_t(+grid_xsize);
+		action = true;
+		break;
+
+	case 2u:
+		p._y = gw::coordinates_t(-grid_ysize);
+		action = true;
+		break;
+
+	case 3u:
+		p._y = gw::coordinates_t(+grid_ysize);
+		action = true;
+		break;
+
+	default:
+		break;
+	}
+
+
+	//-----------------------------------------------------------------------
+	if (action)
+	{
+		get_edit_history()->set_enabled(false);
+		get_selected_diagram()->move(p);
+		get_edit_history()->set_enabled(true);
+		get_edit_history()->record();
+	}
+}
+
+//===========================================================================
 void edit::bring_to_top (void)
 {
 	//-----------------------------------------------------------------------

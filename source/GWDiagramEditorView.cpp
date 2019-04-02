@@ -19,6 +19,7 @@
 //===========================================================================
 diagram_edit::diagram_edit()
 {
+	_system_clipboard_last_tick = 0u;
 }
 
 diagram_edit::~diagram_edit()
@@ -98,7 +99,11 @@ void diagram_edit::update_system_clipboard (cx::bool_t save)
 //		cx::debug::print ("\n");
 #endif	
 
-	
+
+		//-------------------------------------------------------------------
+		_system_clipboard_last_tick = GetTickCount();
+
+
 		//-------------------------------------------------------------------
 		HGLOBAL hglobal;
 			
@@ -116,7 +121,7 @@ void diagram_edit::update_system_clipboard (cx::bool_t save)
 		::EmptyClipboard();
 
 			
-		size    = stream.size();
+		size    = stream.size() + sizeof(_system_clipboard_last_tick);
 		hglobal = GlobalAlloc(GMEM_MOVEABLE, size);
 		if (NULL==hglobal)
 		{
@@ -126,7 +131,9 @@ void diagram_edit::update_system_clipboard (cx::bool_t save)
 		
 		source_pointer = (cx::byte_t*)stream.c_str();
 		target_pointer = (cx::byte_t*)GlobalLock(hglobal);
-		memcpy(target_pointer, source_pointer,  size);
+		
+		memcpy(target_pointer, &_system_clipboard_last_tick, sizeof(_system_clipboard_last_tick));
+		memcpy(target_pointer + sizeof(_system_clipboard_last_tick), source_pointer, stream.size());
 		GlobalUnlock(hglobal); 
 
 			
@@ -138,6 +145,11 @@ void diagram_edit::update_system_clipboard (cx::bool_t save)
 	else
 	{
 		// system_clipboard to diagram_clipboard 
+
+
+		//-------------------------------------------------------------------
+		cx::uint_t system_clipboard_last_tick;
+
 
 		//-------------------------------------------------------------------
 		std::string stream;
@@ -173,11 +185,23 @@ void diagram_edit::update_system_clipboard (cx::bool_t save)
 
 		size = GlobalSize(hglobal);
 		source_pointer = (cx::char_t*) GlobalLock(hglobal);
-		stream.insert(stream.begin(), source_pointer, source_pointer+size);
+		memcpy(&system_clipboard_last_tick, source_pointer, sizeof(system_clipboard_last_tick));
+		if (system_clipboard_last_tick == _system_clipboard_last_tick)
+		{
+			GlobalUnlock(hglobal);
+			::CloseClipboard();
+
+			return;
+		}
+		stream.insert(stream.begin(), source_pointer + sizeof(system_clipboard_last_tick), source_pointer + size - sizeof(system_clipboard_last_tick));
 		GlobalUnlock(hglobal); 
 
 
 		:: CloseClipboard(); 
+
+
+		//-------------------------------------------------------------------
+		_system_clipboard_last_tick = system_clipboard_last_tick;
 
 
 		//-------------------------------------------------------------------
@@ -191,11 +215,13 @@ void diagram_edit::update_system_clipboard (cx::bool_t save)
 
 
 		//-------------------------------------------------------------------
-		if (_last_system_clipboard_stream == stream)
+		/*
+		if (_system_clipboard_last_stream == stream)
 		{
 			return;
 		}
-		_last_system_clipboard_stream = stream;
+		_system_clipboard_last_stream = stream;
+		*/
 
 
 		//-------------------------------------------------------------------
@@ -695,7 +721,7 @@ void CGWDiagramEditorView::Draw (CDC& dc)
 
 	hOldBitmap = memoryDC.SelectObject(bitmap);
 
-	memoryDC.SolidFill(RGB(0xFFu, 0xFFu, 0xFFu), rect);
+//	memoryDC.SolidFill(RGB(0xFFu, 0xFFu, 0xFFu), rect);
 
 	if (m_Model)
 	{
@@ -725,7 +751,61 @@ BOOL CGWDiagramEditorView::OnEraseBkgnd(CDC& dc)
 
 LRESULT CGWDiagramEditorView::OnClose(UINT msg, WPARAM wparam, LPARAM lparam)
 {
+	CX_DEBUG_TRACEF(CX_TWA_NORMAL, "WM_CLOSE");
+
 	return 1;
+}
+
+LRESULT CGWDiagramEditorView::OnKeyDown(UINT msg, WPARAM wparam, LPARAM lparam)
+{
+	UINT VirtualKeyCode;
+	int  RepeatCount;
+	int  OemScanCode;
+	int  ExtendedKey;
+	int  ContextCode;
+	int  PreviousKeyState;
+	int  TransitionState;
+
+
+	VirtualKeyCode   = (UINT)(wparam);
+	RepeatCount      = (lparam)& 0xffff;
+	OemScanCode      = (lparam >> 16) & 0xff;
+	ExtendedKey      = (lparam >> 24) & 1; // The value is 1 if it is an extended key; otherwise, it is 0.
+	ContextCode      = (lparam >> 29) & 1; // The value is always 0 for a WM_KEYDOWN message.
+	// 25~28 Reserved; do not use.
+	PreviousKeyState = (lparam >> 30) & 1; // The value is 1 if the key is down before the message is sent, or it is zero if the key is up.
+	TransitionState  = (lparam >> 31) & 1; // The value is always 0 for a WM_KEYDOWN message.
+
+	if (m_Model)
+	{
+		switch (VirtualKeyCode)
+		{
+		case VK_LEFT:
+			CX_DEBUG_TRACEF(CX_TWA_NORMAL, "VK_LEFT");
+			m_Model->move(0);
+			break;
+
+		case VK_RIGHT:
+			CX_DEBUG_TRACEF(CX_TWA_NORMAL, "VK_RIGHT");
+			m_Model->move(1);
+			break;
+
+		case VK_UP:
+			CX_DEBUG_TRACEF(CX_TWA_NORMAL, "VK_UP");
+			m_Model->move(2);
+			break;
+
+		case VK_DOWN:
+			CX_DEBUG_TRACEF(CX_TWA_NORMAL, "VK_DOWN");
+			m_Model->move(3);
+			break;
+
+		default:
+			break;
+		}
+	}
+
+	return 0;
 }
 
 LRESULT CGWDiagramEditorView::WndProc(UINT msg, WPARAM wparam, LPARAM lparam)
@@ -743,7 +823,7 @@ LRESULT CGWDiagramEditorView::WndProc(UINT msg, WPARAM wparam, LPARAM lparam)
     case WM_TIMER:          lResult = OnTimer         (msg, wparam, lparam); break;
 //	case WM_PAINT:          lResult = OnPaint         (msg, wparam, lparam); break;
 	case WM_CLOSE:          lResult = OnClose         (msg, wparam, lparam); break;
-
+	case WM_KEYDOWN:        lResult = OnKeyDown       (msg, wparam, lparam); break;
 	default:
 		lResult = WndProcDefault(msg, wparam, lparam);
 		break;

@@ -141,6 +141,9 @@ public:
 	virtual void on_select_changed (select_changed_action_t action); // from this(edit) class
 
 public:
+	virtual void move(cx::uint_t direction);
+
+public:
 	virtual void bring_to_top    (void);
 	virtual void send_to_bottom (void);
 

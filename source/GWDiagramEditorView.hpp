@@ -6,7 +6,8 @@
 class diagram_edit : public gw::dgrm::edit
 {
 private:
-	std::string _last_system_clipboard_stream;
+//	std::string _system_clipboard_last_stream;
+	cx::uint_t  _system_clipboard_last_tick;
 
 public:
 	diagram_edit();
@@ -73,6 +74,7 @@ private:
 	LRESULT OnVScroll(UINT msg, WPARAM wparam, LPARAM lparam);
 	LRESULT OnMouseWheel(UINT msg, WPARAM wparam, LPARAM lparam);
 	LRESULT OnClose(UINT msg, WPARAM wparam, LPARAM lparam);
+	LRESULT OnKeyDown(UINT msg, WPARAM wparam, LPARAM lparam);
 
 private:
 	void Draw (CDC& dc);
