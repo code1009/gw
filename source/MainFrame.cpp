@@ -127,7 +127,7 @@ void CMainFrame::LoadDefaultMDIs()
 //	m_MyTabbedMDI.GetTab().SetPadding(500,100);
 	
 	// Add some MDI tabs
-//	m_MyTabbedMDI.AddMDIChild(new CGWControlFormView()   , _T("테스트") , ID_MDI_VIEW_FORM );
+//	m_MyTabbedMDI.AddMDIChild(new CGWControlFormView()   , _T("테스트") , ID_MDI_VIEW_FORM);
 	m_MyTabbedMDI.AddMDIChild(new CGWDiagramEditorView() , _T("도표")   , ID_MDI_VIEW_DIAGRAMEDITOR);
 
 
