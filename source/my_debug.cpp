@@ -504,8 +504,8 @@ cx::bool_t my_debug_initialize (void)
 	//--------------------------------------------------------------------------
 #if defined MY_DEBUG_DEFAULT_USE
 	my_deubug_set_lib_trace_writer_to_cx_null();
-	my_deubug_set_app_trace_writer_to_cx_null();
-//	my_deubug_set_app_trace_writer();
+//	my_deubug_set_app_trace_writer_to_cx_null();
+	my_deubug_set_app_trace_writer();
 #endif
 
 

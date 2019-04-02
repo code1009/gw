@@ -191,6 +191,14 @@ void diagram_edit::update_system_clipboard (cx::bool_t save)
 
 
 		//-------------------------------------------------------------------
+		if (_last_system_clipboard_stream == stream)
+		{
+			return;
+		}
+		_last_system_clipboard_stream = stream;
+
+
+		//-------------------------------------------------------------------
 		gw::widget_collection collection;
 
 

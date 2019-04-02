@@ -5,6 +5,9 @@
 //===========================================================================
 class diagram_edit : public gw::dgrm::edit
 {
+private:
+	std::string _last_system_clipboard_stream;
+
 public:
 	diagram_edit();
 	virtual ~diagram_edit();
