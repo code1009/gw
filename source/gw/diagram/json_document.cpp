@@ -543,7 +543,7 @@ cx::bool_t json_document_reader::read_document (design* m, widget_collection* co
 	cx::json_dom_node* node;
 
 
-	node = object->find (get_json_value_string("표시"));
+	node = object->find (get_json_value_string("바탕"));
 	if (node)
 	{
 		if (JSON_OBJECT_BEGIN==node->_type)
@@ -1051,7 +1051,7 @@ cx::bool_t json_document_writer::write_document(design* m, widget_collection* co
 cx::bool_t json_document_writer::write_view_parameter(design* m, widget_collection* collection)
 {
 	//-----------------------------------------------------------------------
-	get_json_writer()->key("표시");
+	get_json_writer()->key("바탕");
 //	get_json_writer()->key("view");
 	get_json_writer()->object_begin();
 
