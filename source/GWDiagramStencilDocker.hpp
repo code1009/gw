@@ -49,14 +49,14 @@ public:
 	virtual ~CGWDiagramStencilWnd();
 
 public:
-    virtual void PreCreate(CREATESTRUCT& cs);
+	virtual void PreCreate(CREATESTRUCT& cs);
 
 public:
-    virtual int OnCreate(CREATESTRUCT& cs);
-    virtual void OnDestroy();
+	virtual int OnCreate(CREATESTRUCT& cs);
+	virtual void OnDestroy();
 
 public:
-    virtual LRESULT WndProc(UINT msg, WPARAM wparam, LPARAM lparam);
+	virtual LRESULT WndProc(UINT msg, WPARAM wparam, LPARAM lparam);
 
 public:
 //    virtual LRESULT OnPaint(UINT msg, WPARAM wparam, LPARAM lparam);
@@ -64,9 +64,9 @@ public:
 	virtual BOOL OnEraseBkgnd(CDC& dc);
 
 private:
-    LRESULT OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lparam);
+	LRESULT OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lparam);
 	LRESULT OnTimer(UINT msg, WPARAM wparam, LPARAM lparam);
-    LRESULT OnSize(UINT msg, WPARAM wparam, LPARAM lparam);
+	LRESULT OnSize(UINT msg, WPARAM wparam, LPARAM lparam);
 	LRESULT OnHScroll(UINT msg, WPARAM wparam, LPARAM lparam);
 	LRESULT OnVScroll(UINT msg, WPARAM wparam, LPARAM lparam);
 	LRESULT OnMouseWheel(UINT msg, WPARAM wparam, LPARAM lparam);
@@ -77,8 +77,8 @@ private:
 	void Draw (CDC& dc);
 
 private:
-    int m_cxClientMax;
-    int m_cyClientMax;
+	int m_cxClientMax;
+	int m_cyClientMax;
 
 private:
 	view_scroll_helper m_ViewScrollHelper;
@@ -99,11 +99,11 @@ private:
 class CGWDiagramStencilContainer : public CDockContainer
 {
 public:
-    CGWDiagramStencilContainer(); 
-    virtual ~CGWDiagramStencilContainer();
+	CGWDiagramStencilContainer(); 
+	virtual ~CGWDiagramStencilContainer();
 
 private:
-    CGWDiagramStencilWnd m_Wnd;
+	CGWDiagramStencilWnd m_Wnd;
 };
 
 
@@ -113,11 +113,11 @@ private:
 class CGWDiagramStencilDocker : public CDocker
 {
 public:
-    CGWDiagramStencilDocker(); 
-    virtual ~CGWDiagramStencilDocker();
+	CGWDiagramStencilDocker(); 
+	virtual ~CGWDiagramStencilDocker();
 
 private:
-    CGWDiagramStencilContainer m_DockContainer;
+	CGWDiagramStencilContainer m_DockContainer;
 };
 
 

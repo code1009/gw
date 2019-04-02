@@ -35,8 +35,8 @@ private:
 	view_scroll_helper m_ViewScrollHelper;
 
 private:
-    int m_cxClientMax;
-    int m_cyClientMax;
+	int m_cxClientMax;
+	int m_cyClientMax;
 
 private:
 	diagram_edit* m_Model;
@@ -51,15 +51,15 @@ public:
 	virtual std::string GetViewType (void) { return "GWDiagramEditorView"; }
 
 public:
-    virtual void PreCreate(CREATESTRUCT& cs);
+	virtual void PreCreate(CREATESTRUCT& cs);
 
 public:
-    virtual int OnCreate(CREATESTRUCT& cs);
-    virtual void OnDestroy();
+	virtual int OnCreate(CREATESTRUCT& cs);
+	virtual void OnDestroy();
 
 public:
 	virtual BOOL OnCommand(WPARAM wparam, LPARAM lparam);
-    virtual LRESULT WndProc(UINT msg, WPARAM wparam, LPARAM lparam);
+	virtual LRESULT WndProc(UINT msg, WPARAM wparam, LPARAM lparam);
 
 public:
 //    virtual LRESULT OnPaint(UINT msg, WPARAM wparam, LPARAM lparam);
@@ -67,9 +67,9 @@ public:
 	virtual BOOL OnEraseBkgnd(CDC& dc);
 
 private:
-    LRESULT OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lparam);
+	LRESULT OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lparam);
 	LRESULT OnTimer(UINT msg, WPARAM wparam, LPARAM lparam);
-    LRESULT OnSize(UINT msg, WPARAM wparam, LPARAM lparam);
+	LRESULT OnSize(UINT msg, WPARAM wparam, LPARAM lparam);
 	LRESULT OnHScroll(UINT msg, WPARAM wparam, LPARAM lparam);
 	LRESULT OnVScroll(UINT msg, WPARAM wparam, LPARAM lparam);
 	LRESULT OnMouseWheel(UINT msg, WPARAM wparam, LPARAM lparam);

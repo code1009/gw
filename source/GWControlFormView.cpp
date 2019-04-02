@@ -31,7 +31,7 @@ CGWControlFormView::~CGWControlFormView()
 //===========================================================================
 void CGWControlFormView::PreCreate(CREATESTRUCT& cs)
 {
-    CWnd::PreCreate(cs);
+	CWnd::PreCreate(cs);
 	
 	cs.style     |= (WS_VSCROLL | WS_HSCROLL);
 	cs.dwExStyle |=  WS_EX_CLIENTEDGE;
@@ -39,9 +39,9 @@ void CGWControlFormView::PreCreate(CREATESTRUCT& cs)
 
 int CGWControlFormView::OnCreate(CREATESTRUCT& cs)
 {
-    UNREFERENCED_PARAMETER(cs);
+	UNREFERENCED_PARAMETER(cs);
 
-    SetTimer (1, 250, NULL) ;
+	SetTimer (1, 250, NULL) ;
 
 	m_Model = new gw::ctrl::form();
 	m_Model->set_window(*this);
@@ -87,7 +87,7 @@ int CGWControlFormView::OnCreate(CREATESTRUCT& cs)
 	::SetScrollInfo(*this, SB_VERT, &si, TRUE);
 #endif
 
-    return 0;
+	return 0;
 }
 
 void CGWControlFormView::OnDestroy()
@@ -96,7 +96,7 @@ void CGWControlFormView::OnDestroy()
 	delete m_Model;
 	m_Model = CX_NULL_POINTER;
 
-    KillTimer(1);
+	KillTimer(1);
 }
 
 LRESULT CGWControlFormView::OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lparam)
@@ -104,24 +104,24 @@ LRESULT CGWControlFormView::OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lpar
 {
 	CX_DEBUG_TRACEF(CX_TWA_NORMAL, "SetFocus()");
 
-    SetFocus();
-    return FinalWindowProc(msg, wparam, lparam);
+	SetFocus();
+	return FinalWindowProc(msg, wparam, lparam);
 }
 
 LRESULT CGWControlFormView::OnSize(UINT msg, WPARAM wparam, LPARAM lparam)
 {
-    UNREFERENCED_PARAMETER(msg);
+	UNREFERENCED_PARAMETER(msg);
 
-    // If not minimized, save the window size
-    if (wparam != SIZE_MINIMIZED)
-    {
-        m_cxClientMax = LOWORD (lparam) ;
-        if (m_cxClientMax < 1)
-            m_cxClientMax = 1;
+	// If not minimized, save the window size
+	if (wparam != SIZE_MINIMIZED)
+	{
+		m_cxClientMax = LOWORD (lparam) ;
+		if (m_cxClientMax < 1)
+			m_cxClientMax = 1;
 
-        m_cyClientMax = HIWORD (lparam) ;
-        if (m_cyClientMax < 1)
-            m_cyClientMax = 1;
+		m_cyClientMax = HIWORD (lparam) ;
+		if (m_cyClientMax < 1)
+			m_cyClientMax = 1;
 
 
 		m_Model->get_view()->set_viewport_window_size(m_cxClientMax, m_cyClientMax);
@@ -235,7 +235,7 @@ LRESULT CGWControlFormView::OnHScroll (UINT msg, WPARAM wparam, LPARAM lparam)
 	scrollbar  = (HWND)lparam;
 
 	if (SB_THUMBTRACK   == code || 
-	    SB_THUMBPOSITION== code  )
+		SB_THUMBPOSITION== code  )
 	{
 		position = (SHORT)HIWORD(wparam);
 	}
@@ -256,18 +256,18 @@ LRESULT CGWControlFormView::OnHScroll (UINT msg, WPARAM wparam, LPARAM lparam)
 	}
 
 
-    switch(code)
-    {
+	switch(code)
+	{
 	case SB_LEFT         : CX_DEBUG_TRACEF(TW_THISCODE, "SB_LEFT         "); position = si.nMin          ; break;
 	case SB_RIGHT        : CX_DEBUG_TRACEF(TW_THISCODE, "SB_RIGHT        "); position = si.nMax          ; break;
 	case SB_LINELEFT     : CX_DEBUG_TRACEF(TW_THISCODE, "SB_LINELEFT     "); position = position-1       ; break;
 	case SB_LINERIGHT    : CX_DEBUG_TRACEF(TW_THISCODE, "SB_LINERIGHT    "); position = position+1       ; break;
 	case SB_PAGELEFT     : CX_DEBUG_TRACEF(TW_THISCODE, "SB_PAGELEFT     "); position = position-si.nPage; break;
 	case SB_PAGERIGHT    : CX_DEBUG_TRACEF(TW_THISCODE, "SB_PAGERIGHT    "); position = position+si.nPage; break;
-    case SB_THUMBTRACK   : CX_DEBUG_TRACEF(TW_THISCODE, "SB_THUMBTRACK   "); position = position         ; break;
-    case SB_THUMBPOSITION: CX_DEBUG_TRACEF(TW_THISCODE, "SB_THUMBPOSITION"); position = position         ; break; 
-    case SB_ENDSCROLL    : CX_DEBUG_TRACEF(TW_THISCODE, "SB_ENDSCROLL    "); position = position         ; return 0; break;
-    }
+	case SB_THUMBTRACK   : CX_DEBUG_TRACEF(TW_THISCODE, "SB_THUMBTRACK   "); position = position         ; break;
+	case SB_THUMBPOSITION: CX_DEBUG_TRACEF(TW_THISCODE, "SB_THUMBPOSITION"); position = position         ; break; 
+	case SB_ENDSCROLL    : CX_DEBUG_TRACEF(TW_THISCODE, "SB_ENDSCROLL    "); position = position         ; return 0; break;
+	}
 
 	if (position>si.nMax)
 	{
@@ -312,7 +312,7 @@ LRESULT CGWControlFormView::OnHScroll (UINT msg, WPARAM wparam, LPARAM lparam)
 
 	Invalidate();
 
-    return 0;
+	return 0;
 }
 
 LRESULT CGWControlFormView::OnVScroll (UINT msg, WPARAM wparam, LPARAM lparam)
@@ -327,7 +327,7 @@ LRESULT CGWControlFormView::OnVScroll (UINT msg, WPARAM wparam, LPARAM lparam)
 	scrollbar  = (HWND)lparam;
 
 	if (SB_THUMBTRACK   == code || 
-	    SB_THUMBPOSITION== code  )
+		SB_THUMBPOSITION== code  )
 	{
 		position = (SHORT)HIWORD(wparam);
 	}
@@ -348,18 +348,18 @@ LRESULT CGWControlFormView::OnVScroll (UINT msg, WPARAM wparam, LPARAM lparam)
 	}
 
 
-    switch(code)
-    {
+	switch(code)
+	{
 	case SB_TOP          : CX_DEBUG_TRACEF(TW_THISCODE, "SB_TOP          "); position = si.nMin          ; break;
 	case SB_BOTTOM       : CX_DEBUG_TRACEF(TW_THISCODE, "SB_BOTTOM       "); position = si.nMax          ; break;
 	case SB_LINEUP       : CX_DEBUG_TRACEF(TW_THISCODE, "SB_LINEUP       "); position = position-1       ; break;
 	case SB_LINEDOWN     : CX_DEBUG_TRACEF(TW_THISCODE, "SB_LINEDOWN     "); position = position+1       ; break;
 	case SB_PAGEUP       : CX_DEBUG_TRACEF(TW_THISCODE, "SB_PAGEUP       "); position = position-si.nPage; break;
 	case SB_PAGEDOWN     : CX_DEBUG_TRACEF(TW_THISCODE, "SB_PAGEDOWN     "); position = position+si.nPage; break;
-    case SB_THUMBTRACK   : CX_DEBUG_TRACEF(TW_THISCODE, "SB_THUMBTRACK   "); position = position         ; break;
-    case SB_THUMBPOSITION: CX_DEBUG_TRACEF(TW_THISCODE, "SB_THUMBPOSITION"); position = position         ; break; 
-    case SB_ENDSCROLL    : CX_DEBUG_TRACEF(TW_THISCODE, "SB_ENDSCROLL    "); position = position         ; return 0; break;
-    }
+	case SB_THUMBTRACK   : CX_DEBUG_TRACEF(TW_THISCODE, "SB_THUMBTRACK   "); position = position         ; break;
+	case SB_THUMBPOSITION: CX_DEBUG_TRACEF(TW_THISCODE, "SB_THUMBPOSITION"); position = position         ; break; 
+	case SB_ENDSCROLL    : CX_DEBUG_TRACEF(TW_THISCODE, "SB_ENDSCROLL    "); position = position         ; return 0; break;
+	}
 
 	if (position>si.nMax)
 	{
@@ -403,7 +403,7 @@ LRESULT CGWControlFormView::OnVScroll (UINT msg, WPARAM wparam, LPARAM lparam)
 
 	Invalidate();
 
-    return 0;
+	return 0;
 }
 
 LRESULT CGWControlFormView::OnMouseWheel (UINT msg, WPARAM wparam, LPARAM lparam)
@@ -568,24 +568,24 @@ LRESULT CGWControlFormView::OnMouseWheel (UINT msg, WPARAM wparam, LPARAM lparam
 		}
 	}
 
-    return 0;
+	return 0;
 }
 
 LRESULT CGWControlFormView::OnTimer(UINT msg, WPARAM wparam, LPARAM lparam)
 {
-    UNREFERENCED_PARAMETER(msg);
-    UNREFERENCED_PARAMETER(wparam);
-    UNREFERENCED_PARAMETER(lparam);
+	UNREFERENCED_PARAMETER(msg);
+	UNREFERENCED_PARAMETER(wparam);
+	UNREFERENCED_PARAMETER(lparam);
 
-    return 0;
+	return 0;
 }
 
 /*
 LRESULT CGWControlFormView::OnPaint(UINT msg, WPARAM wparam, LPARAM lparam)
 {
-    UNREFERENCED_PARAMETER(msg);
-    UNREFERENCED_PARAMETER(wparam);
-    UNREFERENCED_PARAMETER(lparam);
+	UNREFERENCED_PARAMETER(msg);
+	UNREFERENCED_PARAMETER(wparam);
+	UNREFERENCED_PARAMETER(lparam);
 
 	CPaintDC dc(GetHwnd());
 
@@ -593,7 +593,7 @@ LRESULT CGWControlFormView::OnPaint(UINT msg, WPARAM wparam, LPARAM lparam)
 	Draw(dc);
 
 
-    return 0;
+	return 0;
 }
 */
 
@@ -673,27 +673,27 @@ LRESULT CGWControlFormView::WndProc(UINT msg, WPARAM wparam, LPARAM lparam)
 	LRESULT lResult;
 
 
-    switch (msg)
-    {
-    case WM_MOUSEACTIVATE:  lResult = OnMouseActivate (msg, wparam, lparam); break;
-    case WM_SIZE:           lResult = OnSize          (msg, wparam, lparam); break;
-    case WM_HSCROLL:        lResult = OnHScroll       (msg, wparam, lparam); break;
-    case WM_VSCROLL:        lResult = OnVScroll       (msg, wparam, lparam); break;
+	switch (msg)
+	{
+	case WM_MOUSEACTIVATE:  lResult = OnMouseActivate (msg, wparam, lparam); break;
+	case WM_SIZE:           lResult = OnSize          (msg, wparam, lparam); break;
+	case WM_HSCROLL:        lResult = OnHScroll       (msg, wparam, lparam); break;
+	case WM_VSCROLL:        lResult = OnVScroll       (msg, wparam, lparam); break;
 	case WM_MOUSEWHEEL:     lResult = OnMouseWheel    (msg, wparam, lparam); break;
-    case WM_TIMER:          lResult = OnTimer         (msg, wparam, lparam); break;
+	case WM_TIMER:          lResult = OnTimer         (msg, wparam, lparam); break;
 //	case WM_PAINT:          lResult = OnPaint         (msg, wparam, lparam); break;
 
 	default:
 		lResult = WndProcDefault(msg, wparam, lparam);
 		break;
-    }
+	}
 
 	if (m_Model)
 	{
 		m_Model->get_window_event_handler()->on_windows_message(*this, msg, wparam, lparam);
 	}
 
-    return lResult;
+	return lResult;
 }
 
 

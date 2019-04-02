@@ -14,36 +14,36 @@ CMyTabbedMDI::CMyTabbedMDI()
 //===========================================================================
 CWnd* CMyTabbedMDI::NewMDIChildFromID(int mdiChild)
 {
-    CWnd* pView = NULL;
+	CWnd* pView = NULL;
 
 	
 	switch(mdiChild)
-    {
+	{
 	case ID_MDI_VIEW_FORM:
 		pView = new CGWControlFormView();
 		break;
 
-    default:
-        TRACE("Unknown TabbedMDI id\n");
-        break;
-    }
+	default:
+		TRACE("Unknown TabbedMDI id\n");
+		break;
+	}
 
-    return pView;
+	return pView;
 }
 
 CWnd* CMyTabbedMDI::AddMDIChild(CWnd* pView, LPCTSTR pTabText, int mdiChildID /*= 0*/)
 {
-    assert(pView); // Cannot add Null CWnd*
-    assert(lstrlen(pTabText) < MAX_MENU_STRING);
+	assert(pView); // Cannot add Null CWnd*
+	assert(lstrlen(pTabText) < MAX_MENU_STRING);
 
-    GetTab().AddTabPage(pView, pTabText, IDI_VIEW, mdiChildID);
+	GetTab().AddTabPage(pView, pTabText, IDI_VIEW, mdiChildID);
 
-    // Fake a WM_MOUSEACTIVATE to propagate focus change to dockers
-    if (IsWindow())
-        GetParent().SendMessage(WM_MOUSEACTIVATE, (WPARAM)(GetAncestor().GetHwnd()),
-                                    MAKELPARAM(HTCLIENT,WM_LBUTTONDOWN));
+	// Fake a WM_MOUSEACTIVATE to propagate focus change to dockers
+	if (IsWindow())
+		GetParent().SendMessage(WM_MOUSEACTIVATE, (WPARAM)(GetAncestor().GetHwnd()),
+									MAKELPARAM(HTCLIENT,WM_LBUTTONDOWN));
 
-    return pView;
+	return pView;
 }
 
 BOOL CMyTabbedMDI::OnTabClose(int page)

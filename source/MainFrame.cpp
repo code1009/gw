@@ -17,18 +17,18 @@
 #if 0
 IDW_MAIN                BITMAP                  "./toolbar.bmp"
 
-    POPUP "&Options"
-    BEGIN
-        MENUITEM "MDI Tabs at Top",             IDM_TABBEDMDI_TOP, CHECKED
-        MENUITEM "Container Tabs at Top",       IDM_CONTAINER_TOP, CHECKED
-        MENUITEM "Hide Single Container Tab",   IDM_HIDE_SINGLE_TAB, CHECKED
-    END
-    POPUP "&Layout"
-    BEGIN
-        MENUITEM "&Default Layout",             IDM_DEFAULT_LAYOUT
-        MENUITEM "Close All &Containers",       IDM_CLOSE_DOCKERS
-        MENUITEM "Close All &MDI Children",     IDM_CLOSE_MDIS
-    END
+	POPUP "&Options"
+	BEGIN
+		MENUITEM "MDI Tabs at Top",             IDM_TABBEDMDI_TOP, CHECKED
+		MENUITEM "Container Tabs at Top",       IDM_CONTAINER_TOP, CHECKED
+		MENUITEM "Hide Single Container Tab",   IDM_HIDE_SINGLE_TAB, CHECKED
+	END
+	POPUP "&Layout"
+	BEGIN
+		MENUITEM "&Default Layout",             IDM_DEFAULT_LAYOUT
+		MENUITEM "Close All &Containers",       IDM_CLOSE_DOCKERS
+		MENUITEM "Close All &MDI Children",     IDM_CLOSE_MDIS
+	END
 #endif
 
 
@@ -448,7 +448,7 @@ void CMainFrame::UpdateToolBar()
 	GetToolBar()        .SetButtonState(IDM_DIAGRAM_EDIT_CUT            , flags_cut    );
 	GetToolBar()        .SetButtonState(IDM_DIAGRAM_EDIT_PASTE          , flags_paste  );
 	GetToolBar()        .SetButtonState(IDM_DIAGRAM_EDIT_DELETE         , flags_delete );
-															            
+																		
 	m_DiagramEditToolBar.SetButtonState(IDM_DIAGRAM_EDIT_UNDO           , flags_undo );
 	m_DiagramEditToolBar.SetButtonState(IDM_DIAGRAM_EDIT_REDO           , flags_redo );
 
@@ -460,30 +460,30 @@ void CMainFrame::UpdateToolBar()
 
 void CMainFrame::SetupToolBar()
 {
-    m_ToolBarImage.Create(32, 32, ILC_COLOR32 | ILC_MASK, 0, 0);
+	m_ToolBarImage.Create(32, 32, ILC_COLOR32 | ILC_MASK, 0, 0);
 
-    ImageList_AddPNGResource(m_ToolBarImage, "file_new.png");
-    ImageList_AddPNGResource(m_ToolBarImage, "file_open.png");
-    ImageList_AddPNGResource(m_ToolBarImage, "file_save.png");
-    ImageList_AddPNGResource(m_ToolBarImage, "edit_cut.png");
-    ImageList_AddPNGResource(m_ToolBarImage, "edit_copy.png");
-    ImageList_AddPNGResource(m_ToolBarImage, "edit_paste.png");
-    ImageList_AddPNGResource(m_ToolBarImage, "help_about.png");
+	ImageList_AddPNGResource(m_ToolBarImage, "file_new.png");
+	ImageList_AddPNGResource(m_ToolBarImage, "file_open.png");
+	ImageList_AddPNGResource(m_ToolBarImage, "file_save.png");
+	ImageList_AddPNGResource(m_ToolBarImage, "edit_cut.png");
+	ImageList_AddPNGResource(m_ToolBarImage, "edit_copy.png");
+	ImageList_AddPNGResource(m_ToolBarImage, "edit_paste.png");
+	ImageList_AddPNGResource(m_ToolBarImage, "help_about.png");
 	GetToolBar().SetImageList(m_ToolBarImage);
 	GetToolBar().SetHotImageList(0);
 	GetToolBar().SetDisableImageList(0);
 
 	/*
 //    SetTBImageList(GetToolBar(),    m_ToolBarImage, 0, 0);
-    if (GetReBar().IsWindow())
-    {
-        SIZE MaxSize = GetToolBar().GetMaxSize();
-        GetReBar().SendMessage(UWM_TBRESIZE, (WPARAM)(GetToolBar().GetHwnd()),
-            (LPARAM)(&MaxSize));
-    }
+	if (GetReBar().IsWindow())
+	{
+		SIZE MaxSize = GetToolBar().GetMaxSize();
+		GetReBar().SendMessage(UWM_TBRESIZE, (WPARAM)(GetToolBar().GetHwnd()),
+			(LPARAM)(&MaxSize));
+	}
 
-    SetTBImageListHot(GetToolBar(), m_ToolBarImage, 0, 0);
-    SetTBImageListDis(GetToolBar(), m_ToolBarImage, 0, 0);
+	SetTBImageListHot(GetToolBar(), m_ToolBarImage, 0, 0);
+	SetTBImageListDis(GetToolBar(), m_ToolBarImage, 0, 0);
 	*/
 
 	// Set the Resource IDs for the toolbar buttons
@@ -608,7 +608,7 @@ int CMainFrame::OnCreate(CREATESTRUCT& cs)
 
 	
 	//-----------------------------------------------------------------------
-    DWORD style; 
+	DWORD style; 
 	
 	
 	//-----------------------------------------------------------------------
@@ -617,28 +617,28 @@ int CMainFrame::OnCreate(CREATESTRUCT& cs)
 
 
 	//-----------------------------------------------------------------------
-    m_DiagramEditToolBarImage.Create(32, 32, ILC_COLOR32 | ILC_MASK, 0, 0);
-    ImageList_AddPNGResource(m_DiagramEditToolBarImage, "edit_undo.png");
-    ImageList_AddPNGResource(m_DiagramEditToolBarImage, "edit_redo.png");
-    ImageList_AddPNGResource(m_DiagramEditToolBarImage, "diagram_edit_select_all.png");
-    ImageList_AddPNGResource(m_DiagramEditToolBarImage, "diagram_edit_send_to_bottom.png");
-    ImageList_AddPNGResource(m_DiagramEditToolBarImage, "diagram_edit_bring_to_top.png");
+	m_DiagramEditToolBarImage.Create(32, 32, ILC_COLOR32 | ILC_MASK, 0, 0);
+	ImageList_AddPNGResource(m_DiagramEditToolBarImage, "edit_undo.png");
+	ImageList_AddPNGResource(m_DiagramEditToolBarImage, "edit_redo.png");
+	ImageList_AddPNGResource(m_DiagramEditToolBarImage, "diagram_edit_select_all.png");
+	ImageList_AddPNGResource(m_DiagramEditToolBarImage, "diagram_edit_send_to_bottom.png");
+	ImageList_AddPNGResource(m_DiagramEditToolBarImage, "diagram_edit_bring_to_top.png");
 
 
 	//-----------------------------------------------------------------------
 	style = WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | CCS_NORESIZE | CCS_NOPARENTALIGN | CCS_NODIVIDER | TBSTYLE_TOOLTIPS | TBSTYLE_FLAT | TBSTYLE_LIST ;
-    m_DiagramEditToolBar.CreateEx(0, TOOLBARCLASSNAME, 0, style, CRect(0,0,0,0), GetReBar(), 0);
-    m_DiagramEditToolBar.SetImageList(m_DiagramEditToolBarImage);
+	m_DiagramEditToolBar.CreateEx(0, TOOLBARCLASSNAME, 0, style, CRect(0,0,0,0), GetReBar(), 0);
+	m_DiagramEditToolBar.SetImageList(m_DiagramEditToolBarImage);
 
 	TBBUTTON buttonInfo[] =
-    {
-        { 0, IDM_DIAGRAM_EDIT_UNDO           , TBSTATE_ENABLED, TBSTYLE_AUTOSIZE|TBSTYLE_BUTTON, {0}, 0, 0 },
-        { 1, IDM_DIAGRAM_EDIT_REDO           , TBSTATE_ENABLED, TBSTYLE_AUTOSIZE|TBSTYLE_BUTTON, {0}, 0, 0 },
-        { 2, IDM_DIAGRAM_EDIT_SELECT_ALL     , TBSTATE_ENABLED, TBSTYLE_AUTOSIZE|TBSTYLE_BUTTON, {0}, 0, 0 },
-        { 3, IDM_DIAGRAM_EDIT_SEND_TO_BOTTOM , TBSTATE_ENABLED, TBSTYLE_AUTOSIZE|TBSTYLE_BUTTON, {0}, 0, 0 },
-        { 4, IDM_DIAGRAM_EDIT_BRING_TO_TOP   , TBSTATE_ENABLED, TBSTYLE_AUTOSIZE|TBSTYLE_BUTTON, {0}, 0, 0 }
-    };  
-    m_DiagramEditToolBar.AddButtons(5, buttonInfo);
+	{
+		{ 0, IDM_DIAGRAM_EDIT_UNDO           , TBSTATE_ENABLED, TBSTYLE_AUTOSIZE|TBSTYLE_BUTTON, {0}, 0, 0 },
+		{ 1, IDM_DIAGRAM_EDIT_REDO           , TBSTATE_ENABLED, TBSTYLE_AUTOSIZE|TBSTYLE_BUTTON, {0}, 0, 0 },
+		{ 2, IDM_DIAGRAM_EDIT_SELECT_ALL     , TBSTATE_ENABLED, TBSTYLE_AUTOSIZE|TBSTYLE_BUTTON, {0}, 0, 0 },
+		{ 3, IDM_DIAGRAM_EDIT_SEND_TO_BOTTOM , TBSTATE_ENABLED, TBSTYLE_AUTOSIZE|TBSTYLE_BUTTON, {0}, 0, 0 },
+		{ 4, IDM_DIAGRAM_EDIT_BRING_TO_TOP   , TBSTATE_ENABLED, TBSTYLE_AUTOSIZE|TBSTYLE_BUTTON, {0}, 0, 0 }
+	};  
+	m_DiagramEditToolBar.AddButtons(5, buttonInfo);
 	m_DiagramEditToolBar.SetButtonText(IDM_DIAGRAM_EDIT_UNDO           , "Undo");
 	m_DiagramEditToolBar.SetButtonText(IDM_DIAGRAM_EDIT_REDO           , "Redo");
 	m_DiagramEditToolBar.SetButtonText(IDM_DIAGRAM_EDIT_SELECT_ALL     , "Select All");
@@ -649,16 +649,16 @@ int CMainFrame::OnCreate(CREATESTRUCT& cs)
 
 
 	//-----------------------------------------------------------------------
-    REBARBANDINFO rbbi;
+	REBARBANDINFO rbbi;
 
 
-    ZeroMemory(&rbbi, sizeof(REBARBANDINFO));
-    rbbi.fMask      = RBBIM_CHILD |RBBIM_CHILDSIZE| RBBIM_ID | RBBIM_SIZE | RBBIM_STYLE;
-    rbbi.fStyle     = RBBS_BREAK;
-    rbbi.hwndChild  = m_DiagramEditToolBar.GetHwnd();
-    rbbi.wID        = 9999;
-    rbbi.cyMinChild = m_DiagramEditToolBar.GetMaxSize().cy+1;
-    GetReBar().InsertBand(-1, rbbi);
+	ZeroMemory(&rbbi, sizeof(REBARBANDINFO));
+	rbbi.fMask      = RBBIM_CHILD |RBBIM_CHILDSIZE| RBBIM_ID | RBBIM_SIZE | RBBIM_STYLE;
+	rbbi.fStyle     = RBBS_BREAK;
+	rbbi.hwndChild  = m_DiagramEditToolBar.GetHwnd();
+	rbbi.wID        = 9999;
+	rbbi.cyMinChild = m_DiagramEditToolBar.GetMaxSize().cy+1;
+	GetReBar().InsertBand(-1, rbbi);
 
 	return 0;
 }
@@ -667,107 +667,107 @@ int CMainFrame::OnCreate(CREATESTRUCT& cs)
 //       Horizontal toolbars require the TBSTATE_WRAP removed.
 void CMainFrame::SetWrapState(CToolBar* pToolBar, BOOL isWrapped)
 {
-    for (int i = 0; i < m_DiagramEditToolBar.GetButtonCount(); ++i)
-    {
-        int id = pToolBar->GetCommandID(i);
-        pToolBar->SetButtonState(id, TBSTATE_ENABLED | (isWrapped ? TBSTATE_WRAP : 0));
-    }
+	for (int i = 0; i < m_DiagramEditToolBar.GetButtonCount(); ++i)
+	{
+		int id = pToolBar->GetCommandID(i);
+		pToolBar->SetButtonState(id, TBSTATE_ENABLED | (isWrapped ? TBSTATE_WRAP : 0));
+	}
 }
 
 void CMainFrame::RecalcLayout()
 // Override CFrame::RecalcLayout to add the positioning of our rebar
 {
-    // Resize the status bar
-    if (GetStatusBar().IsWindow() && GetStatusBar().IsWindowVisible())
-    {
-        GetStatusBar().SetWindowPos(NULL, 0, 0, 0, 0, SWP_SHOWWINDOW);
-        GetStatusBar().Invalidate();
-        if (IsUsingMenuStatus())
-            GetStatusBar().SetWindowText(GetStatusText());
+	// Resize the status bar
+	if (GetStatusBar().IsWindow() && GetStatusBar().IsWindowVisible())
+	{
+		GetStatusBar().SetWindowPos(NULL, 0, 0, 0, 0, SWP_SHOWWINDOW);
+		GetStatusBar().Invalidate();
+		if (IsUsingMenuStatus())
+			GetStatusBar().SetWindowText(GetStatusText());
 
-        SetStatusIndicators();
-    }
+		SetStatusIndicators();
+	}
 
-    // Resize the rebar or toolbar
-    if (GetReBar().IsWindow())
-    {
-        GetReBar().SendMessage(WM_SIZE, 0, 0);
-        GetReBar().Invalidate();
-    }
-    else if (GetToolBar().IsWindow() && GetToolBar().IsWindowVisible())
-        GetToolBar().SendMessage(TB_AUTOSIZE, 0, 0);
+	// Resize the rebar or toolbar
+	if (GetReBar().IsWindow())
+	{
+		GetReBar().SendMessage(WM_SIZE, 0, 0);
+		GetReBar().Invalidate();
+	}
+	else if (GetToolBar().IsWindow() && GetToolBar().IsWindowVisible())
+		GetToolBar().SendMessage(TB_AUTOSIZE, 0, 0);
 
-    // Position the additional rebar at the top, left, right or bottom of the view.
-    if (m_ReBar.IsWindow())
-        SetReBarPos();
+	// Position the additional rebar at the top, left, right or bottom of the view.
+	if (m_ReBar.IsWindow())
+		SetReBarPos();
 
-    // Position the view window
-    CDockFrame::RecalcLayout();
+	// Position the view window
+	CDockFrame::RecalcLayout();
 
-    // Adjust rebar bands
-    if (GetReBar().IsWindow())
-    {
-        if (GetReBarTheme().UseThemes && GetReBarTheme().BandsLeft)
-            GetReBar().MoveBandsLeft();
+	// Adjust rebar bands
+	if (GetReBar().IsWindow())
+	{
+		if (GetReBarTheme().UseThemes && GetReBarTheme().BandsLeft)
+			GetReBar().MoveBandsLeft();
 
-        if (GetMenuBar().IsWindow())
-            SetMenuBarBandSize();
-    }
+		if (GetMenuBar().IsWindow())
+			SetMenuBarBandSize();
+	}
 }
 
 CRect CMainFrame::GetViewRect() const
 {
-    CRect rcClient = GetClientRect();
+	CRect rcClient = GetClientRect();
 
-    if (GetStatusBar().IsWindow() && (GetStatusBar().IsWindowVisible()))
-        rcClient = ExcludeChildRect(rcClient, GetStatusBar());
+	if (GetStatusBar().IsWindow() && (GetStatusBar().IsWindowVisible()))
+		rcClient = ExcludeChildRect(rcClient, GetStatusBar());
 
-    if (IsReBarSupported() && IsUsingReBar() && GetReBar().IsWindow())
-        rcClient = ExcludeChildRect(rcClient, GetReBar());
-    else
-        if (GetToolBar().IsWindow() && GetToolBar().IsWindowVisible())
-            rcClient = ExcludeChildRect(rcClient, GetToolBar());
+	if (IsReBarSupported() && IsUsingReBar() && GetReBar().IsWindow())
+		rcClient = ExcludeChildRect(rcClient, GetReBar());
+	else
+		if (GetToolBar().IsWindow() && GetToolBar().IsWindowVisible())
+			rcClient = ExcludeChildRect(rcClient, GetToolBar());
 
-    if (m_ReBar.IsWindow())
-        rcClient = ExcludeChildRect(rcClient, m_ReBar);
+	if (m_ReBar.IsWindow())
+		rcClient = ExcludeChildRect(rcClient, m_ReBar);
 
-    return rcClient;
+	return rcClient;
 }
 
 void CMainFrame::SetReBarPos(void)
 {
-    int cxRB = 0;
-    for (UINT u = 0 ; u < m_ReBar.GetRowCount(); ++u)
-        cxRB += m_ReBar.GetRowHeight(u);
+	int cxRB = 0;
+	for (UINT u = 0 ; u < m_ReBar.GetRowCount(); ++u)
+		cxRB += m_ReBar.GetRowHeight(u);
 
-    CRect rc = CDockFrame::GetViewRect();
-    int cyRB = MIN(cxRB, rc.Height());
+	CRect rc = CDockFrame::GetViewRect();
+	int cyRB = MIN(cxRB, rc.Height());
 
-    DWORD style = m_ReBar.GetStyle();
-    style &= CCS_VERT | CCS_BOTTOM; // Filter unwanted styles
+	DWORD style = m_ReBar.GetStyle();
+	style &= CCS_VERT | CCS_BOTTOM; // Filter unwanted styles
 
-    switch(style)
-    {
-    case CCS_LEFT:
-        m_ReBar.SetWindowPos(NULL, 0, rc.top, cxRB, rc.Height(), SWP_SHOWWINDOW);
+	switch(style)
+	{
+	case CCS_LEFT:
+		m_ReBar.SetWindowPos(NULL, 0, rc.top, cxRB, rc.Height(), SWP_SHOWWINDOW);
 //        m_DiagramEditToolBar.PressButton(IDM_LEFT, TRUE);
-        break;
-    case CCS_RIGHT:
-        m_ReBar.SetWindowPos(NULL, rc.Width() - cxRB, rc.top, cxRB, rc.Height(), SWP_SHOWWINDOW);
+		break;
+	case CCS_RIGHT:
+		m_ReBar.SetWindowPos(NULL, rc.Width() - cxRB, rc.top, cxRB, rc.Height(), SWP_SHOWWINDOW);
 //        m_DiagramEditToolBar.PressButton(IDM_RIGHT, TRUE);
-        break;
-    case CCS_BOTTOM:
-        m_ReBar.SetWindowPos(NULL, 0, rc.bottom - cyRB, rc.Width(), cyRB, SWP_SHOWWINDOW);
+		break;
+	case CCS_BOTTOM:
+		m_ReBar.SetWindowPos(NULL, 0, rc.bottom - cyRB, rc.Width(), cyRB, SWP_SHOWWINDOW);
 //        m_DiagramEditToolBar.PressButton(IDM_BOTTOM, TRUE);
-        break;
-    default:
-        m_ReBar.SetWindowPos(NULL, 0, rc.top, rc.Width(), cyRB, SWP_SHOWWINDOW);    
+		break;
+	default:
+		m_ReBar.SetWindowPos(NULL, 0, rc.top, rc.Width(), cyRB, SWP_SHOWWINDOW);    
 //        m_DiagramEditToolBar.PressButton(IDM_TOP, TRUE);
-        break;
-    }
+		break;
+	}
 
-    Invalidate();
-    m_ReBar.RedrawWindow();     
+	Invalidate();
+	m_ReBar.RedrawWindow();     
 }
 
 void CMainFrame::OnInitialUpdate()

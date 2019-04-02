@@ -7,8 +7,8 @@
 class CMyTabbedMDI : public CTabbedMDI
 {
 public:
-    CMyTabbedMDI();
-    virtual ~CMyTabbedMDI() {}
+	CMyTabbedMDI();
+	virtual ~CMyTabbedMDI() {}
 
 public:
 	virtual CWnd* NewMDIChildFromID(int mdiChild);

@@ -370,7 +370,7 @@ CGWDiagramEditorView::~CGWDiagramEditorView()
 //===========================================================================
 void CGWDiagramEditorView::PreCreate(CREATESTRUCT& cs)
 {
-    CWnd::PreCreate(cs);
+	CWnd::PreCreate(cs);
 	
 	cs.style     |= (WS_VSCROLL | WS_HSCROLL);
 	cs.dwExStyle |=  WS_EX_CLIENTEDGE;
@@ -378,9 +378,9 @@ void CGWDiagramEditorView::PreCreate(CREATESTRUCT& cs)
 
 int CGWDiagramEditorView::OnCreate(CREATESTRUCT& cs)
 {
-    UNREFERENCED_PARAMETER(cs);
+	UNREFERENCED_PARAMETER(cs);
 
-    SetTimer (1, 250, NULL) ;
+	SetTimer (1, 250, NULL) ;
 
 	m_Model = new diagram_edit();
 	m_Model->set_window(*this);
@@ -416,7 +416,7 @@ int CGWDiagramEditorView::OnCreate(CREATESTRUCT& cs)
 		CX_DEBUG_TRACEF(CX_TWA_CRITICAL, "RegisterDragDrop() failed = %08x", hr);
 	}
 
-    return 0;
+	return 0;
 }
 
 void CGWDiagramEditorView::OnDestroy()
@@ -449,7 +449,7 @@ void CGWDiagramEditorView::OnDestroy()
 	delete m_Model;
 	m_Model = CX_NULL_POINTER;
 
-    KillTimer(1);
+	KillTimer(1);
 }
 
 LRESULT CGWDiagramEditorView::OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lparam)
@@ -457,30 +457,30 @@ LRESULT CGWDiagramEditorView::OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lp
 {
 	CX_DEBUG_TRACEF(CX_TWA_NORMAL, "SetFocus()");
 
-    SetFocus();
+	SetFocus();
 
 	if (GetMyWinApp()->GetMainFrame()->m_DiagramPropertyDocker)
 	{
 		GetMyWinApp()->GetMainFrame()->m_DiagramPropertyDocker->m_DockContainer.m_Wnd.OnActivatedView(m_Model->get_view());
 	}
 
-    return FinalWindowProc(msg, wparam, lparam);
+	return FinalWindowProc(msg, wparam, lparam);
 }
 
 LRESULT CGWDiagramEditorView::OnSize(UINT msg, WPARAM wparam, LPARAM lparam)
 {
-    UNREFERENCED_PARAMETER(msg);
+	UNREFERENCED_PARAMETER(msg);
 
-    // If not minimized, save the window size
-    if (wparam != SIZE_MINIMIZED)
-    {
-        m_cxClientMax = LOWORD (lparam) ;
-        if (m_cxClientMax < 1)
-            m_cxClientMax = 1;
+	// If not minimized, save the window size
+	if (wparam != SIZE_MINIMIZED)
+	{
+		m_cxClientMax = LOWORD (lparam) ;
+		if (m_cxClientMax < 1)
+			m_cxClientMax = 1;
 
-        m_cyClientMax = HIWORD (lparam) ;
-        if (m_cyClientMax < 1)
-            m_cyClientMax = 1;
+		m_cyClientMax = HIWORD (lparam) ;
+		if (m_cyClientMax < 1)
+			m_cyClientMax = 1;
 
 
 		m_Model->get_view()->set_viewport_window_size(m_cxClientMax, m_cyClientMax);
@@ -512,7 +512,7 @@ LRESULT CGWDiagramEditorView::OnHScroll (UINT msg, WPARAM wparam, LPARAM lparam)
 	scrollbar  = (HWND)lparam;
 
 	if (SB_THUMBTRACK   == code || 
-	    SB_THUMBPOSITION== code  )
+		SB_THUMBPOSITION== code  )
 	{
 		position = (SHORT)HIWORD(wparam);
 	}
@@ -533,7 +533,7 @@ LRESULT CGWDiagramEditorView::OnHScroll (UINT msg, WPARAM wparam, LPARAM lparam)
 	SetViewPropertyChanged();
 
 
-    return 0;
+	return 0;
 }
 
 LRESULT CGWDiagramEditorView::OnVScroll (UINT msg, WPARAM wparam, LPARAM lparam)
@@ -548,7 +548,7 @@ LRESULT CGWDiagramEditorView::OnVScroll (UINT msg, WPARAM wparam, LPARAM lparam)
 	scrollbar  = (HWND)lparam;
 
 	if (SB_THUMBTRACK   == code || 
-	    SB_THUMBPOSITION== code  )
+		SB_THUMBPOSITION== code  )
 	{
 		position = (SHORT)HIWORD(wparam);
 	}
@@ -569,7 +569,7 @@ LRESULT CGWDiagramEditorView::OnVScroll (UINT msg, WPARAM wparam, LPARAM lparam)
 	SetViewPropertyChanged();
 
 
-    return 0;
+	return 0;
 }
 
 LRESULT CGWDiagramEditorView::OnMouseWheel (UINT msg, WPARAM wparam, LPARAM lparam)
@@ -668,24 +668,24 @@ LRESULT CGWDiagramEditorView::OnMouseWheel (UINT msg, WPARAM wparam, LPARAM lpar
 	SetViewPropertyChanged();
 
 
-    return 0;
+	return 0;
 }
 
 LRESULT CGWDiagramEditorView::OnTimer(UINT msg, WPARAM wparam, LPARAM lparam)
 {
-    UNREFERENCED_PARAMETER(msg);
-    UNREFERENCED_PARAMETER(wparam);
-    UNREFERENCED_PARAMETER(lparam);
+	UNREFERENCED_PARAMETER(msg);
+	UNREFERENCED_PARAMETER(wparam);
+	UNREFERENCED_PARAMETER(lparam);
 
-    return 0;
+	return 0;
 }
 
 /*
 LRESULT CGWDiagramEditorView::OnPaint(UINT msg, WPARAM wparam, LPARAM lparam)
 {
-    UNREFERENCED_PARAMETER(msg);
-    UNREFERENCED_PARAMETER(wparam);
-    UNREFERENCED_PARAMETER(lparam);
+	UNREFERENCED_PARAMETER(msg);
+	UNREFERENCED_PARAMETER(wparam);
+	UNREFERENCED_PARAMETER(lparam);
 
 	CPaintDC dc(GetHwnd());
 
@@ -693,7 +693,7 @@ LRESULT CGWDiagramEditorView::OnPaint(UINT msg, WPARAM wparam, LPARAM lparam)
 	Draw(dc);
 
 
-    return 0;
+	return 0;
 }
 */
 
@@ -813,28 +813,28 @@ LRESULT CGWDiagramEditorView::WndProc(UINT msg, WPARAM wparam, LPARAM lparam)
 	LRESULT lResult;
 
 
-    switch (msg)
-    {
-    case WM_MOUSEACTIVATE:  lResult = OnMouseActivate (msg, wparam, lparam); break;
-    case WM_SIZE:           lResult = OnSize          (msg, wparam, lparam); break;
-    case WM_HSCROLL:        lResult = OnHScroll       (msg, wparam, lparam); break;
-    case WM_VSCROLL:        lResult = OnVScroll       (msg, wparam, lparam); break;
+	switch (msg)
+	{
+	case WM_MOUSEACTIVATE:  lResult = OnMouseActivate (msg, wparam, lparam); break;
+	case WM_SIZE:           lResult = OnSize          (msg, wparam, lparam); break;
+	case WM_HSCROLL:        lResult = OnHScroll       (msg, wparam, lparam); break;
+	case WM_VSCROLL:        lResult = OnVScroll       (msg, wparam, lparam); break;
 	case WM_MOUSEWHEEL:     lResult = OnMouseWheel    (msg, wparam, lparam); break;
-    case WM_TIMER:          lResult = OnTimer         (msg, wparam, lparam); break;
+	case WM_TIMER:          lResult = OnTimer         (msg, wparam, lparam); break;
 //	case WM_PAINT:          lResult = OnPaint         (msg, wparam, lparam); break;
 	case WM_CLOSE:          lResult = OnClose         (msg, wparam, lparam); break;
 	case WM_KEYDOWN:        lResult = OnKeyDown       (msg, wparam, lparam); break;
 	default:
 		lResult = WndProcDefault(msg, wparam, lparam);
 		break;
-    }
+	}
 
 	if (m_Model)
 	{
 		m_Model->get_window_event_handler()->on_windows_message(*this, msg, wparam, lparam);
 	}
 
-    return lResult;
+	return lResult;
 }
 
 BOOL CGWDiagramEditorView::OnFileOpen()
@@ -1046,9 +1046,9 @@ BOOL CGWDiagramEditorView::OnDiagramEditDelete()
 
 BOOL CGWDiagramEditorView::OnCommand(WPARAM wparam, LPARAM lparam)
 {
-    UINT id = LOWORD(wparam);
-    switch (id)
-    {
+	UINT id = LOWORD(wparam);
+	switch (id)
+	{
 	case IDM_FILE_OPEN:	  return OnFileOpen();
 	case IDM_FILE_SAVE:	  return OnFileSave();
 
@@ -1062,11 +1062,11 @@ BOOL CGWDiagramEditorView::OnCommand(WPARAM wparam, LPARAM lparam)
 	case IDM_DIAGRAM_EDIT_PASTE          : return OnDiagramEditPaste        ();
 	case IDM_DIAGRAM_EDIT_DELETE         : return OnDiagramEditDelete       ();
 
-    default:
+	default:
 		break;
-    }
+	}
 
-    return FALSE;
+	return FALSE;
 }
 
 void CGWDiagramEditorView::SetViewPropertyChanged(void)

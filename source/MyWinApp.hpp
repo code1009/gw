@@ -15,13 +15,13 @@ public:
 	gw::widget_entry_collection _diagram_widget_entry_collection;
 
 public:
-    CMyWinApp();
-    virtual ~CMyWinApp();
-    virtual BOOL InitInstance();
-    CMainFrame* GetMainFrame() { return &m_Mainframe; }
+	CMyWinApp();
+	virtual ~CMyWinApp();
+	virtual BOOL InitInstance();
+	CMainFrame* GetMainFrame() { return &m_Mainframe; }
 
 private:
-    CMainFrame m_Mainframe;
+	CMainFrame m_Mainframe;
 };
 
 

@@ -76,11 +76,11 @@ int CGWDiagramPropertyDockerWnd::OnCreate(CREATESTRUCT& cs)
 
 
 	//-----------------------------------------------------------------------
-    PropGrid_ShowToolTips            (m_hPropGridCtl,FALSE);
+	PropGrid_ShowToolTips            (m_hPropGridCtl,FALSE);
 	PropGrid_ShowPropertyDescriptions(m_hPropGridCtl,FALSE);
 
 	PropGrid_SetFlatStyleChecks(m_hPropGridCtl,TRUE);
-    
+	
 	PropGrid_ExpandAllCatalogs (m_hPropGridCtl);
 	
 
@@ -119,7 +119,7 @@ void CGWDiagramPropertyDockerWnd::OnDestroy()
 LRESULT CGWDiagramPropertyDockerWnd::OnNotify(WPARAM wparam, LPARAM lparam)
 {
 	UINT    id    = static_cast<UINT>(wparam);
-    LPNMHDR NmHdr = reinterpret_cast<LPNMHDR>(lparam);
+	LPNMHDR NmHdr = reinterpret_cast<LPNMHDR>(lparam);
 
 
 	if (m_PropGridCtlID == id )
@@ -533,8 +533,8 @@ void CGWDiagramPropertyDockerWnd::DeleteEntryContainer (void)
 	
 
 	for (i =GetEntryContainer().begin(); 
-	     i!=GetEntryContainer().end(); 
-	     i++)
+		 i!=GetEntryContainer().end(); 
+		 i++)
 	{
 		e = (*i).second;
 

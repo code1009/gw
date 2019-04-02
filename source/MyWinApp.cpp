@@ -23,10 +23,10 @@ BOOL CMyWinApp::InitInstance()
 	gw::ctrl::add_default_widget_entry(&_control_widget_entry_collection);
 	gw::dgrm::add_default_widget_entry(&_diagram_widget_entry_collection);
 
-    //Create the Frame Window
-    m_Mainframe.Create(); // throws a CWinException on failure    
+	//Create the Frame Window
+	m_Mainframe.Create(); // throws a CWinException on failure    
 
-    return TRUE;
+	return TRUE;
 }
 
 

@@ -19,7 +19,7 @@ CEventMessageDockerWnd::~CEventMessageDockerWnd()
 //===========================================================================
 void CEventMessageDockerWnd::PreCreate(CREATESTRUCT& cs)
 {
-    CListView::PreCreate(cs);
+	CListView::PreCreate(cs);
 
 	cs.dwExStyle |= WS_EX_CLIENTEDGE;
 
@@ -30,7 +30,7 @@ void CEventMessageDockerWnd::PreCreate(CREATESTRUCT& cs)
 void CEventMessageDockerWnd::OnAttach()
 {
 	//-----------------------------------------------------------------------
-    m_SmallImageList.Create(16, 15, ILC_COLOR32 | ILC_MASK, 1, 0);
+	m_SmallImageList.Create(16, 15, ILC_COLOR32 | ILC_MASK, 1, 0);
 
 //	SetImageList(m_SmallImageList, LVSIL_SMALL);
 
@@ -112,27 +112,27 @@ void CEventMessageDockerWnd::OnDestroy()
 LRESULT CEventMessageDockerWnd::OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lparam)
 // Respond to a mouse click on the window
 {
-    SetFocus();
-    return FinalWindowProc(msg, wparam, lparam);
+	SetFocus();
+	return FinalWindowProc(msg, wparam, lparam);
 }
 
 LRESULT CEventMessageDockerWnd::WndProc(UINT msg, WPARAM wparam, LPARAM lparam)
 {
-    switch (msg)
-    {
-    case WM_MOUSEACTIVATE:  return OnMouseActivate(msg, wparam, lparam);
-    }
+	switch (msg)
+	{
+	case WM_MOUSEACTIVATE:  return OnMouseActivate(msg, wparam, lparam);
+	}
 
-    return WndProcDefault(msg, wparam, lparam);
+	return WndProcDefault(msg, wparam, lparam);
 }
 
 LRESULT CEventMessageDockerWnd::OnNotifyReflect(WPARAM wparam, LPARAM lparam)
 {
-    LPNMHDR NmHdr = reinterpret_cast<LPNMHDR>(lparam);
+	LPNMHDR NmHdr = reinterpret_cast<LPNMHDR>(lparam);
 
 
-    switch (NmHdr->code)
-    {
+	switch (NmHdr->code)
+	{
 	case LVN_GETDISPINFO:
 		return OnLvnGetDispInfo(wparam, lparam);
 		break;
@@ -173,7 +173,7 @@ LRESULT CEventMessageDockerWnd::OnLvnBeginLabelEdit (WPARAM wparam, LPARAM lpara
 
 LRESULT CEventMessageDockerWnd::OnNmCustomDraw (WPARAM wparam, LPARAM lparam)
 {
-    LPNMCUSTOMDRAW NmCustomDraw = reinterpret_cast<LPNMCUSTOMDRAW>(lparam);
+	LPNMCUSTOMDRAW NmCustomDraw = reinterpret_cast<LPNMCUSTOMDRAW>(lparam);
 	LRESULT        Result       = 0;
 
 
@@ -188,7 +188,7 @@ LRESULT CEventMessageDockerWnd::OnNmCustomDraw (WPARAM wparam, LPARAM lparam)
 	case  CDDS_ITEMPREERASE   : return OnItemPreErase   (wparam, lparam); break;
 	case  CDDS_ITEMPOSTERASE  : return OnItemPostErase  (wparam, lparam); break;
 	case (CDDS_ITEMPREPAINT |
-	      CDDS_SUBITEM      ) : return OnSubItemPrePaint(wparam, lparam); break;
+		  CDDS_SUBITEM      ) : return OnSubItemPrePaint(wparam, lparam); break;
 																		  
 	default:															  
 		return CListView::OnNotify(wparam, lparam);
@@ -261,10 +261,10 @@ LRESULT CEventMessageDockerWnd::OnSubItemPrePaint(WPARAM wparam, LPARAM lparam)
 //===========================================================================
 CEventMessageDockContainer::CEventMessageDockContainer()
 {
-    SetView        (m_Wnd); 
-    SetDockCaption (_T("EventMessage - Docking container"));
-    SetTabText     (_T("EventMessage"));
-    SetTabIcon     (IDI_DOCKER);
+	SetView        (m_Wnd); 
+	SetDockCaption (_T("EventMessage - Docking container"));
+	SetTabText     (_T("EventMessage"));
+	SetTabIcon     (IDI_DOCKER);
 } 
 
 CEventMessageDockContainer::~CEventMessageDockContainer()
@@ -277,7 +277,7 @@ CEventMessageDockContainer::~CEventMessageDockContainer()
 //===========================================================================
 CEventMessageDocker::CEventMessageDocker()
 {
-    SetView     (m_DockContainer);
+	SetView     (m_DockContainer);
 //	SetBarWidth (4);
 }
 

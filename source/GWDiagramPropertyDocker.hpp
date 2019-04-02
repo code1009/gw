@@ -13,8 +13,8 @@ typedef std::map<std::string,property_accessor*> named_property_accessor_pointer
 class CGWDiagramPropertyDockerWnd : public CWnd
 {
 private:
-    int m_cxClientMax;
-    int m_cyClientMax;
+	int m_cxClientMax;
+	int m_cyClientMax;
 
 public:
 	UINT m_PropGridCtlID;
@@ -47,21 +47,21 @@ public:
 	virtual ~CGWDiagramPropertyDockerWnd();
 
 public:
-    virtual void PreCreate(CREATESTRUCT& cs);
+	virtual void PreCreate(CREATESTRUCT& cs);
 
 public:
-    virtual int OnCreate(CREATESTRUCT& cs);
-    virtual void OnDestroy();
+	virtual int OnCreate(CREATESTRUCT& cs);
+	virtual void OnDestroy();
 
 	virtual LRESULT OnNotify(WPARAM wparam, LPARAM lparam);
 
 public:
-    virtual LRESULT WndProc(UINT msg, WPARAM wparam, LPARAM lparam);
+	virtual LRESULT WndProc(UINT msg, WPARAM wparam, LPARAM lparam);
 
 private:
-    LRESULT OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lparam);
-    LRESULT OnSize(UINT msg, WPARAM wparam, LPARAM lparam);
-    LRESULT OnTimer(UINT msg, WPARAM wparam, LPARAM lparam);
+	LRESULT OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lparam);
+	LRESULT OnSize(UINT msg, WPARAM wparam, LPARAM lparam);
+	LRESULT OnTimer(UINT msg, WPARAM wparam, LPARAM lparam);
 
 public:
 	void OnCloseView           (gw::view* view_pointer);

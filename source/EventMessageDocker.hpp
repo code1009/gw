@@ -7,17 +7,17 @@
 class CEventMessageDockerWnd : public CListView
 {
 public:
-    CEventMessageDockerWnd();
-    virtual ~CEventMessageDockerWnd();
+	CEventMessageDockerWnd();
+	virtual ~CEventMessageDockerWnd();
 
 public:
-    virtual void PreCreate(CREATESTRUCT& cs);
+	virtual void PreCreate(CREATESTRUCT& cs);
 
 public:
-    virtual void OnAttach();
-    virtual void OnDestroy();
-    virtual LRESULT OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lparam);
-    virtual LRESULT WndProc(UINT msg, WPARAM wparam, LPARAM lparam);
+	virtual void OnAttach();
+	virtual void OnDestroy();
+	virtual LRESULT OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lparam);
+	virtual LRESULT WndProc(UINT msg, WPARAM wparam, LPARAM lparam);
 	virtual LRESULT OnNotifyReflect(WPARAM wparam, LPARAM lparam);
 
 private:
@@ -45,11 +45,11 @@ private:
 class CEventMessageDockContainer : public CDockContainer
 {
 public:
-    CEventMessageDockContainer(); 
-    virtual ~CEventMessageDockContainer();
+	CEventMessageDockContainer(); 
+	virtual ~CEventMessageDockContainer();
 
 private:
-    CEventMessageDockerWnd m_Wnd;
+	CEventMessageDockerWnd m_Wnd;
 };
 
 
@@ -59,10 +59,10 @@ private:
 class CEventMessageDocker : public CDocker
 {
 public:
-    CEventMessageDocker(); 
-    virtual ~CEventMessageDocker();
+	CEventMessageDocker(); 
+	virtual ~CEventMessageDocker();
 
 private:
-    CEventMessageDockContainer m_DockContainer;
+	CEventMessageDockContainer m_DockContainer;
 };
 

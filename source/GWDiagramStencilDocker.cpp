@@ -269,7 +269,7 @@ CGWDiagramStencilWnd::~CGWDiagramStencilWnd()
 //===========================================================================
 void CGWDiagramStencilWnd::PreCreate(CREATESTRUCT& cs)
 {
-    CWnd::PreCreate(cs);
+	CWnd::PreCreate(cs);
 	
 	cs.style     |= (WS_VSCROLL | WS_HSCROLL);
 //	cs.dwExStyle |=  WS_EX_CLIENTEDGE;
@@ -278,9 +278,9 @@ void CGWDiagramStencilWnd::PreCreate(CREATESTRUCT& cs)
 int CGWDiagramStencilWnd::OnCreate(CREATESTRUCT& cs)
 {
 	//-----------------------------------------------------------------------
-    UNREFERENCED_PARAMETER(cs);
+	UNREFERENCED_PARAMETER(cs);
 
-    //SetTimer (1, 250, NULL) ;
+	//SetTimer (1, 250, NULL) ;
 
 	m_Model = new diagram_stencil();
 	m_Model->set_window(*this);
@@ -311,7 +311,7 @@ int CGWDiagramStencilWnd::OnCreate(CREATESTRUCT& cs)
 	m_Model->_pDropSource = m_pDropSource;
 	m_Model->_pDataObject = m_pDataObject;
 
-    return 0;
+	return 0;
 }
 
 void CGWDiagramStencilWnd::OnDestroy()
@@ -335,7 +335,7 @@ void CGWDiagramStencilWnd::OnDestroy()
 //	OleUninitialize();
 
 
-    //KillTimer(1);
+	//KillTimer(1);
 }
 
 LRESULT CGWDiagramStencilWnd::OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lparam)
@@ -343,24 +343,24 @@ LRESULT CGWDiagramStencilWnd::OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lp
 {
 	CX_DEBUG_TRACEF(CX_TWA_NORMAL, "SetFocus()");
 
-    SetFocus();
-    return FinalWindowProc(msg, wparam, lparam);
+	SetFocus();
+	return FinalWindowProc(msg, wparam, lparam);
 }
 
 LRESULT CGWDiagramStencilWnd::OnSize(UINT msg, WPARAM wparam, LPARAM lparam)
 {
-    UNREFERENCED_PARAMETER(msg);
+	UNREFERENCED_PARAMETER(msg);
 
-    // If not minimized, save the window size
-    if (wparam != SIZE_MINIMIZED)
-    {
-        m_cxClientMax = LOWORD (lparam) ;
-        if (m_cxClientMax < 1)
-            m_cxClientMax = 1;
+	// If not minimized, save the window size
+	if (wparam != SIZE_MINIMIZED)
+	{
+		m_cxClientMax = LOWORD (lparam) ;
+		if (m_cxClientMax < 1)
+			m_cxClientMax = 1;
 
-        m_cyClientMax = HIWORD (lparam) ;
-        if (m_cyClientMax < 1)
-            m_cyClientMax = 1;
+		m_cyClientMax = HIWORD (lparam) ;
+		if (m_cyClientMax < 1)
+			m_cyClientMax = 1;
 
 		
 		m_Model->resize_control(m_cxClientMax,m_cyClientMax);
@@ -399,7 +399,7 @@ LRESULT CGWDiagramStencilWnd::OnHScroll (UINT msg, WPARAM wparam, LPARAM lparam)
 	scrollbar  = (HWND)lparam;
 
 	if (SB_THUMBTRACK   == code || 
-	    SB_THUMBPOSITION== code  )
+		SB_THUMBPOSITION== code  )
 	{
 		position = (SHORT)HIWORD(wparam);
 	}
@@ -416,7 +416,7 @@ LRESULT CGWDiagramStencilWnd::OnHScroll (UINT msg, WPARAM wparam, LPARAM lparam)
 
 	Invalidate();
 
-    return 0;
+	return 0;
 }
 
 LRESULT CGWDiagramStencilWnd::OnVScroll (UINT msg, WPARAM wparam, LPARAM lparam)
@@ -431,7 +431,7 @@ LRESULT CGWDiagramStencilWnd::OnVScroll (UINT msg, WPARAM wparam, LPARAM lparam)
 	scrollbar  = (HWND)lparam;
 
 	if (SB_THUMBTRACK   == code || 
-	    SB_THUMBPOSITION== code  )
+		SB_THUMBPOSITION== code  )
 	{
 		position = (SHORT)HIWORD(wparam);
 	}
@@ -448,7 +448,7 @@ LRESULT CGWDiagramStencilWnd::OnVScroll (UINT msg, WPARAM wparam, LPARAM lparam)
 
 	Invalidate();
 
-    return 0;
+	return 0;
 }
 
 LRESULT CGWDiagramStencilWnd::OnMouseWheel (UINT msg, WPARAM wparam, LPARAM lparam)
@@ -544,24 +544,24 @@ LRESULT CGWDiagramStencilWnd::OnMouseWheel (UINT msg, WPARAM wparam, LPARAM lpar
 		}
 	}
 
-    return 0;
+	return 0;
 }
 
 LRESULT CGWDiagramStencilWnd::OnTimer(UINT msg, WPARAM wparam, LPARAM lparam)
 {
-    UNREFERENCED_PARAMETER(msg);
-    UNREFERENCED_PARAMETER(wparam);
-    UNREFERENCED_PARAMETER(lparam);
+	UNREFERENCED_PARAMETER(msg);
+	UNREFERENCED_PARAMETER(wparam);
+	UNREFERENCED_PARAMETER(lparam);
 
-    return 0;
+	return 0;
 }
 
 /*
 LRESULT CGWDiagramStencilWnd::OnPaint(UINT msg, WPARAM wparam, LPARAM lparam)
 {
-    UNREFERENCED_PARAMETER(msg);
-    UNREFERENCED_PARAMETER(wparam);
-    UNREFERENCED_PARAMETER(lparam);
+	UNREFERENCED_PARAMETER(msg);
+	UNREFERENCED_PARAMETER(wparam);
+	UNREFERENCED_PARAMETER(lparam);
 
 	CPaintDC dc(GetHwnd());
 
@@ -569,7 +569,7 @@ LRESULT CGWDiagramStencilWnd::OnPaint(UINT msg, WPARAM wparam, LPARAM lparam)
 	Draw(dc);
 
 
-    return 0;
+	return 0;
 }
 */
 
@@ -755,11 +755,11 @@ LRESULT CGWDiagramStencilWnd::WndProc(UINT msg, WPARAM wparam, LPARAM lparam)
 
 
 	switch (msg)
-    {
-    case WM_MOUSEACTIVATE:  lResult = OnMouseActivate (msg, wparam, lparam); break;
-    case WM_SIZE:           lResult = OnSize          (msg, wparam, lparam); break;
-    case WM_HSCROLL:        lResult = OnHScroll       (msg, wparam, lparam); break;
-    case WM_VSCROLL:        lResult = OnVScroll       (msg, wparam, lparam); break;
+	{
+	case WM_MOUSEACTIVATE:  lResult = OnMouseActivate (msg, wparam, lparam); break;
+	case WM_SIZE:           lResult = OnSize          (msg, wparam, lparam); break;
+	case WM_HSCROLL:        lResult = OnHScroll       (msg, wparam, lparam); break;
+	case WM_VSCROLL:        lResult = OnVScroll       (msg, wparam, lparam); break;
 	case WM_MOUSEWHEEL:     lResult = OnMouseWheel    (msg, wparam, lparam); break;
 //	case WM_TIMER:          lResult = OnTimer         (msg, wparam, lparam); break;
 //	case WM_PAINT:          lResult = OnPaint         (msg, wparam, lparam); break;
@@ -769,7 +769,7 @@ LRESULT CGWDiagramStencilWnd::WndProc(UINT msg, WPARAM wparam, LPARAM lparam)
 	default:
 		lResult = WndProcDefault(msg, wparam, lparam);
 		break;
-    }
+	}
 
 
 #if 1
@@ -780,7 +780,7 @@ LRESULT CGWDiagramStencilWnd::WndProc(UINT msg, WPARAM wparam, LPARAM lparam)
 #endif
 
 
-    return lResult;
+	return lResult;
 }
 
 
@@ -789,10 +789,10 @@ LRESULT CGWDiagramStencilWnd::WndProc(UINT msg, WPARAM wparam, LPARAM lparam)
 //===========================================================================
 CGWDiagramStencilContainer::CGWDiagramStencilContainer()
 {
-    SetView        (m_Wnd); 
-    SetDockCaption (_T("도표"));
-    SetTabText     (_T("도표"));
-    SetTabIcon     (IDI_DOCKER);
+	SetView        (m_Wnd); 
+	SetDockCaption (_T("도표"));
+	SetTabText     (_T("도표"));
+	SetTabIcon     (IDI_DOCKER);
 } 
 
 CGWDiagramStencilContainer::~CGWDiagramStencilContainer()
@@ -810,7 +810,7 @@ CGWDiagramStencilDocker::CGWDiagramStencilDocker()
 
 
 	//-----------------------------------------------------------------------
-    SetView     (m_DockContainer);
+	SetView     (m_DockContainer);
 //	SetBarWidth (4);
 }
 
