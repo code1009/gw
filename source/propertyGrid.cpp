@@ -3193,7 +3193,7 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 
 				nm.hdr.hwndFrom = GetParent(g_lpInst->hwndListBox);
 				nm.hdr.idFrom = GetDlgCtrlID(nm.hdr.hwndFrom);
-				nm.hdr.code = PGN_PROPERTYUSERCUSTOM;
+				nm.hdr.code = PGN_USERCUSTOMBROWSE;
 
 				LRESULT lres = ListBox_FindItemData(g_lpInst->hwndListMap, 0, g_lpInst->lpCurrent);
 				nm.iIndex = LB_ERR == lres ? -1 : lres;

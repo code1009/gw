@@ -71,7 +71,11 @@
 #define PIT_TIME        11  ///< Property item type: Time
 #define PIT_DATETIME    12  ///< Property item type: Date & Time
 #define PIT_CATALOG     99  ///< Property item type: Catalog
+
+// by code1009
+//===========================================================================
 #define PIT_USERCUSTOM  13  ///< Property item type: User Custom
+//===========================================================================
 
 /****************************************************************************/
 // Public structures and notifications
@@ -136,15 +140,23 @@ typedef struct tagNMPROPGRID {
 } NMPROPGRID, *LPNMPROPGRID;
 
 
+// by code1009
+//===========================================================================
 typedef struct tagNMPROPGRIDUSERCUSTOM {
 	NMHDR hdr;  ///< Notification message header
 	INT iIndex; ///< Index of a property grid item
 } NMPROPGRIDUSERCUSTOM, *LPNMPROPGRIDUSERCUSTOM;
+//===========================================================================
 
 
 #define PGN_PROPERTYCHANGE WM_USER + 0x2A  ///<property grid Property changed notification message
 
-#define PGN_PROPERTYUSERCUSTOM WM_USER + 0x2B
+
+// by code1009
+//===========================================================================
+#define PGN_USERCUSTOMBROWSE WM_USER + 0x2B
+//===========================================================================
+
 
 /****************************************************************************/
 /// @name Macroes

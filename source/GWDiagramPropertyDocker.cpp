@@ -140,7 +140,7 @@ LRESULT CGWDiagramPropertyDockerWnd::OnNotify(WPARAM wparam, LPARAM lparam)
 
 			return 1;
 		}
-		if ( NmHdr->code==PGN_PROPERTYUSERCUSTOM )
+		if ( NmHdr->code==PGN_USERCUSTOMBROWSE )
 		{
 			LPNMPROPGRIDUSERCUSTOM nmp  = (LPNMPROPGRIDUSERCUSTOM)NmHdr;
 			LPPROPGRIDITEM         item = PropGrid_GetItemData(NmHdr->hwndFrom, nmp->iIndex);
