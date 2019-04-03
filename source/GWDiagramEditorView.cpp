@@ -106,10 +106,14 @@ void diagram_edit::update_system_clipboard (cx::bool_t save)
 
 		//-------------------------------------------------------------------
 		HGLOBAL hglobal;
-			
+
+		cx::uint_t  memory_size;
+		cx::byte_t* memory_pointer;
+		cx::uint_t  memory_offset;
+
 		cx::byte_t* target_pointer;
 		cx::byte_t* source_pointer;
-		cx::uint_t  size;
+		cx::uint_t  copy_size;
 
 
 		if (FALSE==::OpenClipboard(get_window()))
@@ -121,19 +125,31 @@ void diagram_edit::update_system_clipboard (cx::bool_t save)
 		::EmptyClipboard();
 
 			
-		size    = stream.size() + sizeof(_system_clipboard_last_tick);
-		hglobal = GlobalAlloc(GMEM_MOVEABLE, size);
+		memory_size = sizeof(_system_clipboard_last_tick) + stream.size();
+		hglobal     = GlobalAlloc(GMEM_MOVEABLE, memory_size);
 		if (NULL==hglobal)
 		{
 			::CloseClipboard(); 
 			return;
 		}
-		
+		memory_pointer = (cx::byte_t*)GlobalLock(hglobal);
+		memory_offset  = 0u;
+
+
+		target_pointer = (cx::byte_t*)memory_pointer + memory_offset;
+		source_pointer = (cx::byte_t*)&_system_clipboard_last_tick;
+		copy_size      = sizeof(_system_clipboard_last_tick);
+		memory_offset += copy_size;
+		memcpy(target_pointer, source_pointer, copy_size);
+
+
+		target_pointer = (cx::byte_t*)memory_pointer + memory_offset;
 		source_pointer = (cx::byte_t*)stream.c_str();
-		target_pointer = (cx::byte_t*)GlobalLock(hglobal);
-		
-		memcpy(target_pointer, &_system_clipboard_last_tick, sizeof(_system_clipboard_last_tick));
-		memcpy(target_pointer + sizeof(_system_clipboard_last_tick), source_pointer, stream.size());
+		copy_size      = stream.size();
+		memory_offset += copy_size;
+		memcpy(target_pointer, source_pointer, copy_size);
+
+
 		GlobalUnlock(hglobal); 
 
 			
@@ -141,6 +157,9 @@ void diagram_edit::update_system_clipboard (cx::bool_t save)
 
 
 		::CloseClipboard(); 
+
+
+		CX_DEBUG_ASSERT(memory_offset==memory_size);
 	}
 	else
 	{
@@ -171,33 +190,62 @@ void diagram_edit::update_system_clipboard (cx::bool_t save)
 		//-------------------------------------------------------------------
 		HGLOBAL hglobal;
 
-		cx::char_t* source_pointer;
-		cx::uint_t  size;
+		cx::uint_t  memory_size;
+		cx::byte_t* memory_pointer;
+		cx::uint_t  memory_offset;
 
+		cx::byte_t* target_pointer;
+		cx::byte_t* source_pointer;
+		cx::uint_t  copy_size;
 
+		
 		hglobal = ::GetClipboardData(cf); 
 		if (NULL==hglobal)
 		{ 
 			::CloseClipboard();
 			return;
 		}
+		memory_size    = GlobalSize(hglobal);
+		memory_pointer = (cx::byte_t*)GlobalLock(hglobal);
+		memory_offset  = 0u;
 
 
-		size = GlobalSize(hglobal);
-		source_pointer = (cx::char_t*) GlobalLock(hglobal);
-		memcpy(&system_clipboard_last_tick, source_pointer, sizeof(system_clipboard_last_tick));
+		source_pointer = (cx::byte_t*)memory_pointer+memory_offset;
+		target_pointer = (cx::byte_t*)&system_clipboard_last_tick;
+		copy_size      = sizeof(system_clipboard_last_tick);
+		memory_offset += copy_size;
+		memcpy(target_pointer, source_pointer, copy_size);
+
+
 		if (system_clipboard_last_tick == _system_clipboard_last_tick)
 		{
 			GlobalUnlock(hglobal);
+
 			::CloseClipboard();
 
 			return;
 		}
-		stream.insert(stream.begin(), source_pointer + sizeof(system_clipboard_last_tick), source_pointer + size - sizeof(system_clipboard_last_tick));
+
+
+		cx::char_t* source_stream_bpointer;
+		cx::char_t* source_stream_epointer;
+
+
+		copy_size              = memory_size - memory_offset;
+		source_stream_bpointer = (cx::char_t*)memory_pointer+memory_offset;
+		source_stream_epointer = (cx::char_t*)memory_pointer+memory_offset+copy_size;
+		memory_offset         += copy_size;
+
+		stream.insert(stream.begin(), source_stream_bpointer, source_stream_epointer);
+
+
 		GlobalUnlock(hglobal); 
 
 
 		:: CloseClipboard(); 
+
+		
+		CX_DEBUG_ASSERT(memory_offset==memory_size);
 
 
 		//-------------------------------------------------------------------
