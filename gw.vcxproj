@@ -101,6 +101,7 @@
     </ClCompile>
     <ClCompile Include="source\gw\diagram\item\straight_line.cpp" />
     <ClCompile Include="source\gw\renderer\line_renderer.cpp" />
+    <ClCompile Include="source\MyDialog.cpp" />
     <ClCompile Include="source\MyView.cpp" />
     <ClCompile Include="source\property_accessor.cpp" />
     <ClCompile Include="source\GWDiagramPropertyDocker.cpp" />
@@ -180,6 +181,7 @@
     <ClInclude Include="source/res/wxx/wxx_resource.h" />
     <ClInclude Include="source\gw\diagram\item\straight_line.hpp" />
     <ClInclude Include="source\gw\renderer\line_renderer.hpp" />
+    <ClInclude Include="source\MyDialog.hpp" />
     <ClInclude Include="source\MyView.hpp" />
     <ClInclude Include="source\property_accessor.hpp" />
     <ClInclude Include="source\GWDiagramPropertyDocker.hpp" />
@@ -268,6 +270,18 @@
     <Image Include="source/res/wxx/SDmiddle.bmp" />
     <Image Include="source/res/wxx/SDright.bmp" />
     <Image Include="source/res/wxx/SDtop.bmp" />
+    <Image Include="source\res\diagram_edit_bring_to_top.png" />
+    <Image Include="source\res\diagram_edit_select_all.png" />
+    <Image Include="source\res\diagram_edit_send_to_bottom.png" />
+    <Image Include="source\res\edit_copy.png" />
+    <Image Include="source\res\edit_cut.png" />
+    <Image Include="source\res\edit_paste.png" />
+    <Image Include="source\res\edit_redo.png" />
+    <Image Include="source\res\edit_undo.png" />
+    <Image Include="source\res\file_new.png" />
+    <Image Include="source\res\file_open.png" />
+    <Image Include="source\res\file_save.png" />
+    <Image Include="source\res\help_about.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="source/ReadMe.txt" />

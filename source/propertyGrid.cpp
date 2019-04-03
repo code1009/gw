@@ -1132,10 +1132,10 @@ static LRESULT CALLBACK IpEdit_Proc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM l
 			// Determine if hwndNewfocus is a child of the IpEdit
 			if(hIpEdit != GetParent((HWND) wParam)) //No, result of mouse click
 			{
-				// by code1009
-				//===========================================================
+// by code1009
+//===========================================================================
 				// FORWARD_WM_CHAR(hIpEdit, VK_RETURN, 0, SNDMSG);//DWM 1.6: force update of grid data
-				//===========================================================
+//===========================================================================
 				Editor_OnKillFocus(hIpEdit, (HWND)wParam);
 			}
 		}
@@ -1438,10 +1438,10 @@ static LRESULT CALLBACK DatePicker_Proc(HWND hDate, UINT msg, WPARAM wParam, LPA
 				ShowWindow(g_lpInst->hwndCtl2, SW_HIDE);
 			}
 		}
-		// by code1009
-		//=========================================================================
+// by code1009
+//===========================================================================
 		//FORWARD_WM_CHAR(hDate, VK_RETURN, 0, SNDMSG);//DWM 1.6: force update of grid data
-		//=========================================================================
+//===========================================================================
 		Editor_OnKillFocus(hDate, (HWND)wParam);
 	}
 	else if (WM_PAINT == msg) // Obliterate border
@@ -2056,8 +2056,8 @@ static LPTSTR FileDialogItem_ToString(LPPROPGRIDFDITEM lpPgFdItem)
 /// @returns VOID.
 static VOID CharToWide(LPWSTR dest, INT ccDest, const LPSTR source)
 {
-	// by code1009
-	//=======================================================================
+// by code1009
+//===========================================================================
 #if 0
 	//DWM 1.7: Added
 	int i = 0;
@@ -2068,7 +2068,6 @@ static VOID CharToWide(LPWSTR dest, INT ccDest, const LPSTR source)
 		++i;
 	}
 #endif
-	//=======================================================================
 	std::string mbcs;
 	std::wstring wcs;
 
@@ -2076,6 +2075,7 @@ static VOID CharToWide(LPWSTR dest, INT ccDest, const LPSTR source)
 	wcs = cx::mbcs_to_wcs (mbcs);
 
 	wcsncpy_s (dest, ccDest, wcs.c_str(), wcs.size()+1);
+//===========================================================================
 }
 
 /// @brief Convert a path to an item id list object.
@@ -2090,10 +2090,10 @@ static LPITEMIDLIST ConvertPathToLpItemIdList(LPTSTR pszPath)
 	ULONG chEaten;
 	ULONG dwAttributes;
 
-	// by code1009
-	//=======================================================================
+// by code1009
+//===========================================================================
 	pidl = NULL;
-	//=======================================================================
+//===========================================================================
 
 	//DWM 1.7: Added
 #ifdef _UNICODE
@@ -3183,6 +3183,32 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 				AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, temp);
 			}
 				break;
+
+// by code1009
+//===========================================================================
+			case PIT_USERCUSTOM:
+			{
+				NMPROPGRIDUSERCUSTOM nm;
+
+
+				nm.hdr.hwndFrom = GetParent(g_lpInst->hwndListBox);
+				nm.hdr.idFrom = GetDlgCtrlID(nm.hdr.hwndFrom);
+				nm.hdr.code = PGN_PROPERTYUSERCUSTOM;
+
+				LRESULT lres = ListBox_FindItemData(g_lpInst->hwndListMap, 0, g_lpInst->lpCurrent);
+				nm.iIndex = LB_ERR == lres ? -1 : lres;
+
+				FORWARD_WM_NOTIFY(g_lpInst->hwndParent, nm.hdr.idFrom, &nm, SNDMSG);
+
+				//AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, temp);
+				ShowWindow(hwndCtl, SW_HIDE);
+				SetFocus(hwnd);
+				Refresh(hwnd); //Trigger WM_DRAWITEM
+
+				return;
+			}
+				break;
+//===========================================================================
 		}
 		ShowWindow(hwndCtl, SW_HIDE);
 		SetFocus(hwnd);
@@ -3848,6 +3874,10 @@ static INT Grid_OnAddString(LPPROPGRIDITEM pgi)
 		case PIT_COMBO:
 		case PIT_EDITCOMBO:
 		case PIT_FOLDER:
+// by code1009
+//===========================================================================
+		case PIT_USERCUSTOM:
+//===========================================================================
 			lpszCurValue = (LPTSTR)pgi->lpCurValue;
 			break;
 		case PIT_COLOR:
@@ -3983,6 +4013,10 @@ static LRESULT Grid_OnGetItemData(INT iItem)
 				case PIT_EDITCOMBO:
 				case PIT_STATIC:
 				case PIT_FOLDER:
+// by code1009
+//===========================================================================
+				case PIT_USERCUSTOM:
+//===========================================================================
 					pgi.lpCurValue = (LPARAM)pItem->lpszCurValue;
 					break;
 				case PIT_COLOR:
@@ -4172,6 +4206,9 @@ static LRESULT Grid_OnSetItemData(INT iItem, LPPROPGRIDITEM pgi)
 			case PIT_COMBO:
 			case PIT_EDITCOMBO:
 			case PIT_FOLDER:
+//===========================================================================
+			case PIT_USERCUSTOM:
+//===========================================================================
 				lpszCurValue = (LPTSTR)pgi->lpCurValue;
 				break;
 			case PIT_COLOR:

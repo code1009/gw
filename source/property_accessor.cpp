@@ -467,6 +467,36 @@ void view_property_accessor::load_property_to_control(void)
 	item.iItemType     = PIT_COMBO;
 	PropGrid_AddItem (get_control(), &item);
 
+#if 0
+	//-----------------------------------------------------------------------
+	catalog = "test";
+	name    = "test1";   
+	value   = "value";
+
+	item.lpszCatalog   = (LPTSTR)catalog.c_str();
+	item.lpszPropName  = (LPTSTR)name.c_str();
+	item.lpszzCmbItems = NULL;
+	item.lpszPropDesc  = NULL;
+	item.lpCurValue    = (LPARAM)value.c_str();
+	item.lpUserData    = NULL;
+	item.iItemType     = PIT_USERCUSTOM;
+	PropGrid_AddItem (get_control(), &item);
+
+
+	//-----------------------------------------------------------------------
+	catalog = "test";
+	name    = "test2";   
+	value   = "value";
+
+	item.lpszCatalog   = (LPTSTR)catalog.c_str();
+	item.lpszPropName  = (LPTSTR)name.c_str();
+	item.lpszzCmbItems = NULL;
+	item.lpszPropDesc  = NULL;
+	item.lpCurValue    = (LPARAM)value.c_str();
+	item.lpUserData    = NULL;
+	item.iItemType     = PIT_USERCUSTOM;
+	PropGrid_AddItem (get_control(), &item);
+#endif
 
 	//-----------------------------------------------------------------------
 	_index_end = PropGrid_GetCount(get_control());
@@ -709,6 +739,38 @@ void view_property_accessor::set_property_to_control(void)
 
 
 	//-----------------------------------------------------------------------
+	/*
+	catalog = "test";
+	name    = "test1";   
+	value   = "value";
+
+	item.lpszCatalog   = (LPTSTR)catalog.c_str();
+	item.lpszPropName  = (LPTSTR)name.c_str();
+	item.lpszzCmbItems = NULL;
+	item.lpszPropDesc  = NULL;
+	item.lpCurValue    = (LPARAM)value.c_str();
+	item.lpUserData    = NULL;
+	item.iItemType     = PIT_USERCUSTOM;
+	PropGrid_SetItemData (get_control(), index++, &item);
+	*/
+
+	//-----------------------------------------------------------------------
+	/*
+	catalog = "test";
+	name    = "test1";   
+	value   = "value";
+
+	item.lpszCatalog   = (LPTSTR)catalog.c_str();
+	item.lpszPropName  = (LPTSTR)name.c_str();
+	item.lpszzCmbItems = NULL;
+	item.lpszPropDesc  = NULL;
+	item.lpCurValue    = (LPARAM)value.c_str();
+	item.lpUserData    = NULL;
+	item.iItemType     = PIT_USERCUSTOM;
+	PropGrid_SetItemData (get_control(), index++, &item);
+	*/
+
+	//-----------------------------------------------------------------------
 	CX_DEBUG_ASSERT(index==_index_end);
 }
 
@@ -836,6 +898,14 @@ void view_property_accessor::set_property_from_control(cx::int_t index, LPPROPGR
 		value = (LPTSTR)item->lpCurValue;
 		get_view()->set_grid_visible( (value==_view_grid_visible_slist[0]) ? true : false );
 		break;
+
+#if 0
+	case 10:
+	case 11:
+		value = (LPTSTR)item->lpCurValue;
+		CX_DEBUG_TRACEF(CX_TWA_NORMAL, "%s", value.c_str());
+		break;
+#endif
 
 	default:
 		break;

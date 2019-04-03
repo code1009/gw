@@ -124,12 +124,12 @@ LRESULT CGWDiagramPropertyDockerWnd::OnNotify(WPARAM wparam, LPARAM lparam)
 
 	if (m_PropGridCtlID == id )
 	{
-		LPNMPROPGRID   nmp  = (LPNMPROPGRID)NmHdr;
-		LPPROPGRIDITEM item = PropGrid_GetItemData(NmHdr->hwndFrom, nmp->iIndex);
-
-
 		if ( NmHdr->code==PGN_PROPERTYCHANGE )
 		{
+			LPNMPROPGRID   nmp  = (LPNMPROPGRID)NmHdr;
+			LPPROPGRIDITEM item = PropGrid_GetItemData(NmHdr->hwndFrom, nmp->iIndex);
+
+
 			switch (m_ActivatedProperty)
 			{
 			case ACTIVATED_PROPERTY_VIEW:    SetViewPropertyFromControl   (nmp->iIndex, item); break;
@@ -139,6 +139,44 @@ LRESULT CGWDiagramPropertyDockerWnd::OnNotify(WPARAM wparam, LPARAM lparam)
 			}
 
 			return 1;
+		}
+		if ( NmHdr->code==PGN_PROPERTYUSERCUSTOM )
+		{
+			LPNMPROPGRIDUSERCUSTOM nmp  = (LPNMPROPGRIDUSERCUSTOM)NmHdr;
+			LPPROPGRIDITEM         item = PropGrid_GetItemData(NmHdr->hwndFrom, nmp->iIndex);
+
+			CMyDialog dlg(IDW_INPUT);
+
+			
+			if (IDOK==dlg.DoModal(m_hPropGridCtl))
+			{
+				std::string catalog = "test";
+				std::string name    = "test1";   
+				std::string value   = "1234567";
+
+
+				if (nmp->iIndex==11)
+				{
+					name = "test2";   
+				}
+
+
+				value = (LPTSTR)item->lpCurValue;
+				value = dlg.m_InputValue;
+
+
+//				item->lpszCatalog   = (LPTSTR)catalog.c_str();
+//				item->lpszPropName  = (LPTSTR)name.c_str();
+//				item->lpszzCmbItems = NULL;
+//				item->lpszPropDesc  = NULL;
+				item->lpCurValue    = (LPARAM)value.c_str();
+//				item->lpUserData    = NULL;
+//				item->iItemType     = PIT_USERCUSTOM;
+				PropGrid_SetItemData (m_hPropGridCtl, nmp->iIndex, item);
+
+				// TODO: °´Ã¼ °ª º¯°æ
+				// object->set_name_value(value);
+			}
 		}
 	}
 
