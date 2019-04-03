@@ -19,14 +19,14 @@
 //===========================================================================
 char _ofn_open_szFile      [MAX_PATH];
 char _ofn_open_szFileTitle [MAX_PATH];  
-char _ofn_open_szFilter    [4096    ] = "json File(*.json\0*.json\0All Files(*.*)\0*.*\0";
+char _ofn_open_szFilter    [MAX_PATH] = "json File(*.json\0*.json\0All Files(*.*)\0*.*\0";
 char _ofn_open_szDefExt    [MAX_PATH] = ".json";
 char _ofn_open_szInitialDir[MAX_PATH] = "D:\\test";
 char _ofn_open_szTitle     [MAX_PATH] = "File Open";
 
 char _ofn_save_szFile      [MAX_PATH];  
 char _ofn_save_szFileTitle [MAX_PATH];  
-char _ofn_save_szFilter    [4096    ] = "json File(*.json\0*.json\0All Files(*.*)\0*.*\0";
+char _ofn_save_szFilter    [MAX_PATH] = "json File(*.json\0*.json\0All Files(*.*)\0*.*\0";
 char _ofn_save_szDefExt    [MAX_PATH] = ".json";
 char _ofn_save_szInitialDir[MAX_PATH] = "D:\\test";
 char _ofn_save_szTitle     [MAX_PATH] = "File Save";
@@ -236,7 +236,7 @@ std::string get_open_file_path (HWND hWnd)
 	ZeroMemory(_ofn_open_szFile      , sizeof(_ofn_open_szFile      ));
 	ZeroMemory(_ofn_open_szFileTitle , sizeof(_ofn_open_szFileTitle ));
 	ZeroMemory(_ofn_open_szInitialDir, sizeof(_ofn_open_szInitialDir));
-	ZeroMemory(_ofn_open_szTitle     , sizeof(_ofn_open_szTitle     ));
+//	ZeroMemory(_ofn_open_szTitle     , sizeof(_ofn_open_szTitle     ));
 
 	
 	//-----------------------------------------------------------------------
@@ -246,14 +246,14 @@ std::string get_open_file_path (HWND hWnd)
 	//-----------------------------------------------------------------------
 	OPENFILENAMEA ofn;
 
-
+	
 	ZeroMemory(&ofn, sizeof(ofn));
 	ofn.lStructSize     = sizeof(ofn); 
 	ofn.hwndOwner       = hWnd; 
 	ofn.lpstrFile       = _ofn_open_szFile; 
 	ofn.nMaxFile        = sizeof(_ofn_open_szFile)/ sizeof(*_ofn_open_szFile); 
-	ofn.lpstrFileTitle  = _ofn_open_szFileTitle; 
-	ofn.nMaxFileTitle   = sizeof(_ofn_open_szFileTitle) / sizeof(_ofn_open_szFileTitle); 
+	ofn.lpstrFileTitle  = 0;    //_ofn_open_szFileTitle; 
+	ofn.nMaxFileTitle   = NULL; //sizeof(_ofn_open_szFileTitle) / sizeof(_ofn_open_szFileTitle); 
 	ofn.Flags           = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_EXPLORER | OFN_ENABLESIZING | OFN_DONTADDTORECENT | OFN_EXTENSIONDIFFERENT/*lpstrDefExt!=NULL*/ | OFN_ENABLEHOOK;
 	ofn.lpstrFilter     = _ofn_open_szFilter; 
 	ofn.nFilterIndex    = (ofn.lpstrFilter) ? 1 : 0;;
@@ -287,7 +287,7 @@ std::string get_save_file_path (HWND hWnd)
 	ZeroMemory(_ofn_save_szFile      , sizeof(_ofn_save_szFile      ));
 	ZeroMemory(_ofn_save_szFileTitle , sizeof(_ofn_save_szFileTitle ));
 	ZeroMemory(_ofn_save_szInitialDir, sizeof(_ofn_save_szInitialDir));
-	ZeroMemory(_ofn_save_szTitle     , sizeof(_ofn_save_szTitle     ));
+//	ZeroMemory(_ofn_save_szTitle     , sizeof(_ofn_save_szTitle     ));
 
 
 	//-----------------------------------------------------------------------
@@ -303,8 +303,8 @@ std::string get_save_file_path (HWND hWnd)
 	ofn.hwndOwner       = hWnd; 
 	ofn.lpstrFile       = _ofn_save_szFile; 
 	ofn.nMaxFile        = sizeof(_ofn_save_szFile) / sizeof(*_ofn_save_szFile); 
-	ofn.lpstrFileTitle  = _ofn_save_szFileTitle; 
-	ofn.nMaxFileTitle   = sizeof(_ofn_save_szFileTitle) / sizeof(_ofn_save_szFileTitle); 
+	ofn.lpstrFileTitle  = 0;    // _ofn_save_szFileTitle; 
+	ofn.nMaxFileTitle   = NULL; // sizeof(_ofn_save_szFileTitle) / sizeof(_ofn_save_szFileTitle); 
 	ofn.Flags           = OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST | OFN_EXPLORER | OFN_ENABLESIZING | OFN_DONTADDTORECENT | OFN_EXTENSIONDIFFERENT/*lpstrDefExt!=NULL*/ | OFN_NOREADONLYRETURN | OFN_ENABLEHOOK;
 	ofn.lpstrFilter     = _ofn_save_szFilter; 
 	ofn.nFilterIndex    = (ofn.lpstrFilter) ? 1 : 0;

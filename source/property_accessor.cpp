@@ -467,7 +467,7 @@ void view_property_accessor::load_property_to_control(void)
 	item.iItemType     = PIT_COMBO;
 	PropGrid_AddItem (get_control(), &item);
 
-#if 0
+#if 1
 	//-----------------------------------------------------------------------
 	catalog = "test";
 	name    = "test1";   

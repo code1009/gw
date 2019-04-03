@@ -43,6 +43,9 @@ public:
 	view_property_accessor*                     m_ViewPropertyAccessor;
 
 public:
+	cx::uint_t m_UserCustomBrowseFlag;
+
+public:
 	CGWDiagramPropertyDockerWnd();
 	virtual ~CGWDiagramPropertyDockerWnd();
 
