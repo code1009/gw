@@ -18,6 +18,7 @@ public:
 	CMyWinApp();
 	virtual ~CMyWinApp();
 	virtual BOOL InitInstance();
+	virtual BOOL OnIdle(LONG lCount);
 	CMainFrame* GetMainFrame() { return &m_Mainframe; }
 
 private:

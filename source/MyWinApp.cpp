@@ -30,3 +30,14 @@ BOOL CMyWinApp::InitInstance()
 }
 
 
+BOOL CMyWinApp::OnIdle(LONG count)
+{
+    UNREFERENCED_PARAMETER(count);
+
+	if (m_Mainframe.IsWindow())
+	{
+		m_Mainframe.UpdateToolBar();
+	}
+
+    return FALSE;
+}

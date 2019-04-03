@@ -444,18 +444,24 @@ void CMainFrame::UpdateToolBar()
 		}
 	}
 
-	GetToolBar()        .SetButtonState(IDM_DIAGRAM_EDIT_COPY           , flags_copy   );
-	GetToolBar()        .SetButtonState(IDM_DIAGRAM_EDIT_CUT            , flags_cut    );
-	GetToolBar()        .SetButtonState(IDM_DIAGRAM_EDIT_PASTE          , flags_paste  );
-	GetToolBar()        .SetButtonState(IDM_DIAGRAM_EDIT_DELETE         , flags_delete );
-																		
-	m_DiagramEditToolBar.SetButtonState(IDM_DIAGRAM_EDIT_UNDO           , flags_undo );
-	m_DiagramEditToolBar.SetButtonState(IDM_DIAGRAM_EDIT_REDO           , flags_redo );
+	if (GetToolBar().IsWindow())
+	{
+		GetToolBar()        .SetButtonState(IDM_DIAGRAM_EDIT_COPY           , flags_copy   );
+		GetToolBar()        .SetButtonState(IDM_DIAGRAM_EDIT_CUT            , flags_cut    );
+		GetToolBar()        .SetButtonState(IDM_DIAGRAM_EDIT_PASTE          , flags_paste  );
+		GetToolBar()        .SetButtonState(IDM_DIAGRAM_EDIT_DELETE         , flags_delete );
+	}
 
-	m_DiagramEditToolBar.SetButtonState(IDM_DIAGRAM_EDIT_BRING_TO_TOP   , flags_bring_to_top   );
-	m_DiagramEditToolBar.SetButtonState(IDM_DIAGRAM_EDIT_SEND_TO_BOTTOM , flags_send_to_bottom );
+	if (m_DiagramEditToolBar.IsWindow())
+	{
+		m_DiagramEditToolBar.SetButtonState(IDM_DIAGRAM_EDIT_UNDO           , flags_undo );
+		m_DiagramEditToolBar.SetButtonState(IDM_DIAGRAM_EDIT_REDO           , flags_redo );
 
-	m_DiagramEditToolBar.SetButtonState(IDM_DIAGRAM_EDIT_SELECT_ALL     , TBSTATE_ENABLED );
+		m_DiagramEditToolBar.SetButtonState(IDM_DIAGRAM_EDIT_BRING_TO_TOP   , flags_bring_to_top   );
+		m_DiagramEditToolBar.SetButtonState(IDM_DIAGRAM_EDIT_SEND_TO_BOTTOM , flags_send_to_bottom );
+
+		m_DiagramEditToolBar.SetButtonState(IDM_DIAGRAM_EDIT_SELECT_ALL     , TBSTATE_ENABLED );
+	}
 }
 
 void CMainFrame::SetupToolBar()
