@@ -561,18 +561,42 @@
     <Image Include="source/res/wxx/SDtop.bmp">
       <Filter>source\res\wxx</Filter>
     </Image>
-    <Image Include="source\res\diagram_edit_bring_to_top.png" />
-    <Image Include="source\res\diagram_edit_select_all.png" />
-    <Image Include="source\res\diagram_edit_send_to_bottom.png" />
-    <Image Include="source\res\edit_copy.png" />
-    <Image Include="source\res\edit_cut.png" />
-    <Image Include="source\res\edit_paste.png" />
-    <Image Include="source\res\edit_redo.png" />
-    <Image Include="source\res\edit_undo.png" />
-    <Image Include="source\res\file_new.png" />
-    <Image Include="source\res\file_open.png" />
-    <Image Include="source\res\file_save.png" />
-    <Image Include="source\res\help_about.png" />
+    <Image Include="source\res\diagram_edit_bring_to_top.png">
+      <Filter>source\res</Filter>
+    </Image>
+    <Image Include="source\res\diagram_edit_select_all.png">
+      <Filter>source\res</Filter>
+    </Image>
+    <Image Include="source\res\diagram_edit_send_to_bottom.png">
+      <Filter>source\res</Filter>
+    </Image>
+    <Image Include="source\res\edit_copy.png">
+      <Filter>source\res</Filter>
+    </Image>
+    <Image Include="source\res\edit_cut.png">
+      <Filter>source\res</Filter>
+    </Image>
+    <Image Include="source\res\edit_paste.png">
+      <Filter>source\res</Filter>
+    </Image>
+    <Image Include="source\res\edit_redo.png">
+      <Filter>source\res</Filter>
+    </Image>
+    <Image Include="source\res\edit_undo.png">
+      <Filter>source\res</Filter>
+    </Image>
+    <Image Include="source\res\file_new.png">
+      <Filter>source\res</Filter>
+    </Image>
+    <Image Include="source\res\file_open.png">
+      <Filter>source\res</Filter>
+    </Image>
+    <Image Include="source\res\file_save.png">
+      <Filter>source\res</Filter>
+    </Image>
+    <Image Include="source\res\help_about.png">
+      <Filter>source\res</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="source/ReadMe.txt" />
