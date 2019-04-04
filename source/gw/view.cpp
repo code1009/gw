@@ -176,8 +176,8 @@ void view::draw_model (graphic_t g)
 
 void view::draw_grid (graphic_t g)
 {
-	Color       pen_color(255, 224,255,224);
-//	Color       pen_color(255, 240,255,240);
+//	Color       pen_color(255, 224,255,224);
+	Color       pen_color(255, 240,255,240);
 	cx::float_t pen_width = 1.0f;
 	Pen         pen(pen_color, pen_width);
 
@@ -185,8 +185,8 @@ void view::draw_grid (graphic_t g)
 //	pen.SetDashStyle(DashStyleDot); // 느림
 
 
-	Color       boarder_pen_color(255, 64,128,64);
-//	Color       boarder_pen_color(255, 128,255,128);
+//	Color       boarder_pen_color(255, 64,128,64);
+	Color       boarder_pen_color(255, 128,255,128);
 	cx::float_t boarder_pen_width = 1.0f;
 	Pen         boarder_pen(boarder_pen_color, boarder_pen_width);
 
