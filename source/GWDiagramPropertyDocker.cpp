@@ -162,14 +162,14 @@ LRESULT CGWDiagramPropertyDockerWnd::OnNotify(WPARAM wparam, LPARAM lparam)
 				// 유효하지 않은 item과 object가 될수 있음
 				if (nmp->iIndex!=PropGrid_GetCurSel(m_hPropGridCtl))
 				{
-					MessageBox("취소되었습니다!", "확인", MB_OK);
-
+					MessageBeep(MB_ICONSTOP);
+					//MessageBox("취소되었습니다!", "확인", MB_OK);
 					return 0;
 				}
 				if (m_UserCustomBrowseFlag != 1u)
 				{
-					MessageBox("취소되었습니다.", "확인", MB_OK);
-
+					MessageBeep(MB_ICONSTOP);
+					//MessageBox("취소되었습니다.", "확인", MB_OK);
 					return 0;
 				}
 
