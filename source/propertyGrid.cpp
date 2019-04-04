@@ -865,7 +865,7 @@ static HWND CreateStatic(HINSTANCE hInstance, HWND hwndParent, INT id)
 	DWORD dwStyle, dwExStyle;
 	HWND hwnd;
 
-	dwStyle = WS_CHILD | SS_LEFT;
+	dwStyle = WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | SS_LEFT;
 
 	dwExStyle = WS_EX_LEFT | WS_EX_CLIENTEDGE;
 
@@ -910,7 +910,7 @@ static HWND CreateListBox(HINSTANCE hInstance, HWND hwndParent, INT id)
 	DWORD dwStyle, dwExStyle;
 	HWND hwnd;
 
-	dwStyle = WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN | WS_VSCROLL | WS_HSCROLL |
+	dwStyle = WS_CHILD | WS_VISIBLE | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | WS_VSCROLL | WS_HSCROLL |
 				LBS_NOTIFY | LBS_OWNERDRAWFIXED |
 				LBS_NOINTEGRALHEIGHT | LBS_WANTKEYBOARDINPUT;
 
@@ -954,7 +954,7 @@ static HWND CreateListMap(HINSTANCE hInstance, HWND hwndParent, INT id)
 	DWORD dwStyle, dwExStyle;
 	HWND hwnd;
 
-	dwStyle = WS_CHILD | LBS_OWNERDRAWFIXED;    // Want WM_DELETEITEM messages
+	dwStyle = WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | LBS_OWNERDRAWFIXED;    // Want WM_DELETEITEM messages
 
 	dwExStyle = 0;
 	hwnd = CreateWindowEx(dwExStyle,
@@ -1058,7 +1058,7 @@ static HWND CreateEdit(HINSTANCE hInstance, HWND hwndParent, INT id)
 	DWORD dwStyle, dwExStyle;
 	HWND hwnd;
 
-	dwStyle = WS_CHILD | ES_LEFT | ES_AUTOHSCROLL | ES_MULTILINE | ES_WANTRETURN;
+	dwStyle = WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | ES_LEFT | ES_AUTOHSCROLL | ES_MULTILINE | ES_WANTRETURN;
 
 	dwExStyle = WS_EX_LEFT | WS_EX_CLIENTEDGE;
 
@@ -1256,7 +1256,7 @@ static HWND CreateIpEdit(HINSTANCE hInstance, HWND hwndParent, INT id, LPRECT lp
 	DWORD dwStyle, dwExStyle;
 	HWND hwnd;
 
-	dwStyle = WS_CHILD;
+	dwStyle = WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS;
 
 	dwExStyle = WS_EX_LEFT;
 
@@ -1365,7 +1365,7 @@ static HWND CreateButton(HINSTANCE hInstance, HWND hwndParent, INT id)
 	DWORD dwStyle;
 	HWND hwnd;
 
-	dwStyle = WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON;
+	dwStyle = WS_VISIBLE | WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | BS_PUSHBUTTON;
 
 	hwnd = CreateWindowEx(0,
 		WC_BUTTON,
@@ -1614,7 +1614,7 @@ static HWND CreateDatePicker(HINSTANCE hInstance, HWND hwndParent, INT id, BOOL 
 	DWORD dwStyle, dwExStyle;
 	HWND hwnd;
 
-	dwStyle = WS_CHILD | (fDate ? DTS_SHORTDATEFORMAT : DTS_TIMEFORMAT);
+	dwStyle = WS_CHILD | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | (fDate ? DTS_SHORTDATEFORMAT : DTS_TIMEFORMAT);
 
 	dwExStyle = WS_EX_LEFT;
 
@@ -1796,7 +1796,7 @@ static HWND CreateCombo(HINSTANCE hInstance, HWND hwndParent, INT id, BOOL fEdit
 	HWND hwnd;
 
 	//DWM 2.0: Added WS_VSCROLL per user suggestion
-	dwStyle = WS_CHILD | WS_VSCROLL | CBS_NOINTEGRALHEIGHT | (fEditable ? CBS_DROPDOWN : CBS_DROPDOWNLIST);
+	dwStyle = WS_CHILD | WS_VSCROLL | WS_CLIPCHILDREN | WS_CLIPSIBLINGS | CBS_NOINTEGRALHEIGHT | (fEditable ? CBS_DROPDOWN : CBS_DROPDOWNLIST);
 
 	dwExStyle = WS_EX_LEFT;
 
