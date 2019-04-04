@@ -3060,6 +3060,10 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 					{
 						AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, buf);
 					}
+					else
+					{
+						MessageBeep(MB_ICONSTOP);
+					}
 				}
 //===========================================================================
 			}
@@ -3149,6 +3153,10 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 						AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, pgi.lpszFilePath);
 						AllocatedString_Replace(g_lpInst->lpCurrent->lpszMisc, FileDialogItem_ToString(&pgi));
 					}
+					else
+					{
+						MessageBeep(MB_ICONSTOP);
+					}
 				}
 				else //DWM 1.2: Reset to unselected file
 				{
@@ -3161,6 +3169,10 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 						pgi.lpszDefExt = (LPTSTR)ofn.lpstrDefExt;
 						AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, pgi.lpszFilePath);
 						AllocatedString_Replace(g_lpInst->lpCurrent->lpszMisc, FileDialogItem_ToString(&pgi));
+					}
+					else
+					{
+						MessageBeep(MB_ICONSTOP);
 					}
 				}
 //===========================================================================
@@ -3191,6 +3203,10 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 						pgfi.crFont = ocf.rgbColors;
 						AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, LogFontItem_ToString(&pgfi));
 					}
+					else
+					{
+						MessageBeep(MB_ICONSTOP);
+					}
 				}
 //===========================================================================
 			}
@@ -3206,6 +3222,11 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 				{
 					AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, temp);
 				}
+				else
+				{
+					MessageBeep(MB_ICONSTOP);
+				}
+
 //===========================================================================
 			}
 				break;
