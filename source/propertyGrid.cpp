@@ -3049,13 +3049,19 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 				cc.rgbResult = GetColor(g_lpInst->lpCurrent->lpszCurValue);
 				cc.lpCustColors = (LPDWORD)g_CustomColors;
 				cc.Flags = CC_FULLOPEN | CC_RGBINIT;
+// by code1009
+//===========================================================================
 				if (ChooseColor(&cc))
 				{
 					TCHAR buf[MAX_PATH];
 					_stprintf(buf, MAX_PATH, _T("%d,%d,%d"), GetRValue(cc.rgbResult), GetGValue(cc.rgbResult), GetBValue(cc.rgbResult));
 
-					AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, buf);
+					if (g_lpInst->lpCurrent)
+					{
+						AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, buf);
+					}
 				}
+//===========================================================================
 			}
 				break;
 
@@ -3129,27 +3135,35 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 				ofn.nMaxFile = MAX_PATH;
 				ofn.Flags = OFN_EXPLORER | OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_HIDEREADONLY;
 
+// by code1009
+//===========================================================================
 				if (GetOpenFileName(&ofn))
 				{
-					PROPGRIDFDITEM pgi;
-					pgi.lpszDlgTitle = (LPTSTR)ofn.lpstrTitle;
-					pgi.lpszFilePath = (LPTSTR)ofn.lpstrFile;
-					pgi.lpszFilter = (LPTSTR)ofn.lpstrFilter;
-					pgi.lpszDefExt = (LPTSTR)ofn.lpstrDefExt;
-					AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, pgi.lpszFilePath);
-					AllocatedString_Replace(g_lpInst->lpCurrent->lpszMisc, FileDialogItem_ToString(&pgi));
+					if (g_lpInst->lpCurrent)
+					{
+						PROPGRIDFDITEM pgi;
+						pgi.lpszDlgTitle = (LPTSTR)ofn.lpstrTitle;
+						pgi.lpszFilePath = (LPTSTR)ofn.lpstrFile;
+						pgi.lpszFilter = (LPTSTR)ofn.lpstrFilter;
+						pgi.lpszDefExt = (LPTSTR)ofn.lpstrDefExt;
+						AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, pgi.lpszFilePath);
+						AllocatedString_Replace(g_lpInst->lpCurrent->lpszMisc, FileDialogItem_ToString(&pgi));
+					}
 				}
 				else //DWM 1.2: Reset to unselected file
 				{
-					PROPGRIDFDITEM pgi;
-					pgi.lpszDlgTitle = (LPTSTR)ofn.lpstrTitle;
-					pgi.lpszFilePath = _T("");
-					pgi.lpszFilter = (LPTSTR)ofn.lpstrFilter;
-					pgi.lpszDefExt = (LPTSTR)ofn.lpstrDefExt;
-					AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, pgi.lpszFilePath);
-					AllocatedString_Replace(g_lpInst->lpCurrent->lpszMisc, FileDialogItem_ToString(&pgi));
+					if (g_lpInst->lpCurrent)
+					{
+						PROPGRIDFDITEM pgi;
+						pgi.lpszDlgTitle = (LPTSTR)ofn.lpstrTitle;
+						pgi.lpszFilePath = _T("");
+						pgi.lpszFilter = (LPTSTR)ofn.lpstrFilter;
+						pgi.lpszDefExt = (LPTSTR)ofn.lpstrDefExt;
+						AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, pgi.lpszFilePath);
+						AllocatedString_Replace(g_lpInst->lpCurrent->lpszMisc, FileDialogItem_ToString(&pgi));
+					}
 				}
-
+//===========================================================================
 			}
 				break;
 
@@ -3168,11 +3182,17 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 				ocf.lpLogFont = &pgfi.logFont;
 				ocf.rgbColors = pgfi.crFont;
 
+// by code1009
+//===========================================================================
 				if (ChooseFont(&ocf))
 				{
-					pgfi.crFont = ocf.rgbColors;
-					AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, LogFontItem_ToString(&pgfi));
+					if (g_lpInst->lpCurrent)
+					{
+						pgfi.crFont = ocf.rgbColors;
+						AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, LogFontItem_ToString(&pgfi));
+					}
 				}
+//===========================================================================
 			}
 				break;
 
@@ -3180,7 +3200,13 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 			{
 				LPTSTR temp = BrowseFolder(hwnd, g_lpInst->lpCurrent->lpszCurValue, _T(""), _T(""));
 				//DWM 1.2: Reset to unselected folder //if (0 < _tcslen(temp))
-				AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, temp);
+// by code1009
+//===========================================================================
+				if (g_lpInst->lpCurrent)
+				{
+					AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, temp);
+				}
+//===========================================================================
 			}
 				break;
 

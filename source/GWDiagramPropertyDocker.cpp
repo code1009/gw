@@ -157,12 +157,17 @@ LRESULT CGWDiagramPropertyDockerWnd::OnNotify(WPARAM wparam, LPARAM lparam)
 
 			if (IDOK==dlg.DoModal(m_hPropGridCtl))
 			{
+				// Dialog 가 떠있는 상황에서 문서 ViewWindow를 닫거나 
+				// 다른 문서 ViewWindow를 선택할경우 
+				// 유효하지 않은 item과 object가 될수 있음
+				if (nmp->iIndex!=PropGrid_GetCurSel(m_hPropGridCtl))
+				{
+					MessageBox("취소되었습니다!", "확인", MB_OK);
+
+					return 0;
+				}
 				if (m_UserCustomBrowseFlag != 1u)
 				{
-					// Dialog 가 떠있는 상황에서 문서 ViewWindow를 닫거나 
-					// 다른 문서 ViewWindow를 선택할경우 
-					// 유효하지 않은 item과 object가 될수 있음
-
 					MessageBox("취소되었습니다.", "확인", MB_OK);
 
 					return 0;
