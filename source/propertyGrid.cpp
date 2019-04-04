@@ -3239,7 +3239,14 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 		ShowWindow(hwndCtl, SW_HIDE);
 		SetFocus(hwnd);
 		Refresh(hwnd); //Trigger WM_DRAWITEM
-		Grid_NotifyParent();
+
+// by code1009
+//===========================================================================
+		if (g_lpInst->lpCurrent)
+		{
+			Grid_NotifyParent();
+		}
+//===========================================================================
 	}
 }
 
