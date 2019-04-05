@@ -77,7 +77,6 @@ void blue_highlight::draw_control (void)
 
 	_renderer1.set_model     (get_model());
 	_renderer1.set_rectangle ( r1 );
-	//_renderer1.set_radius(5);
 
 	_renderer1.set_fill_color (color_t(0xA0, 0xA0, 0xff, 0xA0));
 	_renderer1.set_line_color (color_t(0x00, 0x00, 0x80, 0xA0));
