@@ -209,7 +209,7 @@ void diagram_stencil::resize_control (cx::int_t window_cx, cx::int_t window_cy)
 	gw::coordinates_t item_ysize;
 
 
-	item_ysize = 24;
+	item_ysize = 30;
 	if (window_cx < 100)
 	{
 		item_xsize = 100;

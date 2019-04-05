@@ -35,6 +35,7 @@ private:
 	std::string _text;
 
 private:
+//	round_rectangle_renderer _renderer1;
 	rectangle_renderer      _renderer1;
 	text_rectangle_renderer _renderer2;
 
