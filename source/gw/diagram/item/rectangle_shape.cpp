@@ -236,6 +236,22 @@ void rectangle_shape_event_handler::on_mouse_leave(widget_mouse_event* e)
 //
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
+static cx::char_t* _json_document_diagram_text                       = "글"        ;
+static cx::char_t* _json_document_diagram_text_color                 = "글색상"    ;
+static cx::char_t* _json_document_diagram_text_format_alignment      = "글정렬"    ;
+static cx::char_t* _json_document_diagram_text_format_line_alignment = "글세로정렬";
+static cx::char_t* _json_document_diagram_text_font_familyname       = "글꼴"      ;
+static cx::char_t* _json_document_diagram_text_font_size             = "글꼴크기"  ;
+static cx::char_t* _json_document_diagram_text_font_style            = "글꼴모양"  ;
+
+static cx::char_t* _json_document_diagram_fill_color = "채움색상";
+static cx::char_t* _json_document_diagram_fill_style = "채움모양";
+
+static cx::char_t* _json_document_diagram_line_width      = "선크기";
+static cx::char_t* _json_document_diagram_line_color      = "선색상";
+static cx::char_t* _json_document_diagram_line_dash_style = "선모양";
+
+//===========================================================================
 cx::bool_t rectangle_shape_json_iostream::read(document_reader* io, widget* w, model* m)
 {
 	//-----------------------------------------------------------------------
@@ -285,7 +301,7 @@ cx::bool_t rectangle_shape_json_iostream::read(document_reader* io, widget* w, m
 
 	//-----------------------------------------------------------------------
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("글"));
+	node = object->find (get_json_value_string(_json_document_diagram_text));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -302,7 +318,7 @@ cx::bool_t rectangle_shape_json_iostream::read(document_reader* io, widget* w, m
 
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("글색상"));
+	node = object->find (get_json_value_string(_json_document_diagram_text_color));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -319,7 +335,7 @@ cx::bool_t rectangle_shape_json_iostream::read(document_reader* io, widget* w, m
 
 	
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("글정렬"));
+	node = object->find (get_json_value_string(_json_document_diagram_text_format_alignment));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -336,7 +352,7 @@ cx::bool_t rectangle_shape_json_iostream::read(document_reader* io, widget* w, m
 
 	
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("글세로정렬"));
+	node = object->find (get_json_value_string(_json_document_diagram_text_format_line_alignment));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -353,7 +369,7 @@ cx::bool_t rectangle_shape_json_iostream::read(document_reader* io, widget* w, m
 
 	
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("글꼴"));
+	node = object->find (get_json_value_string(_json_document_diagram_text_font_familyname));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -370,7 +386,7 @@ cx::bool_t rectangle_shape_json_iostream::read(document_reader* io, widget* w, m
 
 	
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("글꼴크기"));
+	node = object->find (get_json_value_string(_json_document_diagram_text_font_size));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -387,7 +403,7 @@ cx::bool_t rectangle_shape_json_iostream::read(document_reader* io, widget* w, m
 
 	
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("글꼴모양"));
+	node = object->find (get_json_value_string(_json_document_diagram_text_font_style));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -405,7 +421,7 @@ cx::bool_t rectangle_shape_json_iostream::read(document_reader* io, widget* w, m
 	
 	//-----------------------------------------------------------------------
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("채움색상"));
+	node = object->find (get_json_value_string(_json_document_diagram_fill_color));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -422,7 +438,7 @@ cx::bool_t rectangle_shape_json_iostream::read(document_reader* io, widget* w, m
 
 	
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("채움모양"));
+	node = object->find (get_json_value_string(_json_document_diagram_fill_style));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -440,7 +456,7 @@ cx::bool_t rectangle_shape_json_iostream::read(document_reader* io, widget* w, m
 
 	//-----------------------------------------------------------------------
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("선크기"));
+	node = object->find (get_json_value_string(_json_document_diagram_line_width));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -457,7 +473,7 @@ cx::bool_t rectangle_shape_json_iostream::read(document_reader* io, widget* w, m
 
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("선색상"));
+	node = object->find (get_json_value_string(_json_document_diagram_line_color));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -474,7 +490,7 @@ cx::bool_t rectangle_shape_json_iostream::read(document_reader* io, widget* w, m
 
 	
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("선모양"));
+	node = object->find (get_json_value_string(_json_document_diagram_line_dash_style));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -512,20 +528,20 @@ cx::bool_t rectangle_shape_json_iostream::write(document_writer* io, widget* w, 
 
 
 	//-----------------------------------------------------------------------
-	json_io->get_json_writer()->value( "글"        , get_json_string      ( wd->get_text                      () ) );
-	json_io->get_json_writer()->value( "글색상"    , get_json_string_color( wd->get_text_color                () ) );
-	json_io->get_json_writer()->value( "글정렬"    , get_json_string_uint ( wd->get_text_format_alignment     () ) );
-	json_io->get_json_writer()->value( "글세로정렬", get_json_string_uint ( wd->get_text_format_line_alignment() ) );
-	json_io->get_json_writer()->value( "글꼴"      , get_json_string      ( wd->get_text_font_familyname      () ) );
-	json_io->get_json_writer()->value( "글꼴크기"  , get_json_string_float( wd->get_text_font_size            () ) );
-	json_io->get_json_writer()->value( "글꼴모양"  , get_json_string_uint ( wd->get_text_font_style           () ) );
+	json_io->get_json_writer()->value( _json_document_diagram_text                      , get_json_string      ( wd->get_text                      () ) );
+	json_io->get_json_writer()->value( _json_document_diagram_text_color                , get_json_string_color( wd->get_text_color                () ) );
+	json_io->get_json_writer()->value( _json_document_diagram_text_format_alignment     , get_json_string_uint ( wd->get_text_format_alignment     () ) );
+	json_io->get_json_writer()->value( _json_document_diagram_text_format_line_alignment, get_json_string_uint ( wd->get_text_format_line_alignment() ) );
+	json_io->get_json_writer()->value( _json_document_diagram_text_font_familyname      , get_json_string      ( wd->get_text_font_familyname      () ) );
+	json_io->get_json_writer()->value( _json_document_diagram_text_font_size            , get_json_string_float( wd->get_text_font_size            () ) );
+	json_io->get_json_writer()->value( _json_document_diagram_text_font_style           , get_json_string_uint ( wd->get_text_font_style           () ) );
 
-	json_io->get_json_writer()->value( "채움색상", get_json_string_color( wd->get_fill_color() ) );
-	json_io->get_json_writer()->value( "채움모양", get_json_string_uint ( wd->get_fill_style() ) );
+	json_io->get_json_writer()->value( _json_document_diagram_fill_color, get_json_string_color( wd->get_fill_color() ) );
+	json_io->get_json_writer()->value( _json_document_diagram_fill_style, get_json_string_uint ( wd->get_fill_style() ) );
 
-	json_io->get_json_writer()->value( "선크기", get_json_string_float( wd->get_line_width     () ) );
-	json_io->get_json_writer()->value( "선색상", get_json_string_color( wd->get_line_color     () ) );
-	json_io->get_json_writer()->value( "선모양", get_json_string_uint ( wd->get_line_dash_style() ) );
+	json_io->get_json_writer()->value( _json_document_diagram_line_width     , get_json_string_float( wd->get_line_width     () ) );
+	json_io->get_json_writer()->value( _json_document_diagram_line_color     , get_json_string_color( wd->get_line_color     () ) );
+	json_io->get_json_writer()->value( _json_document_diagram_line_dash_style, get_json_string_uint ( wd->get_line_dash_style() ) );
 
 	return true;
 }

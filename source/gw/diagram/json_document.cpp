@@ -460,7 +460,6 @@ cx::bool_t json_document_reader::read_from_file (design* m, widget_collection* c
 
 
 	result = read_from_buffer(m, collection, buffer_pointer+sizeof(text_file_bom_utf8), buffer_size-sizeof(text_file_bom_utf8));
-//	result = read_from_buffer(m, collection, buffer_pointer, buffer_size);
 
 	if (buffer_pointer)
 	{

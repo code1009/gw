@@ -590,6 +590,14 @@ void diagram_event_handler::on_mouse_dragging (widget_mouse_event* e)
 //
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
+static cx::char_t* _json_document_diagram_class   = "형식";
+static cx::char_t* _json_document_diagram_name    = "이름";
+static cx::char_t* _json_document_diagram_point   = "좌표";
+static cx::char_t* _json_document_diagram_anchor  = "기준점";
+static cx::char_t* _json_document_diagram_visible = "보이기"; 
+static cx::char_t* _json_document_diagram_enabled = "동작가능";
+
+//===========================================================================
 diagram_json_iostream::diagram_json_iostream()
 {
 }
@@ -631,7 +639,7 @@ cx::bool_t diagram_json_iostream::read(document_reader* io, widget* w, model* m)
 
 	// widget
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("이름"));
+	node = object->find (get_json_value_string(_json_document_diagram_name));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -648,7 +656,7 @@ cx::bool_t diagram_json_iostream::read(document_reader* io, widget* w, model* m)
 	
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("좌표"));
+	node = object->find (get_json_value_string(_json_document_diagram_point));
 	if (node)
 	{
 		if (node->_type != JSON_ARRAY_BEGIN)
@@ -747,7 +755,7 @@ cx::bool_t diagram_json_iostream::read(document_reader* io, widget* w, model* m)
 
 	// diagram
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("보이기"));
+	node = object->find (get_json_value_string(_json_document_diagram_visible));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -764,7 +772,7 @@ cx::bool_t diagram_json_iostream::read(document_reader* io, widget* w, model* m)
 
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("동작가능"));
+	node = object->find (get_json_value_string(_json_document_diagram_enabled));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -797,15 +805,15 @@ cx::bool_t diagram_json_iostream::write(document_writer* io, widget* w, model* m
 
 	// widget
 	//-----------------------------------------------------------------------
-	json_io->get_json_writer()->value("형식", wd->get_class());
+	json_io->get_json_writer()->value(_json_document_diagram_class, wd->get_class());
 
 
 	//-----------------------------------------------------------------------
-	json_io->get_json_writer()->value("이름", wd->get_name());
+	json_io->get_json_writer()->value(_json_document_diagram_name, wd->get_name());
 
 
 	//-----------------------------------------------------------------------
-	json_io->get_json_writer()->key("좌표");
+	json_io->get_json_writer()->key(_json_document_diagram_point);
 	json_io->get_json_writer()->array_begin();
 
 	{	
@@ -828,7 +836,7 @@ cx::bool_t diagram_json_iostream::write(document_writer* io, widget* w, model* m
 
 	//-----------------------------------------------------------------------
 /*
-	json_io->get_json_writer()->key("기준점");
+	json_io->get_json_writer()->key(_json_document_diagram_anchor);
 	json_io->get_json_writer()->array_begin();
 
 	{
@@ -862,8 +870,8 @@ cx::bool_t diagram_json_iostream::write(document_writer* io, widget* w, model* m
 
 	// diagram
 	//-----------------------------------------------------------------------
-	json_io->get_json_writer()->value("보이기"  , get_json_string_bool(wd->get_visible()) );
-	json_io->get_json_writer()->value("동작가능", get_json_string_bool(wd->get_enabled()) );
+	json_io->get_json_writer()->value(_json_document_diagram_visible, get_json_string_bool(wd->get_visible()) );
+	json_io->get_json_writer()->value(_json_document_diagram_enabled, get_json_string_bool(wd->get_enabled()) );
 
 
 	return true;

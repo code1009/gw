@@ -246,6 +246,11 @@ void straight_line_event_handler::on_mouse_leave(widget_mouse_event* e)
 //
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
+static cx::char_t* _json_document_diagram_line_width      = "선크기";
+static cx::char_t* _json_document_diagram_line_color      = "선색상";
+static cx::char_t* _json_document_diagram_line_dash_style = "선모양";
+
+//===========================================================================
 cx::bool_t straight_line_json_iostream::read(document_reader* io, widget* w, model* m)
 {
 	//-----------------------------------------------------------------------
@@ -292,7 +297,7 @@ cx::bool_t straight_line_json_iostream::read(document_reader* io, widget* w, mod
 
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("선크기"));
+	node = object->find (get_json_value_string(_json_document_diagram_line_width));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -309,7 +314,7 @@ cx::bool_t straight_line_json_iostream::read(document_reader* io, widget* w, mod
 
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("선색상"));
+	node = object->find (get_json_value_string(_json_document_diagram_line_color));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -326,7 +331,7 @@ cx::bool_t straight_line_json_iostream::read(document_reader* io, widget* w, mod
 
 	
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("선모양"));
+	node = object->find (get_json_value_string(_json_document_diagram_line_dash_style));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -364,9 +369,9 @@ cx::bool_t straight_line_json_iostream::write(document_writer* io, widget* w, mo
 
 
 	//-----------------------------------------------------------------------
-	json_io->get_json_writer()->value( "선크기", get_json_string_float( wd->get_line_width     () ) );
-	json_io->get_json_writer()->value( "선색상", get_json_string_color( wd->get_line_color     () ) );
-	json_io->get_json_writer()->value( "선모양", get_json_string_uint ( wd->get_line_dash_style() ) );
+	json_io->get_json_writer()->value( _json_document_diagram_line_width     , get_json_string_float( wd->get_line_width     () ) );
+	json_io->get_json_writer()->value( _json_document_diagram_line_color     , get_json_string_color( wd->get_line_color     () ) );
+	json_io->get_json_writer()->value( _json_document_diagram_line_dash_style, get_json_string_uint ( wd->get_line_dash_style() ) );
 
 	return true;
 }
