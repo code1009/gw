@@ -50,7 +50,7 @@ public:
 	virtual ~wh_layout();
 
 public:
-	rectangle get_bounds (void); // 범위영역
+	rectangle_t get_bounds (void); // 범위영역
 
 	coordinates_t get_item_xsize(void); 
 	coordinates_t get_item_ysize(void); 

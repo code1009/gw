@@ -203,8 +203,8 @@ design* diagram::get_design (void)
 //===========================================================================
 void diagram::draw_diagram (void)
 {
-	graphic_t g;
-	rectangle r;
+	graphic_t   g;
+	rectangle_t r;
 
 
 	g = get_model()->get_graphic();
@@ -230,8 +230,8 @@ void diagram::draw_diagram_bounds(void)
 	}
 
 
-	graphic_t g;
-	rectangle r;
+	graphic_t   g;
+	rectangle_t r;
 
 
 	g = get_model()->get_graphic();

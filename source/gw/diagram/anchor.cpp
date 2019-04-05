@@ -168,8 +168,8 @@ void anchor::draw_anchor (void)
 
 void anchor::draw_anchor_type_resize(void)
 {
-	graphic_t g;
-	rectangle r;
+	graphic_t   g;
+	rectangle_t r;
 
 
 	g = get_model()->get_graphic();
@@ -188,8 +188,8 @@ void anchor::draw_anchor_type_resize(void)
 
 void anchor::draw_anchor_type_move(void)
 {
-	graphic_t g;
-	rectangle r;
+	graphic_t   g;
+	rectangle_t r;
 
 
 	g = get_model()->get_graphic();
@@ -208,8 +208,8 @@ void anchor::draw_anchor_type_move(void)
 
 void anchor::draw_anchor_type_control(void)
 {
-	graphic_t g;
-	rectangle r;
+	graphic_t   g;
+	rectangle_t r;
 
 
 	g = get_model()->get_graphic();

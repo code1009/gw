@@ -77,7 +77,7 @@ void wh_layout::end(void)
 	_bounds._p1 = _end;
 }
 
-rectangle wh_layout::get_bounds (void)
+rectangle_t wh_layout::get_bounds (void)
 {
 	return _bounds;
 }

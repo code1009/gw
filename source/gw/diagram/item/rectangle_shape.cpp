@@ -126,8 +126,8 @@ diagram* rectangle_shape::clone (void)
 //===========================================================================
 void rectangle_shape::draw_shape (void)
 {
-	graphic_t g;
-	rectangle r;
+	graphic_t   g;
+	rectangle_t r;
 
 
 	g = get_model()->get_graphic();
@@ -149,8 +149,8 @@ void rectangle_shape::draw_shape (void)
 
 void rectangle_shape::draw_text (void)
 {
-	graphic_t g;
-	rectangle r;
+	graphic_t   g;
+	rectangle_t r;
 
 
 	g = get_model()->get_graphic();

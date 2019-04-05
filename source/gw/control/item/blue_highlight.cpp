@@ -58,16 +58,16 @@ std::string blue_highlight::get_class (void)
 //===========================================================================
 void blue_highlight::draw_control (void)
 {
-	graphic_t g;
-	rectangle r;
+	graphic_t   g;
+	rectangle_t r;
 
 
 	g = get_model()->get_graphic();
 	r = get_bounds();
 
 
-	rectangle r1;
-	rectangle r2;
+	rectangle_t r1;
+	rectangle_t r2;
 
 
 	r1 = r;

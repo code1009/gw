@@ -58,8 +58,8 @@ std::string button::get_class (void)
 //===========================================================================
 void button::draw_control (void)
 {
-	graphic_t g;
-	rectangle r;
+	graphic_t   g;
+	rectangle_t r;
 
 
 	g = get_model()->get_graphic();
@@ -90,6 +90,35 @@ void button::draw_control (void)
 
 
 	_renderer1.render(g);
+
+
+/*
+	cx::bool_t is_pressed;
+	RectF      rc;
+
+	cx::int_t  opacity;
+	Color      shineColor;
+	Color      cr0;
+	Color      cr1;
+
+
+	is_pressed = get_pressed();
+	rc = rectangle_to_RectF(r);
+
+
+	shineColor = Color::Red;
+	opacity    = 0x99;
+	opacity    = (cx::int_t)(0.4f * opacity + 0.5f);
+	cr0        = Color::MakeARGB(opacity  , shineColor.GetR(), shineColor.GetG(), shineColor.GetB());
+	cr1        = Color::MakeARGB(opacity/3, shineColor.GetR(), shineColor.GetG(), shineColor.GetB());
+
+
+	LinearGradientBrush fill(rc, cr0, cr1, LinearGradientModeVertical);
+	
+	g->FillRectangle(&fill, rc);
+*/
+
+
 	_renderer2.render(g);
 }
 

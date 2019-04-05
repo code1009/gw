@@ -131,8 +131,8 @@ void control::draw (void)
 //===========================================================================
 void control::draw_control (void)
 {
-	graphic_t g;
-	rectangle r;
+	graphic_t   g;
+	rectangle_t r;
 
 
 	g = get_model()->get_graphic();
