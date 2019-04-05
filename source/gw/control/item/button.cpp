@@ -84,7 +84,7 @@ void button::draw_control (void)
 	_renderer1.set_fill_opacity( get_pressed() );
 	_renderer1.set_fill_glow_opacity ( !get_hover() );
 
-
+/*
 	if (get_pressed())
 	{
 		r._p0._x += 2.0f;
@@ -92,7 +92,7 @@ void button::draw_control (void)
 
 		_renderer2.set_rectangle ( r );
 	}
-
+*/
 
 	_renderer1.render(g);
 	_renderer2.render(g);

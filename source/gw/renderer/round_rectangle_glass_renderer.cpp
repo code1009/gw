@@ -89,7 +89,7 @@ static void MakeBottomRadialPath(GraphicsPath* path, RectF rect)
 //===========================================================================
 round_rectangle_glass_renderer::round_rectangle_glass_renderer()
 {
-#if 0
+#if 1
 	_fill_background_color = color_t::Black       ;
 	_fill_glow_color       . set(0x8D, 0xBD, 0xFF);
 	_fill_shine_color      = color_t::White       ;
@@ -113,7 +113,7 @@ round_rectangle_glass_renderer::round_rectangle_glass_renderer()
 	_fill_shine_color      .set (0xF0, 0xF0, 0xFF);
 #endif
 
-#if 1
+#if 0
 	_fill_background_color .set (0x00, 0x00, 0x40);
 	_fill_glow_color       .set (0x8D, 0xBD, 0xFF);
 	_fill_shine_color      .set (0xC0, 0xC0, 0xD0);
