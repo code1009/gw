@@ -291,6 +291,25 @@ void set_default_json_document_view_parameter(json_document_view_parameter_t* v)
 
 
 /////////////////////////////////////////////////////////////////////////////
+//===========================================================================
+static cx::char_t* _json_document_view = "바탕";
+static cx::char_t* _json_document_view_background_color     = "배경색상"      ;
+static cx::char_t* _json_document_view_wolrd_rectangle_p0_x = "작업영역.P0.X" ;
+static cx::char_t* _json_document_view_wolrd_rectangle_p0_y = "작업영역.P0.Y" ;
+static cx::char_t* _json_document_view_wolrd_rectangle_p1_x = "작업영역.P1.X" ;
+static cx::char_t* _json_document_view_wolrd_rectangle_p1_y = "작업영역.P1.Y" ;
+static cx::char_t* _json_document_view_viewscale            = "배율"          ;
+static cx::char_t* _json_document_view_grid_xsize           = "가로격자크기"  ;
+static cx::char_t* _json_document_view_grid_ysize           = "세로격자크기"  ;
+static cx::char_t* _json_document_view_grid_visible         = "격자보기"      ;
+static cx::char_t* _json_document_view_snap_to_grid         = "격자고정"      ;
+
+static cx::char_t* _json_document_diagram_collection = "도표";
+static cx::char_t* _json_document_diagram_class = "형식";
+
+
+
+/////////////////////////////////////////////////////////////////////////////
 //
 // Class: json_document_reader
 //
@@ -543,7 +562,7 @@ cx::bool_t json_document_reader::read_document (design* m, widget_collection* co
 	cx::json_dom_node* node;
 
 
-	node = object->find (get_json_value_string("바탕"));
+	node = object->find (get_json_value_string(_json_document_view));
 	if (node)
 	{
 		if (JSON_OBJECT_BEGIN==node->_type)
@@ -558,7 +577,7 @@ cx::bool_t json_document_reader::read_document (design* m, widget_collection* co
 	}
 
 
-	node = object->find (get_json_value_string("도표"));
+	node = object->find (get_json_value_string(_json_document_diagram_collection));
 	if (node)
 	{
 		if (JSON_ARRAY_BEGIN==node->_type)
@@ -591,7 +610,7 @@ cx::bool_t json_document_reader::read_view_parameter (design* m, widget_collecti
 
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("배경색상"));
+	node = object->find (get_json_value_string(_json_document_view_background_color));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -608,7 +627,7 @@ cx::bool_t json_document_reader::read_view_parameter (design* m, widget_collecti
 
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("작업영역.P0.X"));
+	node = object->find (get_json_value_string(_json_document_view_wolrd_rectangle_p0_x));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -625,7 +644,7 @@ cx::bool_t json_document_reader::read_view_parameter (design* m, widget_collecti
 
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("작업영역.P0.Y"));
+	node = object->find (get_json_value_string(_json_document_view_wolrd_rectangle_p0_y));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -642,7 +661,7 @@ cx::bool_t json_document_reader::read_view_parameter (design* m, widget_collecti
 
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("작업영역.P1.X"));
+	node = object->find (get_json_value_string(_json_document_view_wolrd_rectangle_p1_x));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -659,7 +678,7 @@ cx::bool_t json_document_reader::read_view_parameter (design* m, widget_collecti
 
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("작업영역.P1.Y"));
+	node = object->find (get_json_value_string(_json_document_view_wolrd_rectangle_p1_y));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -676,7 +695,7 @@ cx::bool_t json_document_reader::read_view_parameter (design* m, widget_collecti
 
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("배율"));
+	node = object->find (get_json_value_string(_json_document_view_viewscale));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -693,7 +712,7 @@ cx::bool_t json_document_reader::read_view_parameter (design* m, widget_collecti
 
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("가로격자크기"));
+	node = object->find (get_json_value_string(_json_document_view_grid_xsize));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -710,7 +729,7 @@ cx::bool_t json_document_reader::read_view_parameter (design* m, widget_collecti
 
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("세로격자크기"));
+	node = object->find (get_json_value_string(_json_document_view_grid_ysize));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -727,7 +746,7 @@ cx::bool_t json_document_reader::read_view_parameter (design* m, widget_collecti
 
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("격자보기"));
+	node = object->find (get_json_value_string(_json_document_view_grid_visible));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -744,7 +763,7 @@ cx::bool_t json_document_reader::read_view_parameter (design* m, widget_collecti
 
 
 	//-----------------------------------------------------------------------
-	node = object->find (get_json_value_string("격자고정"));
+	node = object->find (get_json_value_string(_json_document_view_snap_to_grid));
 	if (node)
 	{
 		if (node->_type != JSON_STRING)
@@ -811,7 +830,7 @@ cx::bool_t json_document_reader::read_diagram (design* m, widget_collection* col
 	cx::json_dom_node* node;
 
 
-	node = object->find (get_json_value_string("형식"));
+	node = object->find (get_json_value_string(_json_document_diagram_class));
 	if (CX_NULL_POINTER==node)
 	{
 		return false;
@@ -1022,8 +1041,6 @@ cx::json_writer* json_document_writer::get_json_writer (void)
 cx::bool_t json_document_writer::write_document(design* m, widget_collection* collection)
 {
 	//-----------------------------------------------------------------------
-//	get_json_writer()->key("문서");
-//	get_json_writer()->key("document");
 	get_json_writer()->object_begin();
 
 
@@ -1051,22 +1068,21 @@ cx::bool_t json_document_writer::write_document(design* m, widget_collection* co
 cx::bool_t json_document_writer::write_view_parameter(design* m, widget_collection* collection)
 {
 	//-----------------------------------------------------------------------
-	get_json_writer()->key("바탕");
-//	get_json_writer()->key("view");
+	get_json_writer()->key(_json_document_view);
 	get_json_writer()->object_begin();
 
 			
 	//-----------------------------------------------------------------------
-	get_json_writer()->value( "배경색상"      , get_json_string_color ( get_view_parameter()->background_color       ) );
-	get_json_writer()->value( "작업영역.P0.X" , get_json_string_float ( get_view_parameter()->wolrd_rectangle._p0._x ) );
-	get_json_writer()->value( "작업영역.P0.Y" , get_json_string_float ( get_view_parameter()->wolrd_rectangle._p0._y ) );
-	get_json_writer()->value( "작업영역.P1.X" , get_json_string_float ( get_view_parameter()->wolrd_rectangle._p1._x ) );
-	get_json_writer()->value( "작업영역.P1.Y" , get_json_string_float ( get_view_parameter()->wolrd_rectangle._p1._y ) );
-	get_json_writer()->value( "배율"          , get_json_string_float ( get_view_parameter()->viewscale              ) );
-	get_json_writer()->value( "가로격자크기"  , get_json_string_uint  ( get_view_parameter()->grid_xsize             ) );
-	get_json_writer()->value( "세로격자크기"  , get_json_string_uint  ( get_view_parameter()->grid_ysize             ) );
-	get_json_writer()->value( "격자보기"      , get_json_string_bool  ( get_view_parameter()->grid_visible           ) );
-	get_json_writer()->value( "격자고정"      , get_json_string_bool  ( get_view_parameter()->snap_to_grid           ) );
+	get_json_writer()->value( _json_document_view_background_color      , get_json_string_color ( get_view_parameter()->background_color       ) );
+	get_json_writer()->value( _json_document_view_wolrd_rectangle_p0_x  , get_json_string_float ( get_view_parameter()->wolrd_rectangle._p0._x ) );
+	get_json_writer()->value( _json_document_view_wolrd_rectangle_p0_y  , get_json_string_float ( get_view_parameter()->wolrd_rectangle._p0._y ) );
+	get_json_writer()->value( _json_document_view_wolrd_rectangle_p1_x  , get_json_string_float ( get_view_parameter()->wolrd_rectangle._p1._x ) );
+	get_json_writer()->value( _json_document_view_wolrd_rectangle_p1_y  , get_json_string_float ( get_view_parameter()->wolrd_rectangle._p1._y ) );
+	get_json_writer()->value( _json_document_view_viewscale             , get_json_string_float ( get_view_parameter()->viewscale              ) );
+	get_json_writer()->value( _json_document_view_grid_xsize            , get_json_string_uint  ( get_view_parameter()->grid_xsize             ) );
+	get_json_writer()->value( _json_document_view_grid_ysize            , get_json_string_uint  ( get_view_parameter()->grid_ysize             ) );
+	get_json_writer()->value( _json_document_view_grid_visible          , get_json_string_bool  ( get_view_parameter()->grid_visible           ) );
+	get_json_writer()->value( _json_document_view_snap_to_grid          , get_json_string_bool  ( get_view_parameter()->snap_to_grid           ) );
 
 
 	//-----------------------------------------------------------------------
@@ -1079,8 +1095,7 @@ cx::bool_t json_document_writer::write_view_parameter(design* m, widget_collecti
 cx::bool_t json_document_writer::write_diagram_collection(design* m, widget_collection* collection)
 {
 	//-----------------------------------------------------------------------
-	get_json_writer()->key("도표");
-//	get_json_writer()->key("diagram");
+	get_json_writer()->key(_json_document_diagram_collection);
 	get_json_writer()->array_begin();
 
 			
@@ -1131,7 +1146,6 @@ cx::bool_t json_document_writer::write_diagram (design* m, diagram* wd)
 
 
 	//-----------------------------------------------------------------------
-//	get_json_writer()->key(wd->get_class());
 	get_json_writer()->object_begin();
 
 
