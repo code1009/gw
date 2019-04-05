@@ -56,7 +56,7 @@ public:
 
 public:
 	virtual std::string get_text(void);
-	virtual void        set_text(std::string text);
+	virtual void        set_text(std::string v);
 };
 
 

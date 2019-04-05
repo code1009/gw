@@ -89,6 +89,7 @@ using namespace Gdiplus;
 #include "renderer/ellipse_renderer.hpp"
 #include "renderer/text_rectangle_renderer.hpp"
 #include "renderer/line_renderer.hpp"
+#include "renderer/round_rectangle_glass_renderer.hpp"
 
 //===========================================================================
 #include "resource.hpp"

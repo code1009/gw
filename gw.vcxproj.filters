@@ -249,6 +249,9 @@
     <ClCompile Include="source\MyDialog.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="source\gw\renderer\round_rectangle_glass_renderer.cpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source/Application.hpp">
@@ -523,6 +526,9 @@
     </ClInclude>
     <ClInclude Include="source\MyDialog.hpp">
       <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\renderer\round_rectangle_glass_renderer.hpp">
+      <Filter>source\gw\renderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

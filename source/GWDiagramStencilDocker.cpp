@@ -166,8 +166,8 @@ void diagram_stencil::drag_drop(gw::widget_mouse_event* e, std::string name)
 void diagram_stencil::load_diagram(gw::widget_entry_collection* wec)
 {
 	//-----------------------------------------------------------------------
-	gw::ctrl::blue_highlight* wc;
-//	gw::ctrl::button* wc;
+//	gw::ctrl::blue_highlight* wc;
+	gw::ctrl::button* wc;
 
 
 	//-----------------------------------------------------------------------
@@ -180,8 +180,8 @@ void diagram_stencil::load_diagram(gw::widget_entry_collection* wec)
 		we = (*i);
 
 
-		wc = new gw::ctrl::blue_highlight();
-//		wc = new gw::ctrl::button();
+//		wc = new gw::ctrl::blue_highlight();
+		wc = new gw::ctrl::button();
 
 		wc->set_text( we->get_name() );
 

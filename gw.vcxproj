@@ -101,6 +101,7 @@
     </ClCompile>
     <ClCompile Include="source\gw\diagram\item\straight_line.cpp" />
     <ClCompile Include="source\gw\renderer\line_renderer.cpp" />
+    <ClCompile Include="source\gw\renderer\round_rectangle_glass_renderer.cpp" />
     <ClCompile Include="source\MyDialog.cpp" />
     <ClCompile Include="source\MyView.cpp" />
     <ClCompile Include="source\property_accessor.cpp" />
@@ -181,6 +182,7 @@
     <ClInclude Include="source/res/wxx/wxx_resource.h" />
     <ClInclude Include="source\gw\diagram\item\straight_line.hpp" />
     <ClInclude Include="source\gw\renderer\line_renderer.hpp" />
+    <ClInclude Include="source\gw\renderer\round_rectangle_glass_renderer.hpp" />
     <ClInclude Include="source\MyDialog.hpp" />
     <ClInclude Include="source\MyView.hpp" />
     <ClInclude Include="source\property_accessor.hpp" />

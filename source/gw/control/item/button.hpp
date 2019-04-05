@@ -33,9 +33,12 @@ class button : public control
 {
 private:
 	std::string _text;
+	cx::bool_t  _hover;
 
 private:
-	rectangle_3d_renderer   _renderer1;
+	round_rectangle_glass_renderer _renderer1;
+
+//	rectangle_3d_renderer   _renderer1;
 	text_rectangle_renderer _renderer2;
 
 public:
@@ -53,7 +56,10 @@ public:
 
 public:
 	virtual std::string get_text(void);
-	virtual void        set_text(std::string text);
+	virtual void        set_text(std::string v);
+
+	virtual cx::bool_t get_hover(void);
+	virtual void       set_hover(cx::bool_t v);
 };
 
 
@@ -67,6 +73,8 @@ public:
 class button_event_handler : public control_event_handler
 {
 public:
+	virtual void on_mouse_hover   (widget_mouse_event* e);
+	virtual void on_mouse_leave   (widget_mouse_event* e);
 	virtual void on_mouse_clicked (widget_mouse_event* e);
 };
 
