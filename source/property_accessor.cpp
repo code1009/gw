@@ -738,6 +738,7 @@ void view_property_accessor::set_property_to_control(void)
 	PropGrid_SetItemData (get_control(), index++, &item);
 
 
+#if 1
 	//-----------------------------------------------------------------------
 	/*
 	catalog = "test";
@@ -769,6 +770,10 @@ void view_property_accessor::set_property_to_control(void)
 	item.iItemType     = PIT_USERCUSTOM;
 	PropGrid_SetItemData (get_control(), index++, &item);
 	*/
+
+	//-----------------------------------------------------------------------
+	index+=2;
+#endif
 
 	//-----------------------------------------------------------------------
 	CX_DEBUG_ASSERT(index==_index_end);
