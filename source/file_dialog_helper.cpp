@@ -119,9 +119,35 @@ UINT_PTR CALLBACK ofn_hook_proc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 	ITEMIDLIST ItemIdlList[4096];
 
+//	HRESULT hResult;
+
 
 	switch (uMsg)
 	{
+#if 0
+	case WM_INITDIALOG:
+		{
+			CX_DEBUG_TRACEF(CX_TWA_NORMAL, "CoInitialize()");
+			hResult = ::CoInitialize(NULL);
+			CX_DEBUG_ASSERT(SUCCEEDED(hResult));
+		}
+		break;
+
+	case WM_DESTROY:
+		{
+			CX_DEBUG_TRACEF(CX_TWA_NORMAL, "CoUninitialize()");
+			::CoUninitialize();
+		}
+		break;
+#endif
+
+#if 0
+	case WM_INITDIALOG:
+		{
+		}
+		return TRUE;
+#endif
+
 /*
 	case WM_INITDIALOG:
 		{
