@@ -428,7 +428,7 @@ int CGWDiagramEditorView::OnCreate(CREATESTRUCT& cs)
 {
 	UNREFERENCED_PARAMETER(cs);
 
-	SetTimer (1, 250, NULL) ;
+//	SetTimer (1, 250, NULL) ;
 
 	m_Model = new diagram_edit();
 	m_Model->set_window(*this);
@@ -497,7 +497,7 @@ void CGWDiagramEditorView::OnDestroy()
 	delete m_Model;
 	m_Model = CX_NULL_POINTER;
 
-	KillTimer(1);
+//	KillTimer(1);
 }
 
 LRESULT CGWDiagramEditorView::OnMouseActivate(UINT msg, WPARAM wparam, LPARAM lparam)
@@ -906,8 +906,8 @@ BOOL CGWDiagramEditorView::OnFileOpen()
 
 
 #if defined (DEBUG) || (_DEBUG) 
-//	file_path = "d:\\a.json";
-	file_path = get_open_file_path(*this);
+	file_path = "d:\\a.json";
+//	file_path = get_open_file_path(*this);
 #else
 //	file_path = fd.GetPathName();
 	file_path = get_open_file_path(*this);
@@ -1001,10 +1001,9 @@ BOOL CGWDiagramEditorView::OnFileSave()
 	std::string file_path;
 
 
-//#if 0
 #if defined (DEBUG) || (_DEBUG) 
-//	file_path = "d:\\a.json";
-	file_path = get_save_file_path(*this);
+	file_path = "d:\\a.json";
+//	file_path = get_save_file_path(*this);
 #else
 //	file_path = fd.GetPathName();
 	file_path = get_save_file_path(*this);
