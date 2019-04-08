@@ -906,7 +906,8 @@ BOOL CGWDiagramEditorView::OnFileOpen()
 
 
 #if defined (DEBUG) || (_DEBUG) 
-	file_path = "d:\\a.json";
+//	file_path = "d:\\a.json";
+	file_path = get_open_file_path(*this);
 #else
 //	file_path = fd.GetPathName();
 	file_path = get_open_file_path(*this);
@@ -1002,7 +1003,8 @@ BOOL CGWDiagramEditorView::OnFileSave()
 
 //#if 0
 #if defined (DEBUG) || (_DEBUG) 
-	file_path = "d:\\a.json";
+//	file_path = "d:\\a.json";
+	file_path = get_save_file_path(*this);
 #else
 //	file_path = fd.GetPathName();
 	file_path = get_save_file_path(*this);
