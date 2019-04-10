@@ -344,9 +344,11 @@ void diagram_edit::on_edit_action_diagram_modified (void)
 
 void diagram_edit::on_diagram_property_changed (gw::dgrm::diagram_event* e)
 {
+	//-----------------------------------------------------------------------
 	gw::dgrm::edit::on_diagram_property_changed(e);
 
 
+	//-----------------------------------------------------------------------
 	gw::dgrm::diagram* diagram_pointer;
 
 
