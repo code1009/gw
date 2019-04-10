@@ -147,7 +147,7 @@ public:
 	virtual void bring_to_top    (void);
 	virtual void send_to_bottom (void);
 
-	virtual cx::bool_t can_bring_to_top    (void);
+	virtual cx::bool_t can_bring_to_top   (void);
 	virtual cx::bool_t can_send_to_bottom (void);
 
 public:

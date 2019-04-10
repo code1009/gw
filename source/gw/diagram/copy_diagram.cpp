@@ -123,7 +123,7 @@ void copy_widget (diagram* to, diagram* from)
 
 	copy_point_container(to, from);
 
-	copy_anchor          (to, from);
+	copy_anchor         (to, from);
 
 	to->set_parent(from->get_parent());
 }
