@@ -204,8 +204,9 @@
 /// @param hwnd The handle to the window.
 //#define Refresh(hwnd) RedrawWindow((hwnd), NULL, NULL, \
 //    RDW_ERASE|RDW_INVALIDATE|RDW_UPDATENOW)
-#define Refresh(hwnd) RedrawWindow((hwnd), NULL, NULL, \
-	RDW_INVALIDATE)
+//#define Refresh(hwnd) RedrawWindow((hwnd), NULL, NULL, \
+//	RDW_INVALIDATE)
+#define Refresh(hwnd) InvalidateRect((hwnd), NULL, FALSE)
 
 /// @def AllocatedString_Replace(lpszTarget, lpszReplace)
 ///
@@ -4579,6 +4580,9 @@ static LRESULT CALLBACK Grid_Proc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPa
 		HANDLE_MSG(hwnd, WM_MOUSEMOVE, Grid_OnMouseMove);
 		HANDLE_MSG(hwnd, WM_SETCURSOR, Grid_OnSetCursor);
 		HANDLE_MSG(hwnd, WM_SHOWWINDOW, Grid_OnShowWindow);
+
+		case WM_ERASEBKGND:
+			return TRUE;
 
 		case WM_SETFOCUS: //DWM 1.3: Focus to ListBox
 			SetFocus(g_lpInst->hwndListBox);

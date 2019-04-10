@@ -907,7 +907,7 @@ BOOL CGWDiagramEditorView::OnFileOpen()
 
 #if defined (DEBUG) || (_DEBUG) 
 	file_path = "d:\\a.json";
-//	file_path = get_open_file_path(*this);
+	file_path = get_open_file_path(*this);
 #else
 //	file_path = fd.GetPathName();
 	file_path = get_open_file_path(*this);

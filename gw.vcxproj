@@ -60,7 +60,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>D:\Development\Project\2018.12.19\FG\sdk\cx3\build_msvc2013_static_library\Debug;D:\Development\Project\2018.12.19\FG\sdk\Visual Leak Detector\2.3.0\lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Development\Project\2018.12.19\FG\sdk\cx3\build_msvc2013_static_library\Debug;D:\Development\Project\2018.12.19\FG\sdk\Visual Leak Detector\2.5.1\lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <Profile>true</Profile>
     </Link>
   </ItemDefinitionGroup>
