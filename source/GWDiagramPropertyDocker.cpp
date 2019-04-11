@@ -197,7 +197,7 @@ LRESULT CGWDiagramPropertyDockerWnd::OnNotify(WPARAM wparam, LPARAM lparam)
 				*/
 				if (m_DialogFlag != 1u)
 				{
-					MessageBeep(MB_ICONERROR);
+					//MessageBeep(MB_ICONERROR);
 					//MessageBox("취소되었습니다.", "확인", MB_OK);
 					return 0;
 				}
