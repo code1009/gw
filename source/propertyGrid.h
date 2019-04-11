@@ -146,6 +146,16 @@ typedef struct tagNMPROPGRIDUSERCUSTOM {
 	NMHDR hdr;  ///< Notification message header
 	INT iIndex; ///< Index of a property grid item
 } NMPROPGRIDUSERCUSTOM, *LPNMPROPGRIDUSERCUSTOM;
+
+typedef struct tagNMPROPGRIDENDDIALOG {
+	NMHDR hdr;  ///< Notification message header
+	INT iIndex; ///< Index of a property grid item
+} NMPROPGRIDENDDIALOG, *LPNMPROPGRIDENDDIALOG;
+
+typedef struct tagNMPROPGRIDBEGINDIALOG {
+	NMHDR hdr;  ///< Notification message header
+	INT iIndex; ///< Index of a property grid item
+} NMPROPGRIDBEGINDIALOG, *LPNMPROPGRIDBEGINDIALOG;
 //===========================================================================
 
 
@@ -155,6 +165,8 @@ typedef struct tagNMPROPGRIDUSERCUSTOM {
 // by code1009
 //===========================================================================
 #define PGN_USERCUSTOMBROWSE WM_USER + 0x2B
+#define PGN_ENDDIALOG WM_USER + 0x2C
+#define PGN_BEGINDIALOG WM_USER + 0x2D
 //===========================================================================
 
 

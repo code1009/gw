@@ -3016,6 +3016,54 @@ static VOID ListBox_OnKeyDown(HWND hwnd, UINT vk, BOOL fDown, INT cRepeat, UINT 
 		FORWARD_WM_KEYDOWN(hwnd, vk, cRepeat, flags, DefProc);
 }
 
+// by code1009
+//===========================================================================
+static LRESULT Grid_NotifyParent_BeginDialog(void)
+{
+	NMPROPGRIDBEGINDIALOG nm;
+
+	nm.hdr.hwndFrom = GetParent(g_lpInst->hwndListBox);
+	nm.hdr.idFrom = GetDlgCtrlID(nm.hdr.hwndFrom);
+	nm.hdr.code = PGN_BEGINDIALOG;
+
+	LRESULT lres = ListBox_FindItemData(g_lpInst->hwndListMap, 0, g_lpInst->lpCurrent);
+	nm.iIndex = LB_ERR == lres ? -1 : lres;
+
+	return SendMessage(g_lpInst->hwndParent, WM_NOTIFY, (WPARAM)nm.hdr.idFrom, (LPARAM)&nm);
+}
+
+static LRESULT Grid_NotifyParent_EndDialog(void)
+{
+	NMPROPGRIDENDDIALOG nm;
+
+
+	nm.hdr.hwndFrom = GetParent(g_lpInst->hwndListBox);
+	nm.hdr.idFrom = GetDlgCtrlID(nm.hdr.hwndFrom);
+	nm.hdr.code = PGN_ENDDIALOG;
+
+	LRESULT lres = ListBox_FindItemData(g_lpInst->hwndListMap, 0, g_lpInst->lpCurrent);
+	nm.iIndex = LB_ERR == lres ? -1 : lres;
+
+	return SendMessage(g_lpInst->hwndParent, WM_NOTIFY, (WPARAM)nm.hdr.idFrom, (LPARAM)&nm);
+}
+
+static LRESULT Grid_NotifyParent_UserCustomBrowse(void)
+{
+	NMPROPGRIDUSERCUSTOM nm;
+
+
+	nm.hdr.hwndFrom = GetParent(g_lpInst->hwndListBox);
+	nm.hdr.idFrom = GetDlgCtrlID(nm.hdr.hwndFrom);
+	nm.hdr.code = PGN_USERCUSTOMBROWSE;
+
+	LRESULT lres = ListBox_FindItemData(g_lpInst->hwndListMap, 0, g_lpInst->lpCurrent);
+	nm.iIndex = LB_ERR == lres ? -1 : lres;
+
+	return FORWARD_WM_NOTIFY(g_lpInst->hwndParent, nm.hdr.idFrom, &nm, SNDMSG);
+}
+
+//===========================================================================
+
 /// @brief Handles WM_COMMAND messages sent to the listbox.
 ///
 /// @param hwnd  Handle of listbox.
@@ -3052,8 +3100,14 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 				cc.Flags = CC_FULLOPEN | CC_RGBINIT;
 // by code1009
 //===========================================================================
+				Grid_NotifyParent_BeginDialog();
 				if (ChooseColor(&cc))
 				{
+					if (Grid_NotifyParent_EndDialog())
+					{
+						return;
+					}
+
 					TCHAR buf[MAX_PATH];
 					_stprintf(buf, MAX_PATH, _T("%d,%d,%d"), GetRValue(cc.rgbResult), GetGValue(cc.rgbResult), GetBValue(cc.rgbResult));
 
@@ -3063,7 +3117,7 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 					}
 					else
 					{
-						MessageBeep(MB_ICONSTOP);
+						MessageBeep(MB_ICONERROR);
 					}
 				}
 //===========================================================================
@@ -3142,8 +3196,14 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 
 // by code1009
 //===========================================================================
+				Grid_NotifyParent_BeginDialog();
 				if (GetOpenFileName(&ofn))
 				{
+					if (Grid_NotifyParent_EndDialog())
+					{
+						return;
+					}
+
 					if (g_lpInst->lpCurrent)
 					{
 						PROPGRIDFDITEM pgi;
@@ -3156,11 +3216,16 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 					}
 					else
 					{
-						MessageBeep(MB_ICONSTOP);
+						MessageBeep(MB_ICONERROR);
 					}
 				}
 				else //DWM 1.2: Reset to unselected file
 				{
+					if (Grid_NotifyParent_EndDialog())
+					{
+						return;
+					}
+
 					if (g_lpInst->lpCurrent)
 					{
 						PROPGRIDFDITEM pgi;
@@ -3173,7 +3238,7 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 					}
 					else
 					{
-						MessageBeep(MB_ICONSTOP);
+						MessageBeep(MB_ICONERROR);
 					}
 				}
 //===========================================================================
@@ -3197,8 +3262,14 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 
 // by code1009
 //===========================================================================
+				Grid_NotifyParent_BeginDialog();
 				if (ChooseFont(&ocf))
 				{
+					if (Grid_NotifyParent_EndDialog())
+					{
+						return;
+					}
+
 					if (g_lpInst->lpCurrent)
 					{
 						pgfi.crFont = ocf.rgbColors;
@@ -3206,7 +3277,7 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 					}
 					else
 					{
-						MessageBeep(MB_ICONSTOP);
+						MessageBeep(MB_ICONERROR);
 					}
 				}
 //===========================================================================
@@ -3215,17 +3286,23 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 
 			case PIT_FOLDER:
 			{
+				Grid_NotifyParent_BeginDialog();
 				LPTSTR temp = BrowseFolder(hwnd, g_lpInst->lpCurrent->lpszCurValue, _T(""), _T(""));
 				//DWM 1.2: Reset to unselected folder //if (0 < _tcslen(temp))
 // by code1009
 //===========================================================================
+				if (Grid_NotifyParent_EndDialog())
+				{
+					return;
+				}
+
 				if (g_lpInst->lpCurrent)
 				{
 					AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, temp);
 				}
 				else
 				{
-					MessageBeep(MB_ICONSTOP);
+					MessageBeep(MB_ICONERROR);
 				}
 
 //===========================================================================
@@ -3236,17 +3313,14 @@ static VOID ListBox_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 //===========================================================================
 			case PIT_USERCUSTOM:
 			{
-				NMPROPGRIDUSERCUSTOM nm;
+				Grid_NotifyParent_BeginDialog();
 
+				Grid_NotifyParent_UserCustomBrowse();
 
-				nm.hdr.hwndFrom = GetParent(g_lpInst->hwndListBox);
-				nm.hdr.idFrom = GetDlgCtrlID(nm.hdr.hwndFrom);
-				nm.hdr.code = PGN_USERCUSTOMBROWSE;
-
-				LRESULT lres = ListBox_FindItemData(g_lpInst->hwndListMap, 0, g_lpInst->lpCurrent);
-				nm.iIndex = LB_ERR == lres ? -1 : lres;
-
-				FORWARD_WM_NOTIFY(g_lpInst->hwndParent, nm.hdr.idFrom, &nm, SNDMSG);
+				if (Grid_NotifyParent_EndDialog())
+				{
+					return;
+				}
 
 				//AllocatedString_Replace(g_lpInst->lpCurrent->lpszCurValue, temp);
 				ShowWindow(hwndCtl, SW_HIDE);

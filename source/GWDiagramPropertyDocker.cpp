@@ -99,7 +99,7 @@ int CGWDiagramPropertyDockerWnd::OnCreate(CREATESTRUCT& cs)
 
 
 	//-----------------------------------------------------------------------
-	m_UserCustomBrowseFlag = 0u;
+	m_DialogFlag = 0u;
 
 	return 0;
 }
@@ -144,6 +144,33 @@ LRESULT CGWDiagramPropertyDockerWnd::OnNotify(WPARAM wparam, LPARAM lparam)
 
 			return 1;
 		}
+
+		if ( NmHdr->code==PGN_BEGINDIALOG )
+		{
+			LPNMPROPGRIDBEGINDIALOG nmp  = (LPNMPROPGRIDBEGINDIALOG)NmHdr;
+			LPPROPGRIDITEM          item = PropGrid_GetItemData(NmHdr->hwndFrom, nmp->iIndex);
+
+			m_DialogFlag = 1u;
+
+			return 0;
+		}
+
+		if ( NmHdr->code==PGN_ENDDIALOG )
+		{
+			LPNMPROPGRIDENDDIALOG nmp = (LPNMPROPGRIDENDDIALOG)NmHdr;
+			LPPROPGRIDITEM       item = PropGrid_GetItemData(NmHdr->hwndFrom, nmp->iIndex);
+
+			if (m_DialogFlag != 1u)
+			{
+				MessageBeep(MB_ICONERROR);
+				//MessageBox("취소되었습니다.", "확인", MB_OK);
+
+				return 1;
+			}
+
+			return 0;
+		}
+
 		if ( NmHdr->code==PGN_USERCUSTOMBROWSE )
 		{
 			LPNMPROPGRIDUSERCUSTOM nmp  = (LPNMPROPGRIDUSERCUSTOM)NmHdr;
@@ -153,25 +180,28 @@ LRESULT CGWDiagramPropertyDockerWnd::OnNotify(WPARAM wparam, LPARAM lparam)
 			CMyDialog dlg(IDW_INPUT);
 
 			
-			m_UserCustomBrowseFlag = 1u;
+			//m_DialogFlag = 1u;
 
 			if (IDOK==dlg.DoModal(m_hPropGridCtl))
 			{
+				/*
 				// Dialog 가 떠있는 상황에서 문서 ViewWindow를 닫거나 
 				// 다른 문서 ViewWindow를 선택할경우 
 				// 유효하지 않은 item과 object가 될수 있음
 				if (nmp->iIndex!=PropGrid_GetCurSel(m_hPropGridCtl))
 				{
-					MessageBeep(MB_ICONSTOP);
+					MessageBeep(MB_ICONERROR);
 					//MessageBox("취소되었습니다!", "확인", MB_OK);
 					return 0;
 				}
-				if (m_UserCustomBrowseFlag != 1u)
+				*/
+				if (m_DialogFlag != 1u)
 				{
-					MessageBeep(MB_ICONSTOP);
+					MessageBeep(MB_ICONERROR);
 					//MessageBox("취소되었습니다.", "확인", MB_OK);
 					return 0;
 				}
+
 
 				std::string catalog = "test";
 				std::string name    = "test1";   
@@ -366,7 +396,7 @@ void CGWDiagramPropertyDockerWnd::OnCloseView (gw::view* view_pointer)
 	{
 		m_ActivatedProperty = ACTIVATED_PROPERTY_NONE;
 
-		m_UserCustomBrowseFlag = 0u;
+		m_DialogFlag = 0u;
 	}
 }
 
@@ -426,7 +456,7 @@ void CGWDiagramPropertyDockerWnd::OnViewPropertyChanged(gw::view* view_pointer)
 //===========================================================================
 void CGWDiagramPropertyDockerWnd::LoadViewPropertyToControl (void)
 {
-	m_UserCustomBrowseFlag = 0u;
+	m_DialogFlag = 0u;
 
 	PropGrid_ResetContent(m_hPropGridCtl);
 	m_ActivatedProperty = ACTIVATED_PROPERTY_NONE;
@@ -520,7 +550,7 @@ void CGWDiagramPropertyDockerWnd::OnDiagramPropertyChanged(gw::dgrm::diagram* di
 //===========================================================================
 void CGWDiagramPropertyDockerWnd::LoadDiagramPropertyToControl(void)
 {
-	m_UserCustomBrowseFlag = 0u;
+	m_DialogFlag = 0u;
 
 	PropGrid_ResetContent(m_hPropGridCtl);
 	m_ActivatedProperty = ACTIVATED_PROPERTY_NONE;
