@@ -112,6 +112,7 @@ void view::set_background_color (color_t background_color)
 }
 
 //===========================================================================
+#if 0
 void view::draw (HDC hdc)
 {
 	CX_DEBUG_TRACEF (CX_TWA_NORMAL, "begin");
@@ -145,6 +146,60 @@ void view::draw (HDC hdc)
 
 	CX_DEBUG_TRACEF (CX_TWA_NORMAL, "end");
 }
+#else
+void view::draw (HDC hdc)
+{
+	CX_DEBUG_TRACEF (CX_TWA_NORMAL, "begin");
+
+	Bitmap canvas (get_viewport_window_xsize(), get_viewport_window_ysize(), PixelFormat32bppPARGB );
+
+	Graphics g(&canvas);
+
+	g.SetCompositingMode   (CompositingModeSourceOver);   // Over for tranparency
+	g.SetCompositingQuality(CompositingQualityHighSpeed);
+	g.SetPixelOffsetMode   (PixelOffsetModeNone);
+	g.SetSmoothingMode     (SmoothingModeNone);
+	g.SetInterpolationMode (InterpolationModeDefault);
+
+	g.ScaleTransform     (get_viewscale(),get_viewscale());
+	g.TranslateTransform (-get_viewport_world_rectangle()._p0._x, -get_viewport_world_rectangle()._p0._y);
+	/*
+	# or 
+	Matrix transformation = new Matrix();
+	transformation.Translate(50, 50);
+	g.Transform = transformation;
+	*/
+
+//	g.SetSmoothingMode (SmoothingModeNone);
+//	g.SetSmoothingMode (SmoothingModeAntiAlias);
+//	g.SetSmoothingMode (SmoothingModeHighSpeed);
+
+	draw_background (&g);
+
+	if (true==get_grid_visible())
+	{
+		draw_grid (&g);
+	}
+
+	draw_model (&g);
+
+
+
+	Graphics* pGraphics = Graphics::FromHWND(get_model()->get_window(), FALSE);
+
+	pGraphics->SetCompositingMode   (CompositingModeSourceCopy);
+	pGraphics->SetCompositingQuality(CompositingQualityHighSpeed);
+	pGraphics->SetPixelOffsetMode   (PixelOffsetModeNone);
+	pGraphics->SetSmoothingMode     (SmoothingModeNone);
+	pGraphics->SetInterpolationMode (InterpolationModeDefault);
+
+	pGraphics->DrawImage(&canvas, 0, 0);
+
+	delete pGraphics;
+
+	CX_DEBUG_TRACEF (CX_TWA_NORMAL, "end");
+}
+#endif
 
 void view::draw_background (graphic_t g)
 {

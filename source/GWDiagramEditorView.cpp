@@ -761,7 +761,7 @@ void CGWDiagramEditorView::Draw (CDC& dc)
 	rect = GetClientRect();
 
 
-#if 1
+#if 0
 	CDC     memoryDC;
 	CBitmap bitmap;
 	HBITMAP hOldBitmap;
@@ -786,7 +786,7 @@ void CGWDiagramEditorView::Draw (CDC& dc)
 
 	bitmap.DeleteObject();
 #else
-	dc.SolidFill(RGB(0xFFu, 0xFFu, 0xFFu), rect);
+//	dc.SolidFill(RGB(0xFFu, 0xFFu, 0xFFu), rect);
 
 	m_Model->get_view()->draw(dc);
 #endif
