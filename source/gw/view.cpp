@@ -160,6 +160,7 @@ void view::draw (HDC hdc)
 	g.SetPixelOffsetMode   (PixelOffsetModeNone);
 	g.SetSmoothingMode     (SmoothingModeNone);
 	g.SetInterpolationMode (InterpolationModeDefault);
+	g.SetTextRenderingHint (TextRenderingHintAntiAliasGridFit);
 
 	g.ScaleTransform     (get_viewscale(),get_viewscale());
 	g.TranslateTransform (-get_viewport_world_rectangle()._p0._x, -get_viewport_world_rectangle()._p0._y);
