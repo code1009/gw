@@ -32,5 +32,5 @@ private:
 // returns a reference to the CMyWinApp object
 inline CMyWinApp* GetMyWinApp() 
 {
-	return static_cast<CMyWinApp*>(&GetApp()); 
+	return static_cast<CMyWinApp*>(GetApp()); 
 }

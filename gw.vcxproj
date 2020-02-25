@@ -48,7 +48,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Development\Project\2018.12.19\Win32xx 860\include;D:\Development\Project\2018.12.19\FG\sdk;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Development\SDK\cxLibrary\Win32xx\870\include;D:\Development\SDK\cxLibrary</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -60,13 +60,13 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>D:\Development\Project\2018.12.19\FG\sdk\cx3\build_msvc2013_static_library\Debug;D:\Development\Project\2018.12.19\FG\sdk\Visual Leak Detector\2.5.1\lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Development\SDK\cxLibrary\cx\build_msvc2013_static_library\Debug;D:\Development\SDK\cxLibrary\Visual Leak Detector\2.5.1\lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <Profile>true</Profile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\Development\Project\2018.12.19\Win32xx 860\include;D:\Development\Project\2018.12.19\FG\sdk;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Development\SDK\cxLibrary\Win32xx\870\include;D:\Development\SDK\cxLibrary</AdditionalIncludeDirectories>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <Optimization>MaxSpeed</Optimization>
@@ -81,7 +81,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>D:\Development\Project\2018.12.19\FG\sdk\cx3\build_msvc2013_static_library\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\Development\SDK\cxLibrary\cx\build_msvc2013_static_library\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <Profile>true</Profile>
     </Link>
   </ItemDefinitionGroup>

@@ -77,13 +77,13 @@
 // by code1009
 //===========================================================================
 #define _MSTCPIP_
-#include <cx3/library/header.hpp>
-#include <cx3/library/system/header.hpp>
-#include <cx3/library/string/header.hpp>
-#include <cx3/library/filesystem/header.hpp>
-#include <cx3/library/string/windows_charset_converter.hpp>
-#include <cx3/library/string/parse_value_string.hpp>
-#include <cx3/library/json_libjson/header.hpp>
+#include <cx/library/header.hpp>
+#include <cx/library/system/header.hpp>
+#include <cx/library/string/header.hpp>
+#include <cx/library/filesystem/header.hpp>
+#include <cx/library/string/windows_charset_converter.hpp>
+#include <cx/library/string/parse_value_string.hpp>
+#include <cx/library/json_libjson/header.hpp>
 //===========================================================================
 
 // Begin MSVC++ Support

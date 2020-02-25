@@ -42,22 +42,22 @@ using namespace Gdiplus;
 #include <algorithm>
 
 //===========================================================================
-#include <cx3/library/header.hpp>
-#include <cx3/library/system/header.hpp>
-#include <cx3/library/string/header.hpp>
-#include <cx3/library/filesystem/header.hpp>
-#include <cx3/library/string/windows_charset_converter.hpp>
-#include <cx3/library/string/parse_value_string.hpp>
-#include <cx3/library/json_libjson/header.hpp>
+#include <cx/library/header.hpp>
+#include <cx/library/system/header.hpp>
+#include <cx/library/string/header.hpp>
+#include <cx/library/filesystem/header.hpp>
+#include <cx/library/string/windows_charset_converter.hpp>
+#include <cx/library/string/parse_value_string.hpp>
+#include <cx/library/json_libjson/header.hpp>
 //#include <../libjson/1.00/json.h>
 //#include "D:\\Development\\Project\\2018.12.19\\FG\\sdk\\libjson\\1.00\\json.h"
 //#include "D:\\Development\\Project\\2018.12.19\\FG\\sdk\\libjson\\1.00\\json.h"
-//#include <cx3/library/json_libjson/json_helper.hpp>
-//#include <cx3/library/json_libjson/json_writer.hpp>
-//#include <cx3/library/json_libjson/json_reader.hpp>
+//#include <cx/library/json_libjson/json_helper.hpp>
+//#include <cx/library/json_libjson/json_writer.hpp>
+//#include <cx/library/json_libjson/json_reader.hpp>
 
-#include <cx3/library/file/text_file_bom.hpp>
-#include <cx3/library/windows/SimpleFile.hpp>
+#include <cx/library/file/text_file_bom.hpp>
+#include <cx/library/windows/SimpleFile.hpp>
 
 //===========================================================================
 #include "declaration.hpp"
