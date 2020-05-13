@@ -40,10 +40,12 @@
 
 /////////////////////////////////////////////////////////////////////////////
 //===========================================================================
+#if 0
 #if 1
 #define TW_THISCODE cx::debug::get_null_trace_writer()
 #else
 #define TW_THISCODE cx::debug::get_app_normal_trace_writer()
+#endif
 #endif
 //===========================================================================
 
@@ -76,6 +78,7 @@
 
 // by code1009
 //===========================================================================
+#if 0
 #define _MSTCPIP_
 #include <cx/library/header.hpp>
 #include <cx/library/system/header.hpp>
@@ -84,6 +87,7 @@
 #include <cx/library/string/windows_charset_converter.hpp>
 #include <cx/library/string/parse_value_string.hpp>
 #include <cx/library/json_libjson/header.hpp>
+#endif
 //===========================================================================
 
 // Begin MSVC++ Support
@@ -202,10 +206,8 @@
 /// @brief Refresh a window.
 ///
 /// @param hwnd The handle to the window.
-//#define Refresh(hwnd) RedrawWindow((hwnd), NULL, NULL, \
-//    RDW_ERASE|RDW_INVALIDATE|RDW_UPDATENOW)
-//#define Refresh(hwnd) RedrawWindow((hwnd), NULL, NULL, \
-//	RDW_INVALIDATE)
+//#define Refresh(hwnd) RedrawWindow((hwnd), NULL, NULL, RDW_ERASE|RDW_INVALIDATE|RDW_UPDATENOW)
+//#define Refresh(hwnd) RedrawWindow((hwnd), NULL, NULL, RDW_INVALIDATE)
 #define Refresh(hwnd) InvalidateRect((hwnd), NULL, FALSE)
 
 /// @def AllocatedString_Replace(lpszTarget, lpszReplace)
@@ -439,14 +441,14 @@ static LPTSTR NewString(LPTSTR str)
 {
 	if(NULL == str || _T('\0') == *str) str = _T("");
 	LPTSTR tmp = (LPTSTR)calloc(_tcslen(str) + 1, sizeof(TCHAR));
-	CX_DEBUG_TRACEF(TW_THISCODE, "calloc() = %p", tmp);
+//	CX_DEBUG_TRACEF(TW_THISCODE, "calloc() = %p", tmp);
 	// by code1009
 
 
 	if(NULL == tmp)
 	{
 		LPTSTR x=(LPTSTR)calloc(1, sizeof(TCHAR)); 
-		CX_DEBUG_TRACEF(TW_THISCODE, "calloc() = %p", x);
+//		CX_DEBUG_TRACEF(TW_THISCODE, "calloc() = %p", x);
 		// by code1009
 
 
@@ -471,14 +473,14 @@ static LPTSTR NewStringArray(LPTSTR szzStr)
 
 	//Allocate for array
 	LPTSTR tmp = (LPTSTR)calloc(iLen + 1, sizeof(TCHAR));
-	CX_DEBUG_TRACEF(TW_THISCODE, "calloc() = %p", tmp);
+//	CX_DEBUG_TRACEF(TW_THISCODE, "calloc() = %p", tmp);
 	// by code1009
 
 
 	if(NULL == tmp)
 	{
 		LPTSTR x = (LPTSTR)calloc(1, sizeof(TCHAR)); 
-		CX_DEBUG_TRACEF(TW_THISCODE, "calloc() = %p", x);
+//		CX_DEBUG_TRACEF(TW_THISCODE, "calloc() = %p", x);
 		// by code1009
 
 
@@ -501,7 +503,7 @@ static LPTSTR NewStringArray(LPTSTR szzStr)
 static LPLISTBOXITEM NewItem(LPTSTR szCatalog, LPTSTR szPropName, LPTSTR szCurValue, LPTSTR szMisc, LPTSTR szPropDesc, INT iItemType, LPVOID lpUserData = NULL)
 {
 	LPLISTBOXITEM lpItem = (LPLISTBOXITEM)calloc(1, sizeof(LISTBOXITEM));
-	CX_DEBUG_TRACEF(TW_THISCODE, "calloc() = %p", lpItem);
+//	CX_DEBUG_TRACEF(TW_THISCODE, "calloc() = %p", lpItem);
 	// by code1009
 
 
@@ -529,6 +531,7 @@ static LPLISTBOXITEM NewItem(LPTSTR szCatalog, LPTSTR szPropName, LPTSTR szCurVa
 /// @returns VOID.
 static VOID DeleteItem(LPLISTBOXITEM lpItem)
 {
+/*
 	CX_DEBUG_TRACEF(TW_THISCODE, "free(lpItem->lpszCatalog)  = %p", lpItem->lpszCatalog); 
 	CX_DEBUG_TRACEF(TW_THISCODE, "free(lpItem->lpszPropName) = %p", lpItem->lpszPropName);
 	if(PIT_CHECK != lpItem->iItemType)
@@ -539,7 +542,7 @@ static VOID DeleteItem(LPLISTBOXITEM lpItem)
 	CX_DEBUG_TRACEF(TW_THISCODE, "free(lpItem->lpszPropDesc) = %p", lpItem->lpszPropDesc);
 	CX_DEBUG_TRACEF(TW_THISCODE, "free(lpItem)               = %p", lpItem);
 	// by code1009
-
+*/
 
 	free(lpItem->lpszCatalog);
 	free(lpItem->lpszPropName);
@@ -2057,6 +2060,7 @@ static LPTSTR FileDialogItem_ToString(LPPROPGRIDFDITEM lpPgFdItem)
 /// @returns VOID.
 static VOID CharToWide(LPWSTR dest, INT ccDest, const LPSTR source)
 {
+#if 0
 // by code1009
 //===========================================================================
 #if 0
@@ -2077,6 +2081,8 @@ static VOID CharToWide(LPWSTR dest, INT ccDest, const LPSTR source)
 
 	wcsncpy_s (dest, ccDest, wcs.c_str(), wcs.size()+1);
 //===========================================================================
+#endif
+	MultiByteToWideChar(CP_ACP, 0, source, -1, dest, ccDest);
 }
 
 /// @brief Convert a path to an item id list object.
@@ -2104,8 +2110,7 @@ static LPITEMIDLIST ConvertPathToLpItemIdList(LPTSTR pszPath)
 //	WCHAR pwzPath[iLen + 1];
 	WCHAR pwzPath[MAX_PATH];
 	wmemset(pwzPath, (WCHAR)0, NELEMS(pwzPath));
-//	CharToWide(pwzPath, NELEMS(pwzPath), pszPath);
-	CharToWide(pwzPath, iLen + 1, pszPath);
+	CharToWide(pwzPath, NELEMS(pwzPath), pszPath);
 #endif
 
 	if (SUCCEEDED(SHGetDesktopFolder(&pDesktopFolder)))
@@ -3712,12 +3717,13 @@ static VOID Grid_OnCommand(HWND hwnd, INT id, HWND hwndCtl, UINT codeNotify)
 					memset(&rc, 0, sizeof rc);
 
 					ListBox_GetItemRect(hwndCtl, g_lpInst->iPrevSel, &rc);
-					RedrawWindow(hwndCtl, &rc,
-					 NULL, RDW_ERASE | RDW_INVALIDATE | RDW_UPDATENOW);
+					//RedrawWindow(hwndCtl, &rc, NULL, RDW_ERASE | RDW_INVALIDATE | RDW_UPDATENOW);
+					//InvalidateRect(hwndCtl, &rc, FALSE);
 
 					ListBox_GetItemRect(hwndCtl, iCurSel, &rc);
-					RedrawWindow(hwndCtl, &rc,
-						NULL, RDW_ERASE | RDW_INVALIDATE | RDW_UPDATENOW);
+					//RedrawWindow(hwndCtl, &rc, NULL, RDW_ERASE | RDW_INVALIDATE | RDW_UPDATENOW);
+					//InvalidateRect(hwndCtl, &rc, FALSE);
+					InvalidateRect(hwndCtl, NULL, FALSE);
 
 					g_lpInst->iPrevSel = iCurSel;
 				}
@@ -3811,7 +3817,8 @@ static VOID Grid_OnDrawItem(HWND hwnd, const DRAWITEMSTRUCT *lpDIS)
 	HFONT oldFont;
 	if (PIT_CATALOG == pItem->iItemType)
 	{
-		FillRect(lpDIS->hDC, &rectCatPart1, (HBRUSH) GetStockObject(HOLLOW_BRUSH));
+		//FillRect(lpDIS->hDC, &rectCatPart1, (HBRUSH) GetStockObject(HOLLOW_BRUSH));
+		FillRect(lpDIS->hDC, &rectCatPart1, GetSysColorBrush(COLOR_BTNFACE));
 
 		if (nIndex == (UINT)ListBox_GetCurSel(lpDIS->hwndItem) && g_lpInst->fGotFocus)
 		{
@@ -4584,6 +4591,9 @@ static LRESULT CALLBACK ListBox_Proc(HWND hList, UINT msg,
 		HANDLE_MSG(hList, WM_MOUSEMOVE, ListBox_OnMouseMove);
 		HANDLE_MSG(hList, WM_KEYDOWN, ListBox_OnKeyDown);
 		HANDLE_MSG(hList, WM_KILLFOCUS, ListBox_OnKillFocus);
+
+//		case WM_ERASEBKGND:
+//			return TRUE;
 
 		case WM_SETFOCUS: //DWM 1.3: Focus to ListBox
 			g_lpInst->fGotFocus = TRUE;
