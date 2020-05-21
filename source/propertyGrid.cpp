@@ -3604,6 +3604,11 @@ static HBRUSH Grid_OnCtlColorStatic(HWND hwnd, HDC hdc, HWND hwndChild, INT type
 static VOID Grid_OnMeasureItem(HWND hwnd, LPMEASUREITEMSTRUCT lpMeasureItem)
 {
 	lpMeasureItem->itemHeight = MINIMUM_ITEM_HEIGHT; //pixels
+
+	if (0==lpMeasureItem->itemID)
+	{
+	lpMeasureItem->itemHeight *= 10;
+	}
 }
 
 /// @brief Ensure that a catalog item matching the given catalog name is expanded.
