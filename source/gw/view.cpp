@@ -149,7 +149,7 @@ void view::draw (HDC hdc)
 #else
 void view::draw (HDC hdc)
 {
-	CX_DEBUG_TRACEF (CX_TWA_NORMAL, "begin");
+//	CX_DEBUG_TRACEF (CX_TWA_NORMAL, "begin");
 
 	Bitmap canvas (get_viewport_window_xsize(), get_viewport_window_ysize(), PixelFormat32bppPARGB );
 
@@ -198,7 +198,7 @@ void view::draw (HDC hdc)
 
 	delete pGraphics;
 
-	CX_DEBUG_TRACEF (CX_TWA_NORMAL, "end");
+//	CX_DEBUG_TRACEF (CX_TWA_NORMAL, "end");
 }
 #endif
 

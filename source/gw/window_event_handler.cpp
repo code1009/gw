@@ -130,10 +130,16 @@ void window_event_handler::release_window_mouse_capture(void)
 
 void window_event_handler::on_windows_message (HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	CPoint ptMouse((short)LOWORD(lParam), (short)HIWORD(lParam));
+//	CPoint ptMouse((short)LOWORD(lParam), (short)HIWORD(lParam));
+	POINT  ptMouse;
 	UINT   uMouseFlag = wParam;
 	WORD   fwKeys     = LOWORD(wParam);
 	SHORT  zDelta     = HIWORD(wParam);
+
+
+	ptMouse.x = (short)LOWORD(lParam);
+	ptMouse.y = (short)HIWORD(lParam);
+
 
 	mouse_event e;
 

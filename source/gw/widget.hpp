@@ -73,6 +73,7 @@ private:
 
 private:
 	std::string        _name;
+	void*              _param;
 	point_container_t  _point_container;
 	widget_collection  _child;
 	widget*            _parent;
@@ -96,6 +97,10 @@ public:
 public:
 	virtual std::string get_name  (void);
 	virtual void        set_name  (std::string name);
+
+public:
+	virtual void* get_param  (void);
+	virtual void  set_param  (void* param);
 
 public:
 	virtual widget_collection* get_child (void);

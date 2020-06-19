@@ -19,20 +19,6 @@
 //===========================================================================
 #include "stdafx.h"
 
-#include <objidl.h>
-
-//===========================================================================
-#ifdef _MSC_VER
-#pragma warning (disable : 4458) // disable warning: declaration hides class member
-#endif
-#include <gdiplus.h>
-#ifdef _MSC_VER
-#pragma warning (default : 4458) // return warning to default
-#endif
-
-//===========================================================================
-using namespace Gdiplus;
-
 //===========================================================================
 #include <string>
 #include <map>
@@ -58,6 +44,21 @@ using namespace Gdiplus;
 
 #include <cx/library/file/text_file_bom.hpp>
 #include <cx/library/windows/SimpleFile.hpp>
+
+//===========================================================================
+#include <objidl.h>
+
+//===========================================================================
+#ifdef _MSC_VER
+#pragma warning (disable : 4458) // disable warning: declaration hides class member
+#endif
+#include <gdiplus.h>
+#ifdef _MSC_VER
+#pragma warning (default : 4458) // return warning to default
+#endif
+
+//===========================================================================
+using namespace Gdiplus;
 
 //===========================================================================
 #include "declaration.hpp"

@@ -95,7 +95,7 @@ void led_button::draw_control (void)
 
 	_renderer2.set_text      ( get_text() );
 	_renderer2.set_text_font ();
-	_renderer2.set_text_format_alignment();
+	_renderer2.set_text_format_alignment(StringAlignmentNear, StringAlignmentCenter);
 
 
 	if (get_pressed())

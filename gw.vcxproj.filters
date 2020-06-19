@@ -11,40 +11,40 @@
       <UniqueIdentifier>{D7A71B08-2F75-4A22-8A05-38B0FFE605BD}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\gw">
-      <UniqueIdentifier>{c4e43d53-54df-4a53-9750-8c21624d6e86}</UniqueIdentifier>
+      <UniqueIdentifier>{7f88cceb-3e27-4614-90aa-d8d936aced77}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\gw\base">
-      <UniqueIdentifier>{6e4e67c4-690f-4359-80c9-4bec608300af}</UniqueIdentifier>
+      <UniqueIdentifier>{f8d62bd7-3bbf-4076-9a43-572789cf4743}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\gw\base\widget">
-      <UniqueIdentifier>{e6dc25d9-adce-4bb7-b25f-ba273668a885}</UniqueIdentifier>
+      <UniqueIdentifier>{1ef61d35-20e9-4028-8ee5-eba50cd5cbe4}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\gw\dragdrop">
-      <UniqueIdentifier>{fce0091f-8315-48b7-9a1f-9b6f70c3dc28}</UniqueIdentifier>
+      <UniqueIdentifier>{55f70276-052f-4aeb-8dd3-ec1851231df7}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\gw\graphic">
-      <UniqueIdentifier>{8834afe9-10e7-4ca4-8f85-a4e7aa2efe04}</UniqueIdentifier>
+      <UniqueIdentifier>{fcd92af5-22b1-4741-9a7b-7d9c7ee4e827}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\gw\renderer">
-      <UniqueIdentifier>{fc69c326-f2a6-4925-862d-02b7e96eb525}</UniqueIdentifier>
+      <UniqueIdentifier>{c0bc4a67-0792-48ca-b0f6-40808562ae5e}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\gw\window">
-      <UniqueIdentifier>{bba77e13-1db6-4b7c-8c41-5bb2c9f6fbb7}</UniqueIdentifier>
+      <UniqueIdentifier>{f68e2a97-9083-41e2-ad2e-94fe34f1f64e}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\gw\coordinates">
-      <UniqueIdentifier>{6546109a-5fab-4f6e-a0ed-c9e87787d351}</UniqueIdentifier>
+      <UniqueIdentifier>{c4452136-4cfa-4dba-987f-94efabb1c5f7}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\gw\diagram">
-      <UniqueIdentifier>{01b389ba-4977-4720-94d1-3c4fe92d483e}</UniqueIdentifier>
+      <UniqueIdentifier>{6db2011c-0138-416a-876e-af9b5d91a070}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\gw\diagram\item">
-      <UniqueIdentifier>{cfeefddb-a840-420d-979b-5190f9c10161}</UniqueIdentifier>
+      <UniqueIdentifier>{46015242-5fe1-4b8f-914c-9c51119c90bb}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\gw\control">
-      <UniqueIdentifier>{8d159a10-3d3a-4a5e-b104-495ffb5b6a56}</UniqueIdentifier>
+      <UniqueIdentifier>{c846bcf8-bf12-4f5d-b684-1b5eaac40260}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\gw\control\item">
-      <UniqueIdentifier>{78577ef5-043d-42d9-84d1-8a59327b3c2c}</UniqueIdentifier>
+      <UniqueIdentifier>{0e68f527-fd16-4db9-bc31-3cbe6f52c813}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -66,155 +66,11 @@
     <ClCompile Include="source/stdafx.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="source\gw\event.cpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\widget.cpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\model.cpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\view.cpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\control\control.cpp">
-      <Filter>source\gw\control</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\control\from.cpp">
-      <Filter>source\gw\control</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\control\wh_layout.cpp">
-      <Filter>source\gw\control</Filter>
-    </ClCompile>
     <ClCompile Include="source\GWDiagramEditorView.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="source\gw\widget_event_handler.cpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\window_event_handler.cpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClCompile>
     <ClCompile Include="source\GWControlFormView.cpp">
       <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\diagram\diagram.cpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\diagram\design.cpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\dragdrop\drop_target.cpp">
-      <Filter>source\gw\dragdrop</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\dragdrop\drop_source.cpp">
-      <Filter>source\gw\dragdrop</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\dragdrop\drag_data.cpp">
-      <Filter>source\gw\dragdrop</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\renderer\renderer.cpp">
-      <Filter>source\gw\renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\renderer\rectangle_renderer.cpp">
-      <Filter>source\gw\renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\coordinates\point.cpp">
-      <Filter>source\gw\coordinates</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\coordinates\rectangle.cpp">
-      <Filter>source\gw\coordinates</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\coordinates\utility.cpp">
-      <Filter>source\gw\coordinates</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\graphic\color.cpp">
-      <Filter>source\gw\graphic</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\renderer\rectangle_3d_renderer.cpp">
-      <Filter>source\gw\renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\renderer\text_rectangle_renderer.cpp">
-      <Filter>source\gw\renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\graphic\color_name.cpp">
-      <Filter>source\gw\graphic</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\diagram\anchor.cpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\diagram\edit.cpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\renderer\round_rectangle_renderer.cpp">
-      <Filter>source\gw\renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\renderer\ellipse_renderer.cpp">
-      <Filter>source\gw\renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\diagram\diagram_creator.cpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\widget_entry.cpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\diagram\edit_action.cpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\control\item\blue_highlight.cpp">
-      <Filter>source\gw\control\item</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\control\item\button.cpp">
-      <Filter>source\gw\control\item</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\control\item\led_button.cpp">
-      <Filter>source\gw\control\item</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\dragdrop\drag_data_object.cpp">
-      <Filter>source\gw\dragdrop</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\widget_factory.cpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\diagram\item\rectangle_shape.cpp">
-      <Filter>source\gw\diagram\item</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\resource.cpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\diagram\copy_diagram.cpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\dragdrop\drag_data_hglobal.cpp">
-      <Filter>source\gw\dragdrop</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\diagram\edit_history.cpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\diagram\diagram_event.cpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\widget_event.cpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\diagram\json_document.cpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\document.cpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\diagram\diagram_default_widget_entry.cpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\control\control_default_widget_entry.cpp">
-      <Filter>source\gw\control</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\widget_iostream.cpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\diagram\diagram_buffer.cpp">
-      <Filter>source\gw\diagram</Filter>
     </ClCompile>
     <ClCompile Include="source\view_scroll_helper.cpp">
       <Filter>source</Filter>
@@ -234,12 +90,6 @@
     <ClCompile Include="source\property_accessor.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="source\gw\diagram\item\straight_line.cpp">
-      <Filter>source\gw\diagram\item</Filter>
-    </ClCompile>
-    <ClCompile Include="source\gw\renderer\line_renderer.cpp">
-      <Filter>source\gw\renderer</Filter>
-    </ClCompile>
     <ClCompile Include="source\MyView.cpp">
       <Filter>source</Filter>
     </ClCompile>
@@ -249,8 +99,158 @@
     <ClCompile Include="source\MyDialog.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="source\gw\document.cpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\event.cpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\resource.cpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\model.cpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\view.cpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\widget.cpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\widget_entry.cpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\widget_event.cpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\widget_event_handler.cpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\widget_factory.cpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\widget_iostream.cpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\window_event_handler.cpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\dragdrop\drag_data_object.cpp">
+      <Filter>source\gw\dragdrop</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\dragdrop\drag_data.cpp">
+      <Filter>source\gw\dragdrop</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\dragdrop\drop_source.cpp">
+      <Filter>source\gw\dragdrop</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\dragdrop\drop_target.cpp">
+      <Filter>source\gw\dragdrop</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\dragdrop\drag_data_hglobal.cpp">
+      <Filter>source\gw\dragdrop</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\graphic\color.cpp">
+      <Filter>source\gw\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\graphic\color_name.cpp">
+      <Filter>source\gw\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\renderer\line_renderer.cpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClCompile>
     <ClCompile Include="source\gw\renderer\round_rectangle_glass_renderer.cpp">
       <Filter>source\gw\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\renderer\ellipse_renderer.cpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\renderer\rectangle_3d_renderer.cpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\renderer\rectangle_renderer.cpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\renderer\renderer.cpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\renderer\round_rectangle_renderer.cpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\renderer\text_rectangle_renderer.cpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\coordinates\point.cpp">
+      <Filter>source\gw\coordinates</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\coordinates\rectangle.cpp">
+      <Filter>source\gw\coordinates</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\coordinates\utility.cpp">
+      <Filter>source\gw\coordinates</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\diagram\anchor.cpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\diagram\design.cpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\diagram\diagram.cpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\diagram\diagram_default_widget_entry.cpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\diagram\copy_diagram.cpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\diagram\diagram_creator.cpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\diagram\diagram_event.cpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\diagram\diagram_buffer.cpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\diagram\edit.cpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\diagram\edit_action.cpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\diagram\edit_history.cpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\diagram\json_document.cpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\diagram\item\straight_line.cpp">
+      <Filter>source\gw\diagram\item</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\diagram\item\rectangle_shape.cpp">
+      <Filter>source\gw\diagram\item</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\control\control.cpp">
+      <Filter>source\gw\control</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\control\control_default_widget_entry.cpp">
+      <Filter>source\gw\control</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\control\from.cpp">
+      <Filter>source\gw\control</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\control\wh_layout.cpp">
+      <Filter>source\gw\control</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\control\item\blue_highlight.cpp">
+      <Filter>source\gw\control\item</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\control\item\button.cpp">
+      <Filter>source\gw\control\item</Filter>
+    </ClCompile>
+    <ClCompile Include="source\gw\control\item\led_button.cpp">
+      <Filter>source\gw\control\item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -284,212 +284,11 @@
     <ClInclude Include="source/res/wxx/wxx_resource.h">
       <Filter>source\res\wxx</Filter>
     </ClInclude>
-    <ClInclude Include="source\gw\header.hpp">
-      <Filter>source\gw</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\event.hpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\widget.hpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\model.hpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\view.hpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\control\control.hpp">
-      <Filter>source\gw\control</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\control\stdafx.h">
-      <Filter>source\gw\control</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\window_event_handler.hpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\widget_event_handler.hpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\control\form.hpp">
-      <Filter>source\gw\control</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\control\wh_layout.hpp">
-      <Filter>source\gw\control</Filter>
-    </ClInclude>
     <ClInclude Include="source\GWDiagramEditorView.hpp">
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="source\GWControlFormView.hpp">
       <Filter>source</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\diagram\diagram.hpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\diagram\design.hpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\dragdrop\drop_target.hpp">
-      <Filter>source\gw\dragdrop</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\dragdrop\drop_source.hpp">
-      <Filter>source\gw\dragdrop</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\dragdrop\drag_data.hpp">
-      <Filter>source\gw\dragdrop</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\renderer\rectangle_renderer.hpp">
-      <Filter>source\gw\renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\renderer\renderer.hpp">
-      <Filter>source\gw\renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\renderer\stdafx.h">
-      <Filter>source\gw\renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\coordinates\point.hpp">
-      <Filter>source\gw\coordinates</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\coordinates\rectangle.hpp">
-      <Filter>source\gw\coordinates</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\coordinates\typedef.hpp">
-      <Filter>source\gw\coordinates</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\coordinates\utility.hpp">
-      <Filter>source\gw\coordinates</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\coordinates\stdafx.h">
-      <Filter>source\gw\coordinates</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\dragdrop\stdafx.h">
-      <Filter>source\gw\dragdrop</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\window\stdafx.h">
-      <Filter>source\gw\window</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\graphic\color.hpp">
-      <Filter>source\gw\graphic</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\graphic\stdafx.h">
-      <Filter>source\gw\graphic</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\graphic\typedef.hpp">
-      <Filter>source\gw\graphic</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\renderer\rectangle_3d_renderer.hpp">
-      <Filter>source\gw\renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\renderer\text_rectangle_renderer.hpp">
-      <Filter>source\gw\renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\diagram\anchor.hpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\diagram\edit.hpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\diagram\declaration.hpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\renderer\round_rectangle_renderer.hpp">
-      <Filter>source\gw\renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\renderer\ellipse_renderer.hpp">
-      <Filter>source\gw\renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\diagram\diagram_creator.hpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\widget_entry.hpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\diagram\edit_action.hpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\control\item\stdafx.h">
-      <Filter>source\gw\control\item</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\control\item\blue_highlight.hpp">
-      <Filter>source\gw\control\item</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\control\item\button.hpp">
-      <Filter>source\gw\control\item</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\control\item\led_button.hpp">
-      <Filter>source\gw\control\item</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\coordinates\declaration.hpp">
-      <Filter>source\gw\coordinates</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\window\declaration.hpp">
-      <Filter>source\gw\window</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\dragdrop\drag_data_object.hpp">
-      <Filter>source\gw\dragdrop</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\declaration.hpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\stdafx.h">
-      <Filter>source\gw\base\widget</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\graphic\declaration.hpp">
-      <Filter>source\gw\graphic</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\dragdrop\declaration.hpp">
-      <Filter>source\gw\dragdrop</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\renderer\declaration.hpp">
-      <Filter>source\gw\renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\control\declaration.hpp">
-      <Filter>source\gw\control</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\widget_factory.hpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\diagram\item\rectangle_shape.hpp">
-      <Filter>source\gw\diagram\item</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\diagram\item\stdafx.h">
-      <Filter>source\gw\diagram\item</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\resource.hpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\diagram\copy_diagram.hpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\dragdrop\drag_data_hglobal.hpp">
-      <Filter>source\gw\dragdrop</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\diagram\edit_history.hpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\diagram\diagram_event.hpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\widget_event.hpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\diagram\json_document.hpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\document.hpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\diagram\diagram_default_widget_entry.hpp">
-      <Filter>source\gw\diagram</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\control\control_default_widget_entry.hpp">
-      <Filter>source\gw\control</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\widget_iostream.hpp">
-      <Filter>source\gw\base\widget</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\diagram\diagram_buffer.hpp">
-      <Filter>source\gw\diagram</Filter>
     </ClInclude>
     <ClInclude Include="source\view_scroll_helper.hpp">
       <Filter>source</Filter>
@@ -509,12 +308,6 @@
     <ClInclude Include="source\property_accessor.hpp">
       <Filter>source</Filter>
     </ClInclude>
-    <ClInclude Include="source\gw\diagram\item\straight_line.hpp">
-      <Filter>source\gw\diagram\item</Filter>
-    </ClInclude>
-    <ClInclude Include="source\gw\renderer\line_renderer.hpp">
-      <Filter>source\gw\renderer</Filter>
-    </ClInclude>
     <ClInclude Include="source\MyView.hpp">
       <Filter>source</Filter>
     </ClInclude>
@@ -527,8 +320,215 @@
     <ClInclude Include="source\MyDialog.hpp">
       <Filter>source</Filter>
     </ClInclude>
+    <ClInclude Include="source\gw\header.hpp">
+      <Filter>source\gw</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\declaration.hpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\document.hpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\event.hpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\widget_entry.hpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\resource.hpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\model.hpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\widget_event.hpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\widget_event_handler.hpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\widget_factory.hpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\widget_iostream.hpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\window_event_handler.hpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\stdafx.h">
+      <Filter>source\gw\base\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\view.hpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\widget.hpp">
+      <Filter>source\gw\base\widget</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\dragdrop\declaration.hpp">
+      <Filter>source\gw\dragdrop</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\dragdrop\drag_data_object.hpp">
+      <Filter>source\gw\dragdrop</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\dragdrop\drag_data.hpp">
+      <Filter>source\gw\dragdrop</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\dragdrop\drop_source.hpp">
+      <Filter>source\gw\dragdrop</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\dragdrop\drop_target.hpp">
+      <Filter>source\gw\dragdrop</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\dragdrop\stdafx.h">
+      <Filter>source\gw\dragdrop</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\dragdrop\drag_data_hglobal.hpp">
+      <Filter>source\gw\dragdrop</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\graphic\color.hpp">
+      <Filter>source\gw\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\graphic\declaration.hpp">
+      <Filter>source\gw\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\graphic\stdafx.h">
+      <Filter>source\gw\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\graphic\typedef.hpp">
+      <Filter>source\gw\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\renderer\line_renderer.hpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClInclude>
     <ClInclude Include="source\gw\renderer\round_rectangle_glass_renderer.hpp">
       <Filter>source\gw\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\renderer\declaration.hpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\renderer\ellipse_renderer.hpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\renderer\rectangle_3d_renderer.hpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\renderer\rectangle_renderer.hpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\renderer\renderer.hpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\renderer\round_rectangle_renderer.hpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\renderer\stdafx.h">
+      <Filter>source\gw\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\renderer\text_rectangle_renderer.hpp">
+      <Filter>source\gw\renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\window\stdafx.h">
+      <Filter>source\gw\window</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\window\declaration.hpp">
+      <Filter>source\gw\window</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\coordinates\declaration.hpp">
+      <Filter>source\gw\coordinates</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\coordinates\point.hpp">
+      <Filter>source\gw\coordinates</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\coordinates\rectangle.hpp">
+      <Filter>source\gw\coordinates</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\coordinates\stdafx.h">
+      <Filter>source\gw\coordinates</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\coordinates\typedef.hpp">
+      <Filter>source\gw\coordinates</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\coordinates\utility.hpp">
+      <Filter>source\gw\coordinates</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\anchor.hpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\declaration.hpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\design.hpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\diagram.hpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\diagram_default_widget_entry.hpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\copy_diagram.hpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\diagram_creator.hpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\diagram_event.hpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\diagram_buffer.hpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\edit.hpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\edit_action.hpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\edit_history.hpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\json_document.hpp">
+      <Filter>source\gw\diagram</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\item\straight_line.hpp">
+      <Filter>source\gw\diagram\item</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\item\rectangle_shape.hpp">
+      <Filter>source\gw\diagram\item</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\diagram\item\stdafx.h">
+      <Filter>source\gw\diagram\item</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\control\control.hpp">
+      <Filter>source\gw\control</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\control\control_default_widget_entry.hpp">
+      <Filter>source\gw\control</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\control\declaration.hpp">
+      <Filter>source\gw\control</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\control\form.hpp">
+      <Filter>source\gw\control</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\control\stdafx.h">
+      <Filter>source\gw\control</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\control\wh_layout.hpp">
+      <Filter>source\gw\control</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\control\item\blue_highlight.hpp">
+      <Filter>source\gw\control\item</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\control\item\button.hpp">
+      <Filter>source\gw\control\item</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\control\item\led_button.hpp">
+      <Filter>source\gw\control\item</Filter>
+    </ClInclude>
+    <ClInclude Include="source\gw\control\item\stdafx.h">
+      <Filter>source\gw\control\item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

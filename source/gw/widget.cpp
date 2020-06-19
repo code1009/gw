@@ -252,6 +252,7 @@ widget::widget()
 {
 	_model  = CX_NULL_POINTER;
 	_parent = CX_NULL_POINTER;
+	_param  = CX_NULL_POINTER;
 }
 
 widget::~widget()
@@ -292,6 +293,17 @@ std::string widget::get_name (void)
 void widget::set_name (std::string name)
 {
 	_name = name;
+}
+
+//===========================================================================
+void* widget::get_param (void)
+{
+	return _param;
+}
+
+void widget::set_param (void* param)
+{
+	_param = param;
 }
 
 //===========================================================================
